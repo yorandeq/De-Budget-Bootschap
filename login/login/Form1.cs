@@ -56,5 +56,17 @@ namespace login
                 MessageBox.Show("Error: " + e.Message);
             }
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void navLogin_Click(object sender, EventArgs e)
+        {
+            var loginForm = new Form2();
+            Hide();
+            loginForm.Show();
+        }
     }
 }
