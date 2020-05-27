@@ -12,10 +12,10 @@ using MySql.Data.MySqlClient;
 
 namespace login
 {
-    public partial class Form1 : Form
+    public partial class register : Form
     {
         connection con = new connection();
-        public Form1()
+        public register()
         {
             InitializeComponent();
             con.checkConn();
@@ -33,7 +33,7 @@ namespace login
 
         private void navLogin_Click(object sender, EventArgs e)
         {
-            var loginForm = new Form2();
+            var loginForm = new login();
             Hide();
             loginForm.Show();
         }

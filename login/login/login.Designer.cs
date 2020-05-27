@@ -1,6 +1,6 @@
 ﻿namespace login
 {
-    partial class Form2
+    partial class login
     {
         /// <summary>
         /// Required designer variable.
@@ -30,11 +30,13 @@
         {
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txbPassword = new System.Windows.Forms.TextBox();
+            this.txbLoginPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txbUsrname = new System.Windows.Forms.TextBox();
+            this.txbLoginUsrname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.loginAcc = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.navRegister = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
@@ -58,13 +60,13 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "De Budget Boodschap";
             // 
-            // txbPassword
+            // txbLoginPassword
             // 
-            this.txbPassword.Location = new System.Drawing.Point(12, 125);
-            this.txbPassword.Name = "txbPassword";
-            this.txbPassword.PasswordChar = '*';
-            this.txbPassword.Size = new System.Drawing.Size(100, 20);
-            this.txbPassword.TabIndex = 12;
+            this.txbLoginPassword.Location = new System.Drawing.Point(12, 125);
+            this.txbLoginPassword.Name = "txbLoginPassword";
+            this.txbLoginPassword.PasswordChar = '*';
+            this.txbLoginPassword.Size = new System.Drawing.Size(100, 20);
+            this.txbLoginPassword.TabIndex = 12;
             // 
             // label2
             // 
@@ -76,12 +78,12 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Password";
             // 
-            // txbUsrname
+            // txbLoginUsrname
             // 
-            this.txbUsrname.Location = new System.Drawing.Point(12, 81);
-            this.txbUsrname.Name = "txbUsrname";
-            this.txbUsrname.Size = new System.Drawing.Size(100, 20);
-            this.txbUsrname.TabIndex = 10;
+            this.txbLoginUsrname.Location = new System.Drawing.Point(12, 81);
+            this.txbLoginUsrname.Name = "txbLoginUsrname";
+            this.txbLoginUsrname.Size = new System.Drawing.Size(100, 20);
+            this.txbLoginUsrname.TabIndex = 10;
             // 
             // label1
             // 
@@ -93,28 +95,51 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Username";
             // 
-            // button1
+            // loginAcc
             // 
-            this.button1.Location = new System.Drawing.Point(12, 152);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.loginAcc.Location = new System.Drawing.Point(12, 152);
+            this.loginAcc.Name = "loginAcc";
+            this.loginAcc.Size = new System.Drawing.Size(75, 23);
+            this.loginAcc.TabIndex = 13;
+            this.loginAcc.Text = "Login";
+            this.loginAcc.UseVisualStyleBackColor = true;
+            this.loginAcc.Click += new System.EventHandler(this.loginAcc_Click);
             // 
-            // Form2
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(9, 182);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(162, 16);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Heeft u nog geen account?:";
+            // 
+            // navRegister
+            // 
+            this.navRegister.Location = new System.Drawing.Point(12, 201);
+            this.navRegister.Name = "navRegister";
+            this.navRegister.Size = new System.Drawing.Size(75, 23);
+            this.navRegister.TabIndex = 15;
+            this.navRegister.Text = "Register";
+            this.navRegister.UseVisualStyleBackColor = true;
+            this.navRegister.Click += new System.EventHandler(this.navRegister_Click);
+            // 
+            // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.txbPassword);
+            this.Controls.Add(this.navRegister);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.loginAcc);
+            this.Controls.Add(this.txbLoginPassword);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txbUsrname);
+            this.Controls.Add(this.txbLoginUsrname);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Name = "Form2";
+            this.Name = "login";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -125,10 +150,12 @@
 
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txbPassword;
+        private System.Windows.Forms.TextBox txbLoginPassword;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txbUsrname;
+        private System.Windows.Forms.TextBox txbLoginUsrname;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button loginAcc;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button navRegister;
     }
 }

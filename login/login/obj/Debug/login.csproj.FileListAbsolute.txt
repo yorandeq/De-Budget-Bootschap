@@ -26,8 +26,6 @@ C:\Users\Yoran\source\repos\login\login\obj\Debug\login.exe.config
 C:\Users\Yoran\source\repos\login\login\obj\Debug\login.csproj.CopyComplete
 C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\obj\Debug\login.csprojAssemblyReference.cache
 C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\obj\Debug\login.exe.config
-C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\obj\Debug\login.Form1.resources
-C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\obj\Debug\login.Form2.resources
 C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\obj\Debug\login.Properties.Resources.resources
 C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\obj\Debug\login.csproj.GenerateResource.cache
 C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\obj\Debug\login.csproj.CoreCompileInputs.cache
@@ -51,3 +49,5 @@ C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\bin\Debug\System.Run
 C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\bin\Debug\MySql.Data.xml
 C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\obj\Debug\login.csproj.CopyComplete
+C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\obj\Debug\login.login.resources
+C:\Users\Yoran\source\repos\De-Budget-Bootschap\login\login\obj\Debug\login.register.resources

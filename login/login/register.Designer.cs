@@ -1,6 +1,6 @@
 ﻿namespace login
 {
-    partial class Form1
+    partial class register
     {
         /// <summary>
         /// Required designer variable.
@@ -126,7 +126,7 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Heeft u al een account?:";
             // 
-            // Form1
+            // register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -140,7 +140,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txbUsrname);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "register";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
