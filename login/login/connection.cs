@@ -15,6 +15,7 @@ namespace login
         MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
         public DataTable table = new DataTable();
 
+        //Maakt de connectie met de database
         public void checkConn()
         {
             try
@@ -28,8 +29,10 @@ namespace login
             }
         }
 
+        //Voegt een account toe aan de database
         public void addAccount(string username, string password)
         {
+            //Checkt of er iets ingevuld is in de textboxes
             if (username == "" && password == "")
             {
                 MessageBox.Show("Voer een gebruikersnaam en wachtwoord in.");
@@ -38,44 +41,62 @@ namespace login
             {
                 try
                 {
-                    string query = "INSERT INTO data(username, password)VALUES('" + username + "', '" + password + "');";
-                    MySqlCommand cmdAdd = new MySqlCommand(query, databaseConnection);
-                    cmdAdd.ExecuteReader();
+                    string query1 = "SELECT username FROM data WHERE username = '" + username + "';";
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query1, databaseConnection);
+                    adapter.Fill(table);
+                    //Checkt of de gebruiker bestaat in de database
+                    if (table.Rows.Count <= 0)
+                    {
+                        string query2 = "INSERT INTO data(username, password)VALUES('" + username + "', '" + password + "');";
+                        MySqlCommand cmdAdd = new MySqlCommand(query2, databaseConnection);
+                        cmdAdd.ExecuteReader();
+                        MessageBox.Show("uw account is toegevoegd!");
+                    }
+                    //Geeft een melding als de gebruiker al bestaat
+                    else
+                    {
+                        MessageBox.Show("De gebruiker '" + username + "' bestaat al.");
+                    }
+                    table.Clear();
                 }
                 catch (Exception e)
                 {
                     MessageBox.Show("Error: " + e);
                 }
-                
             }
         }
 
+        //Checkt of de ingevulde gegevens overeenkomen met die in de database zodat je kan inloggen
         public void loginAccount(string loginUsername, string loginPassword)
         {
             if (loginUsername == "" && loginPassword == "")
             {
                 MessageBox.Show("Voer een gebruikersnaam en wachtwoord in om inteloggen.");
             }
-            try
+            else
             {
-                string query = "SELECT username, password FROM data WHERE username = '" + loginUsername + "' AND password = '" + loginPassword + "';";
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, databaseConnection);
-                adapter.Fill(table);
+                try
+                {
+                    string query = "SELECT username, password FROM data WHERE username = '" + loginUsername + "' AND password = '" + loginPassword + "';";
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, databaseConnection);
+                    adapter.Fill(table);
 
-                if(table.Rows.Count <= 0)
-                {
-                    MessageBox.Show("Uw account bestaat niet of uw gegevens waren onjuist.");
+                    if (table.Rows.Count <= 0)
+                    {
+                        MessageBox.Show("Uw account bestaat niet of uw gegevens waren onjuist.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("U bent ingelogd!");
+                    }
+                    table.Clear();
                 }
-                else
+                catch (Exception e)
                 {
-                    MessageBox.Show("U bent ingelogd!");
+                    MessageBox.Show("Error: " + e);
                 }
-                table.Clear();
             }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error: " + e);
-            }
+            
         }
     }
 }
