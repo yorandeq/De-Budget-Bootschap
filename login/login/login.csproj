@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="config2.cs" />
     <Compile Include="connection.cs" />
     <Compile Include="register.cs">
       <SubType>Form</SubType>

@@ -16,7 +16,6 @@ namespace login
         public login()
         {
             InitializeComponent();
-            con.checkConn();
         }
 
         private void navRegister_Click(object sender, EventArgs e)
