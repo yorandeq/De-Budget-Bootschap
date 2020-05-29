@@ -27,6 +27,7 @@ namespace login
             {
                 try
                 {
+                    configClass.databaseConnection.Open();
                     string query1 = "SELECT username FROM data WHERE username = '" + username + "';";
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query1, configClass.databaseConnection);
                     adapter.Fill(configClass.table);
@@ -47,6 +48,7 @@ namespace login
                         MessageBox.Show("De gebruiker '" + username + "' bestaat al.");
                     }
                     configClass.table.Clear();
+                    configClass.databaseConnection.Close();
                 }
                 catch (Exception e)
                 {
