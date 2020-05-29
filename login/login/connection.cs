@@ -33,7 +33,7 @@ namespace login
         public void addAccount(string username, string password)
         {
             //Checkt of er iets ingevuld is in de textboxes
-            if (username == "" && password == "")
+            if (username == "" || password == "")
             {
                 MessageBox.Show("Voer een gebruikersnaam en wachtwoord in.");
             } 
@@ -47,8 +47,11 @@ namespace login
                     //Checkt of de gebruiker bestaat in de database
                     if (table.Rows.Count <= 0)
                     {
-                        string query2 = "INSERT INTO data(username, password)VALUES('" + username + "', '" + password + "');";
+                        string query2 = "INSERT INTO `data` (username, password) VALUES (@username, @password);";
                         MySqlCommand cmdAdd = new MySqlCommand(query2, databaseConnection);
+                        cmdAdd.Parameters.AddWithValue("@username", username);
+                        cmdAdd.Parameters.AddWithValue("@password", password);
+                        cmdAdd.Prepare();
                         cmdAdd.ExecuteReader();
                         MessageBox.Show("uw account is toegevoegd!");
                     }
@@ -69,7 +72,8 @@ namespace login
         //Checkt of de ingevulde gegevens overeenkomen met die in de database zodat je kan inloggen
         public void loginAccount(string loginUsername, string loginPassword)
         {
-            if (loginUsername == "" && loginPassword == "")
+            //Checkt of er iets ingevuld is in de textboxes
+            if (loginUsername == "" || loginPassword == "")
             {
                 MessageBox.Show("Voer een gebruikersnaam en wachtwoord in om inteloggen.");
             }
@@ -77,10 +81,14 @@ namespace login
             {
                 try
                 {
-                    string query = "SELECT username, password FROM data WHERE username = '" + loginUsername + "' AND password = '" + loginPassword + "';";
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, databaseConnection);
+                    string query = "SELECT username, password FROM data WHERE username = @loginUsername AND password = @loginPassword;";
+                    MySqlCommand cmdSelect = new MySqlCommand(query, databaseConnection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter();
+                    cmdSelect.Parameters.AddWithValue("@loginUsername", loginUsername);
+                    cmdSelect.Parameters.AddWithValue("@loginPassword", loginPassword);
+                    cmdSelect.Prepare();
+                    adapter.SelectCommand = cmdSelect;
                     adapter.Fill(table);
-
                     if (table.Rows.Count <= 0)
                     {
                         MessageBox.Show("Uw account bestaat niet of uw gegevens waren onjuist.");
