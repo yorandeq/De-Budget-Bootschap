@@ -84,7 +84,21 @@ namespace login
                     }
                     else
                     {
-                        MessageBox.Show("U bent ingelogd!");
+                        MySqlDataReader read = cmdSelect.ExecuteReader();
+                        if (read.HasRows)
+                        {
+                            while (read.Read())
+                            {
+                                string admin = read[0].ToString();
+                                if (admin == "admin")
+                                {
+                                    MessageBox.Show("U bent ingelogd als een admin!");
+                                } else
+                                {
+                                    MessageBox.Show("U bent ingelogd als gebruiker!");
+                                }
+                            }
+                        }
                     }
                     configClass.table.Clear();
                     configClass.databaseConnection.Close();
