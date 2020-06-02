@@ -18,7 +18,6 @@ namespace login
         public register()
         {
             InitializeComponent();
-            con.checkConn();
         }
 
         private void button1_Click(object sender, EventArgs e)
