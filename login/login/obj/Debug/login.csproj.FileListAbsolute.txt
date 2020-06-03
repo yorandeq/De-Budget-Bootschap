@@ -77,3 +77,4 @@ C:\webroot\PERIODE 8\De-Budget-Bootschap\login\login\obj\Debug\login.csproj.Core
 C:\webroot\PERIODE 8\De-Budget-Bootschap\login\login\obj\Debug\login.csproj.CopyComplete
 C:\webroot\PERIODE 8\De-Budget-Bootschap\login\login\obj\Debug\login.exe
 C:\webroot\PERIODE 8\De-Budget-Bootschap\login\login\obj\Debug\login.pdb
+C:\webroot\PERIODE 8\De-Budget-Bootschap\login\login\obj\Debug\login.admin.resources
