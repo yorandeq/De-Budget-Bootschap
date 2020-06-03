@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data;
+using Tulpep.NotificationWindow;
 
 namespace login
 {
@@ -88,16 +89,50 @@ namespace login
                                 // Checks if user is an admin.
                                 if ((int)User["admin"] == 1)
                                 {
-                                    MessageBox.Show("U bent ingelogd als een admin!");
+                                    Console.WriteLine("Logged in as Admin.");
                                 }
                                 else if((int)User["admin"] == 0)
                                 {
-                                    MessageBox.Show("U bent ingelogd als gebruiker!");
+                                    Console.WriteLine("Logged in as User.");
                                 }
 
+                                // Redirects to user page. (This one should be changed when the user page gets added. Currently redirects to notifications page.)
+                                var NotificationsForm = new notifications();
+                                Form.ActiveForm.Hide();
+                                NotificationsForm.Show();
 
                                 // Gets every notification of current user and displays the amount of unread notifications.
-                                // 
+                                DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 0",
+                                p =>
+                                {
+                                    p.Add("@UserId", MySqlDbType.Int16, 255).Value = User["user_id"];
+                                });
+
+                                // Creates login notification.
+                                PopupNotifier LoginPopUp = new PopupNotifier();
+
+                                // Checks if user has unread notifications and displays a notification if so.
+                                if (getUserNotifications.Rows.Count > 0)
+                                {
+                                    LoginPopUp.TitleText = "You have Unread Notifications";
+                                    LoginPopUp.Delay = 10000;
+                                    if (getUserNotifications.Rows.Count == 1)
+                                    {
+                                        LoginPopUp.ContentText = "Welcome " + User["username"] + ". You have " + getUserNotifications.Rows.Count + " unread notification. Go to the notifications tab to read it.";
+                                    }
+                                    else
+                                    {
+                                        LoginPopUp.ContentText = "Welcome " + User["username"] + ". You have " + getUserNotifications.Rows.Count + " unread notifications. Go to the notifications tab to read them.";
+                                    }
+                                    LoginPopUp.Popup();
+                                }
+                                else
+                                {
+                                    LoginPopUp.TitleText = "Logged in";
+                                    LoginPopUp.Delay = 5000;
+                                    LoginPopUp.ContentText = "Welcome " + User["username"] + ". You have no unread notifications.";
+                                    LoginPopUp.Popup();
+                                }
                             }
                         }
                     }
