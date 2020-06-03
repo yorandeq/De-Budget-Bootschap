@@ -141,7 +141,7 @@
             this.Controls.Add(this.txbUsrname);
             this.Controls.Add(this.label1);
             this.Name = "register";
-            this.Text = "Form1";
+            this.Text = "Register";
             this.ResumeLayout(false);
             this.PerformLayout();
 

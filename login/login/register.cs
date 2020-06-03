@@ -32,9 +32,9 @@ namespace login
 
         private void navLogin_Click(object sender, EventArgs e)
         {
-            var loginForm = new login();
-            Hide();
+            var loginForm = (login)Tag;
             loginForm.Show();
+            this.Close();
         }
     }
 }

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data;
-//using static config.database;
 
 namespace login
 {
@@ -58,7 +57,7 @@ namespace login
         }
 
         //Checkt of de ingevulde gegevens overeenkomen met die in de database zodat je kan inloggen
-        public void loginAccount(string loginUsername, string loginPassword)
+        public void loginAccount(string loginUsername, string loginPassword, Form adminPanel)
         {
             //Checkt of er iets ingevuld is in de textboxes
             if (loginUsername == "" || loginPassword == "")
@@ -93,7 +92,11 @@ namespace login
                                 if (admin == "admin")
                                 {
                                     MessageBox.Show("U bent ingelogd als een admin!");
-                                } else
+                                    adminPanel.Show();
+                                    Form login = Application.OpenForms["login"];
+                                    login.Hide();
+                                }
+                                else
                                 {
                                     MessageBox.Show("U bent ingelogd als gebruiker!");
                                 }
@@ -108,7 +111,6 @@ namespace login
                     MessageBox.Show("Error: " + e);
                 }
             }
-            
         }
     }
 }
