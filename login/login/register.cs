@@ -17,6 +17,7 @@ namespace login
         connection con = new connection();
         public register()
         {
+            InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,9 +32,9 @@ namespace login
 
         private void navLogin_Click(object sender, EventArgs e)
         {
-            var loginForm = new login();
-            Hide();
+            var loginForm = (login)Tag;
             loginForm.Show();
+            this.Close();
         }
     }
 }

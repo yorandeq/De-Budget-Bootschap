@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data;
-//using static config.database;
 
 namespace login
 {
@@ -27,6 +26,7 @@ namespace login
             {
                 try
                 {
+                    configClass.databaseConnection.Open();
                     string query1 = "SELECT username FROM data WHERE username = '" + username + "';";
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query1, configClass.databaseConnection);
                     adapter.Fill(configClass.table);
@@ -47,6 +47,7 @@ namespace login
                         MessageBox.Show("De gebruiker '" + username + "' bestaat al.");
                     }
                     configClass.table.Clear();
+                    configClass.databaseConnection.Close();
                 }
                 catch (Exception e)
                 {
@@ -56,7 +57,7 @@ namespace login
         }
 
         //Checkt of de ingevulde gegevens overeenkomen met die in de database zodat je kan inloggen
-        public void loginAccount(string loginUsername, string loginPassword)
+        public void loginAccount(string loginUsername, string loginPassword, Form adminPanel)
         {
             //Checkt of er iets ingevuld is in de textboxes
             if (loginUsername == "" || loginPassword == "")
@@ -82,7 +83,25 @@ namespace login
                     }
                     else
                     {
-                        MessageBox.Show("U bent ingelogd!");
+                        MySqlDataReader read = cmdSelect.ExecuteReader();
+                        if (read.HasRows)
+                        {
+                            while (read.Read())
+                            {
+                                string admin = read[0].ToString();
+                                if (admin == "admin")
+                                {
+                                    MessageBox.Show("U bent ingelogd als een admin!");
+                                    adminPanel.Show();
+                                    Form login = Application.OpenForms["login"];
+                                    login.Hide();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("U bent ingelogd als gebruiker!");
+                                }
+                            }
+                        }
                     }
                     configClass.table.Clear();
                     configClass.databaseConnection.Close();
@@ -92,7 +111,6 @@ namespace login
                     MessageBox.Show("Error: " + e);
                 }
             }
-            
         }
     }
 }

@@ -21,13 +21,16 @@ namespace login
         private void navRegister_Click(object sender, EventArgs e)
         {
             var registerForm = new register();
-            Hide();
-            registerForm.Show();
+            registerForm.Tag = this;
+            registerForm.Show(this);
+            this.Hide();
         }
 
         private void loginAcc_Click(object sender, EventArgs e)
         {
-            con.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text);
+            var adminForm = new admin();
+            adminForm.Tag = this;
+            con.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text, adminForm);
         }
     }
 }
