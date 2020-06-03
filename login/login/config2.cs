@@ -11,7 +11,7 @@ namespace login
 {
     public class config2
     {
-        public static string MySQLConnectionString = "datasource=localhost;port=3306;username=root;password=8269;database=logintest;";
+        public static string MySQLConnectionString = "datasource=localhost;port=3306;username=root;password=;database=logintest;";
         public MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
         public DataTable table = new DataTable();
 
