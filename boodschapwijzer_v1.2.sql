@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2020 at 01:46 PM
+-- Generation Time: Jun 03, 2020 at 03:03 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -33,6 +33,7 @@ CREATE TABLE `discount_offers` (
   `supermarket` int(11) NOT NULL,
   `brand` varchar(255) NOT NULL,
   `category` varchar(225) NOT NULL,
+  `icon` longblob,
   `expiration_date` date NOT NULL,
   `min_amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -47,6 +48,7 @@ CREATE TABLE `discount_products` (
   `product_id` int(11) NOT NULL,
   `discount_offer` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `icon` longblob,
   `state` int(1) NOT NULL,
   `bought_by` int(11) DEFAULT NULL,
   `total_price` float NOT NULL
@@ -87,7 +89,10 @@ CREATE TABLE `registration` (
 
 CREATE TABLE `supermarkets` (
   `supermarket_id` int(11) NOT NULL,
-  `name` varchar(20) NOT NULL
+  `name` varchar(20) NOT NULL,
+  `icon` longblob,
+  `description` text,
+  `link` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
