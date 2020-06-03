@@ -27,7 +27,13 @@ namespace login
 
         private void loginAcc_Click(object sender, EventArgs e)
         {
-            con.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text);
+            bool loggedin = con.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text);
+            if (loggedin)
+            {
+                var storesForm = new stores();
+                Hide();
+                storesForm.Show();
+            }
         }
     }
 }
