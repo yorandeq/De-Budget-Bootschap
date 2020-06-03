@@ -25,11 +25,6 @@ namespace login
             con.addAccount(txbUsrname.Text, txbPassword.Text);
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void navLogin_Click(object sender, EventArgs e)
         {
             var loginForm = new login();

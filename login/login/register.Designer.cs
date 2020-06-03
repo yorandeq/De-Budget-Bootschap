@@ -94,7 +94,6 @@
             this.label3.Size = new System.Drawing.Size(182, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "De Budget Boodschap";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 

@@ -29,5 +29,12 @@ namespace login
         {
             con.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var TESTnotificationForm = new notifications();
+            Hide();
+            TESTnotificationForm.Show();
+        }
     }
 }
