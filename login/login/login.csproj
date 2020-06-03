@@ -50,6 +50,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalMethods.cs" />
     <Compile Include="DataLayer.cs" />
     <Compile Include="connection.cs" />
     <Compile Include="notifications.cs">

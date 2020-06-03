@@ -12,8 +12,9 @@ namespace login
 {
     public class connection
     {
-        // Opens DataLayer, used for sending queries to database.
+        // Load Neccessities.
         DataLayer DataLayer = new DataLayer();
+        GlobalMethods GlobalMethods = new GlobalMethods();
 
         // Method for creating a new account.
         public void addAccount(string username, string password)
@@ -32,6 +33,7 @@ namespace login
                         {
                             p.Add("@Username", MySqlDbType.VarChar, 255).Value = username;
                         });
+
                     // Checks if user already exists in database. If it already exists, shows a MessageBox.
                     if (GetUsernameUsers.Rows.Count <= 0)
                     {
@@ -86,20 +88,12 @@ namespace login
                             // Cycles through query result of GetUser.
                             foreach (DataRow User in GetUser.Select())
                             {
-                                // Checks if user is an admin.
-                                if ((int)User["admin"] == 1)
-                                {
-                                    Console.WriteLine("Logged in as Admin.");
-                                }
-                                else if((int)User["admin"] == 0)
-                                {
-                                    Console.WriteLine("Logged in as User.");
-                                }
+                                // Stores user information on global methods.
+                                GlobalMethods.LoginInfo.UserID = (int)User["user_id"];
+                                GlobalMethods.LoginInfo.Username = (string)User["username"];
 
                                 // Redirects to user page. (This one should be changed when the user page gets added. Currently redirects to notifications page.)
-                                var NotificationsForm = new notifications();
-                                Form.ActiveForm.Hide();
-                                NotificationsForm.Show();
+                                GlobalMethods.SwitchForm(new notifications());
 
                                 // Gets every notification of current user and displays the amount of unread notifications.
                                 DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 0",
@@ -108,30 +102,21 @@ namespace login
                                     p.Add("@UserId", MySqlDbType.Int16, 255).Value = User["user_id"];
                                 });
 
-                                // Creates login notification.
-                                PopupNotifier LoginPopUp = new PopupNotifier();
-
                                 // Checks if user has unread notifications and displays a notification if so.
                                 if (getUserNotifications.Rows.Count > 0)
                                 {
-                                    LoginPopUp.TitleText = "You have Unread Notifications";
-                                    LoginPopUp.Delay = 10000;
                                     if (getUserNotifications.Rows.Count == 1)
                                     {
-                                        LoginPopUp.ContentText = "Welcome " + User["username"] + ". You have " + getUserNotifications.Rows.Count + " unread notification. Go to the notifications tab to read it.";
+                                        GlobalMethods.ShowPopupNotification("You have Unread Notifications", "Welcome " + User["username"] + ". You have " + getUserNotifications.Rows.Count + " unread notification.", 10000);
                                     }
                                     else
                                     {
-                                        LoginPopUp.ContentText = "Welcome " + User["username"] + ". You have " + getUserNotifications.Rows.Count + " unread notifications. Go to the notifications tab to read them.";
+                                        GlobalMethods.ShowPopupNotification("You have Unread Notifications", "Welcome " + User["username"] + ". You have " + getUserNotifications.Rows.Count + " unread notifications.", 10000);
                                     }
-                                    LoginPopUp.Popup();
                                 }
                                 else
                                 {
-                                    LoginPopUp.TitleText = "Logged in";
-                                    LoginPopUp.Delay = 5000;
-                                    LoginPopUp.ContentText = "Welcome " + User["username"] + ". You have no unread notifications.";
-                                    LoginPopUp.Popup();
+                                    GlobalMethods.ShowPopupNotification("Logged in", "Welcome " + User["username"] + ". You have no unread notifications.", 5000);
                                 }
                             }
                         }
