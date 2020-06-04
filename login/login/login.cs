@@ -25,6 +25,11 @@ namespace login
             registerForm.Show();
         }
 
+        private void logout_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void loginAcc_Click(object sender, EventArgs e)
         {
             bool loggedin = con.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text);

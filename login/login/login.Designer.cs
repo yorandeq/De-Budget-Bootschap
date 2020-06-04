@@ -85,7 +85,7 @@
             this.navRegister.Text = "Registreer";
             this.navRegister.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.navRegister.UseVisualStyleBackColor = true;
-            this.navRegister.Click += new System.EventHandler(this.navRegister_Click_1);
+            this.navRegister.Click += new System.EventHandler(this.navRegister_Click);
             // 
             // exit
             // 

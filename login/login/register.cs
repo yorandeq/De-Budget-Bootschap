@@ -20,7 +20,7 @@ namespace login
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void registerAcc_Click(object sender, EventArgs e)
         {
             bool createdAcc = con.addAccount(txbUsrname.Text, txbPassword.Text);
             if (createdAcc)
@@ -41,6 +41,11 @@ namespace login
             var loginForm = new login();
             Close();
             loginForm.Show();
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

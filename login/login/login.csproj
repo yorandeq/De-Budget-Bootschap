@@ -54,6 +54,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="stores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stores.Designer.cs">
+      <DependentUpon>stores.cs</DependentUpon>
+    </Compile>
     <Compile Include="superAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="stores.resx">
+      <DependentUpon>stores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="superAdmin.resx">
       <DependentUpon>superAdmin.cs</DependentUpon>
     </EmbeddedResource>

@@ -30,13 +30,13 @@ namespace login
                 {
                     bool succes = true;
                     configClass.databaseConnection.Open();
-                    string query1 = "SELECT username FROM data WHERE username = '" + username + "';";
+                    string query1 = "SELECT username FROM users WHERE username = '" + username + "';";
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query1, configClass.databaseConnection);
                     adapter.Fill(configClass.table);
                     //Checkt of de gebruiker bestaat in de database
                     if (configClass.table.Rows.Count <= 0)
                     {
-                        string query2 = "INSERT INTO `data` (username, password) VALUES (@username, @password);";
+                        string query2 = "INSERT INTO `users` (username, password) VALUES (@username, @password);";
                         MySqlCommand cmdAdd = new MySqlCommand(query2, configClass.databaseConnection);
                         cmdAdd.Parameters.AddWithValue("@username", username);
                         cmdAdd.Parameters.AddWithValue("@password", password);
@@ -85,7 +85,7 @@ namespace login
                 {
                     bool succes = true;
                     configClass.databaseConnection.Open();
-                    string query = "SELECT username, password FROM data WHERE username = @loginUsername AND password = @loginPassword;";
+                    string query = "SELECT username, password FROM users WHERE username = @loginUsername AND password = @loginPassword;";
                     MySqlCommand cmdSelect = new MySqlCommand(query, configClass.databaseConnection);
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     cmdSelect.Parameters.AddWithValue("@loginUsername", loginUsername);

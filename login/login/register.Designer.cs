@@ -89,7 +89,7 @@
             this.navLogin.Text = "Inloggen";
             this.navLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.navLogin.UseVisualStyleBackColor = true;
-            this.navLogin.Click += new System.EventHandler(this.navLogin_Click_1);
+            this.navLogin.Click += new System.EventHandler(this.navLogin_Click);
             // 
             // exit
             // 
