@@ -20,7 +20,6 @@ namespace login
         // Method for switching forms quickly.
         public void SwitchForm(dynamic newForm)
         {
-            var NotificationsForm = new notifications();
             Form.ActiveForm.Hide();
             newForm.Show();
         }

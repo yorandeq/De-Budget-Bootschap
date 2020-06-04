@@ -18,7 +18,7 @@ namespace login
         DataLayer DataLayer = new DataLayer();
         GlobalMethods GlobalMethods = new GlobalMethods();
 
-        // Method for getting and showing unread user notifications.
+        // Method for getting and showing unread user notifications. Depending on circumstances might be placed into connection.cs
         public void getUnreadUserNotifications()
         {
             DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 0",
