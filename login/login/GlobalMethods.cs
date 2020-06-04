@@ -8,6 +8,7 @@ using Tulpep.NotificationWindow;
 
 namespace login
 {
+    // When included, these methods can be used in any csharp file.
     class GlobalMethods
     {
         // Used to store login session info.

@@ -23,14 +23,23 @@ namespace login
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void registerAcc_Click(object sender, EventArgs e)
         {
-            connection.addAccount(txbUsrname.Text, txbPassword.Text);
+            bool createdAcc = connection.addAccount(txbUsrname.Text, txbPassword.Text);
+            if (createdAcc)
+            {
+                GlobalMethods.SwitchForm(new login());
+            }
         }
 
         private void navLogin_Click(object sender, EventArgs e)
         {
             GlobalMethods.SwitchForm(new login());
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -26,9 +26,18 @@ namespace login
             GlobalMethods.SwitchForm(new register());
         }
 
+        private void logout_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void loginAcc_Click(object sender, EventArgs e)
         {
-            connection.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text);
+            bool loggedin = connection.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text);
+            if (loggedin)
+            {
+                GlobalMethods.SwitchForm(new stores());
+            }
         }
     }
 }

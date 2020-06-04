@@ -33,7 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.20.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data">
+      <HintPath>.\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,15 +52,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GlobalMethods.cs" />
     <Compile Include="DataLayer.cs" />
-    <Compile Include="connection.cs" />
+    <Compile Include="GlobalMethods.cs" />
     <Compile Include="notifications.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="notifications.Designer.cs">
       <DependentUpon>notifications.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="stores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stores.Designer.cs">
+      <DependentUpon>stores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="superAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="superAdmin.Designer.cs">
+      <DependentUpon>superAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="connection.cs" />
     <Compile Include="register.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +92,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="notifications.resx">
+      <DependentUpon>notifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stores.resx">
+      <DependentUpon>stores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="superAdmin.resx">
+      <DependentUpon>superAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="register.resx">
       <DependentUpon>register.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,15 +109,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="notifications.resx">
-      <DependentUpon>notifications.cs</DependentUpon>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -104,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
