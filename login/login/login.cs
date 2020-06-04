@@ -18,24 +18,22 @@ namespace login
             InitializeComponent();
         }
 
-        private void loginAcc_Click(object sender, EventArgs e)
-        {
-            var adminForm = new superAdmin();
-            adminForm.Tag = this;
-            con.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text, adminForm);
-        }
-
-        private void logout_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void navRegister_Click_1(object sender, EventArgs e)
+        private void navRegister_Click(object sender, EventArgs e)
         {
             var registerForm = new register();
-            registerForm.Tag = this;
-            registerForm.Show(this);
-            this.Hide();
+            Hide();
+            registerForm.Show();
+        }
+
+        private void loginAcc_Click(object sender, EventArgs e)
+        {
+            bool loggedin = con.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text);
+            if (loggedin)
+            {
+                var storesForm = new stores();
+                Hide();
+                storesForm.Show();
+            }
         }
     }
 }

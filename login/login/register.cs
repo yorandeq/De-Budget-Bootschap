@@ -20,21 +20,27 @@ namespace login
             InitializeComponent();
         }
 
-        private void registerAcc_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            con.addAccount(txbUsrname.Text, txbPassword.Text);
+            bool createdAcc = con.addAccount(txbUsrname.Text, txbPassword.Text);
+            if (createdAcc)
+            {
+                var loginForm = new login();
+                Close();
+                loginForm.Show();
+            }
         }
 
-        private void navLogin_Click_1(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
-            var loginForm = (login)Tag;
-            loginForm.Show();
-            this.Close();
+
         }
 
-        private void exit_Click(object sender, EventArgs e)
+        private void navLogin_Click(object sender, EventArgs e)
         {
+            var loginForm = new login();
             Close();
+            loginForm.Show();
         }
     }
 }

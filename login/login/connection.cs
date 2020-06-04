@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data;
+//using static config.database;
 
 namespace login
 {
@@ -15,17 +16,19 @@ namespace login
         //public config.database configClass = new config();
         config2 configClass = new config2();
         //Voegt een account toe aan de database
-        public void addAccount(string username, string password)
+        public bool addAccount(string username, string password)
         {
             //Checkt of er iets ingevuld is in de textboxes
             if (username == "" || password == "")
             {
                 MessageBox.Show("Voer een gebruikersnaam en wachtwoord in.");
+                return false;
             } 
             else
             {
                 try
                 {
+                    bool succes = true;
                     configClass.databaseConnection.Open();
                     string query1 = "SELECT username FROM data WHERE username = '" + username + "';";
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query1, configClass.databaseConnection);
@@ -40,36 +43,49 @@ namespace login
                         cmdAdd.Prepare();
                         cmdAdd.ExecuteReader();
                         MessageBox.Show("uw account is toegevoegd!");
+                        succes = true;
                     }
                     //Geeft een melding als de gebruiker al bestaat
                     else
                     {
                         MessageBox.Show("De gebruiker '" + username + "' bestaat al.");
+                        succes = false;
                     }
                     configClass.table.Clear();
                     configClass.databaseConnection.Close();
+                    //checkt of user een account kan aanmaken
+                    if (succes)
+                    {
+                        return true;
+                    } else
+                    {
+                        return false;
+                    }
                 }
                 catch (Exception e)
                 {
                     MessageBox.Show("Error: " + e);
+                    return false;
                 }
             }
         }
 
         //Checkt of de ingevulde gegevens overeenkomen met die in de database zodat je kan inloggen
-        public void loginAccount(string loginUsername, string loginPassword, Form adminPanel)
+        public bool loginAccount(string loginUsername, string loginPassword)
         {
             //Checkt of er iets ingevuld is in de textboxes
             if (loginUsername == "" || loginPassword == "")
             {
                 MessageBox.Show("Voer een gebruikersnaam en wachtwoord in om in te loggen.");
+                return false;
             }
             else
             {
                 try
                 {
+                    bool succes = true;
                     configClass.databaseConnection.Open();
-                    string query = "SELECT * FROM data WHERE username = @loginUsername AND password = @loginPassword;";
+                    string query = "SELECT username, password FROM data WHERE username = @loginUsername AND password = @loginPassword;";
                     MySqlCommand cmdSelect = new MySqlCommand(query, configClass.databaseConnection);
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     cmdSelect.Parameters.AddWithValue("@loginUsername", loginUsername);
@@ -80,6 +96,7 @@ namespace login
                     if (configClass.table.Rows.Count <= 0)
                     {
                         MessageBox.Show("Uw account bestaat niet of uw gegevens waren onjuist.");
+                        succes = false;
                     }
                     else
                     {
@@ -88,15 +105,14 @@ namespace login
                         {
                             while (read.Read())
                             {
+                                var loginForm = new login();
+                                var storesForm = new stores();
+
                                 string admin = read[0].ToString();
                                 if (admin == "admin")
                                 {
-                                    MessageBox.Show("U bent ingelogd als een super admin!");
-                                    adminPanel.Show();
-                                    Form login = Application.OpenForms["login"];
-                                    login.Hide();
-                                }
-                                else
+                                    MessageBox.Show("U bent ingelogd als een admin!");
+                                } else
                                 {
                                     MessageBox.Show("U bent ingelogd als gebruiker!");
                                 }
@@ -105,10 +121,19 @@ namespace login
                     }
                     configClass.table.Clear();
                     configClass.databaseConnection.Close();
+                    //checkt of de user kan inloggen
+                    if (succes)
+                    {
+                        return true;
+                    } else
+                    {
+                        return false;
+                    }
                 }
                 catch (Exception e)
                 {
                     MessageBox.Show("Error: " + e);
+                    return false;
                 }
             }
         }
