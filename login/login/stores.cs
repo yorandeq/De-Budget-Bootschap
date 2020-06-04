@@ -18,11 +18,6 @@ namespace login
             InitializeComponent();
         }
 
-        private void stores_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             //components

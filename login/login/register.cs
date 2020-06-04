@@ -14,7 +14,10 @@ namespace login
 {
     public partial class register : Form
     {
-        connection con = new connection();
+        // Load neccessities.
+        GlobalMethods GlobalMethods = new GlobalMethods();
+        connection connection = new connection();
+
         public register()
         {
             InitializeComponent();
@@ -22,25 +25,16 @@ namespace login
 
         private void registerAcc_Click(object sender, EventArgs e)
         {
-            bool createdAcc = con.addAccount(txbUsrname.Text, txbPassword.Text);
+            bool createdAcc = connection.addAccount(txbUsrname.Text, txbPassword.Text);
             if (createdAcc)
             {
-                var loginForm = new login();
-                Close();
-                loginForm.Show();
+                GlobalMethods.SwitchForm(new login());
             }
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void navLogin_Click(object sender, EventArgs e)
         {
-            var loginForm = new login();
-            Close();
-            loginForm.Show();
+            GlobalMethods.SwitchForm(new login());
         }
 
         private void exit_Click(object sender, EventArgs e)

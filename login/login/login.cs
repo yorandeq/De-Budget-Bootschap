@@ -12,7 +12,10 @@ namespace login
 {
     public partial class login : Form
     {
-        connection con = new connection();
+        // Load neccessities.
+        GlobalMethods GlobalMethods = new GlobalMethods();
+        connection connection = new connection();
+
         public login()
         {
             InitializeComponent();
@@ -20,9 +23,7 @@ namespace login
 
         private void navRegister_Click(object sender, EventArgs e)
         {
-            var registerForm = new register();
-            Hide();
-            registerForm.Show();
+            GlobalMethods.SwitchForm(new register());
         }
 
         private void logout_Click(object sender, EventArgs e)
@@ -32,12 +33,10 @@ namespace login
 
         private void loginAcc_Click(object sender, EventArgs e)
         {
-            bool loggedin = con.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text);
+            bool loggedin = connection.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text);
             if (loggedin)
             {
-                var storesForm = new stores();
-                Hide();
-                storesForm.Show();
+                GlobalMethods.SwitchForm(new stores());
             }
         }
     }

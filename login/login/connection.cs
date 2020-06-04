@@ -17,12 +17,13 @@ namespace login
         GlobalMethods GlobalMethods = new GlobalMethods();
 
         // Method for creating a new account.
-        public void addAccount(string username, string password)
+        public bool addAccount(string username, string password)
         {
             // Check if user has filled in the textboxes.
             if (username == "" || password == "")
             {
                 MessageBox.Show("Voer een gebruikersnaam en wachtwoord in.");
+                return false;
             } 
             else
             {
@@ -44,26 +45,30 @@ namespace login
                             p.Add("@Password", MySqlDbType.VarChar, 255).Value = password;
                         });
                         MessageBox.Show("uw account is toegevoegd!");
+                        return true;
                     }
                     else
                     {
                         MessageBox.Show("De gebruiker '" + username + "' bestaat al.");
+                        return false;
                     }
                 }
                 catch (Exception e) // Catches any errors.
                 {
                     MessageBox.Show("Error: " + e);
+                    return false;
                 }
             }
         }
 
         // Method for logging into account.
-        public void loginAccount(string loginUsername, string loginPassword)
+        public bool loginAccount(string loginUsername, string loginPassword)
         {
             // Checks if user has filled in textboxes.
             if (loginUsername == "" || loginPassword == "")
             {
                 MessageBox.Show("Voer een gebruikersnaam en wachtwoord in om in te loggen.");
+                return false;
             }
             else
             {
@@ -76,58 +81,53 @@ namespace login
                             p.Add("@loginPassword", MySqlDbType.VarChar, 255).Value = loginPassword;
                         });
                     // Checks if username and password combination exists.
-                    if (GetUser.Rows.Count <= 0)
+                    if (GetUser.Rows.Count <= 0 && GetUser != null)
                     {
                         MessageBox.Show("Uw account bestaat niet of uw gegevens waren onjuist.");
+                        return false;
                     }
                     else
                     {
-                        // Checks if username and password combination is not null
-                        if (GetUser != null)
+                        // Cycles through query result of GetUser.
+                        foreach (DataRow User in GetUser.Select())
                         {
-                            // Cycles through query result of GetUser.
-                            foreach (DataRow User in GetUser.Select())
+                            // Stores user information in global methods.
+                            GlobalMethods.LoginInfo.UserID = (int)User["user_id"];
+                            GlobalMethods.LoginInfo.Username = (string)User["username"];
+
+                            // Gets every notification of current user and displays the amount of unread notifications.
+                            DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 0",
+                            p =>
                             {
-                                // Stores user information on global methods.
-                                GlobalMethods.LoginInfo.UserID = (int)User["user_id"];
-                                GlobalMethods.LoginInfo.Username = (string)User["username"];
+                                p.Add("@UserId", MySqlDbType.Int16, 255).Value = User["user_id"];
+                            });
 
-                                // Redirects to user page. (This one should be changed when the user page gets added. Currently redirects to notifications page.)
-                                GlobalMethods.SwitchForm(new notifications());
-
-                                // Gets every notification of current user and displays the amount of unread notifications.
-                                DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 0",
-                                p =>
+                            // Checks if user has unread notifications and displays a notification if so.
+                            if (getUserNotifications.Rows.Count > 0)
+                            {
+                                if (getUserNotifications.Rows.Count == 1)
                                 {
-                                    p.Add("@UserId", MySqlDbType.Int16, 255).Value = User["user_id"];
-                                });
-
-                                // Checks if user has unread notifications and displays a notification if so.
-                                if (getUserNotifications.Rows.Count > 0)
-                                {
-                                    if (getUserNotifications.Rows.Count == 1)
-                                    {
-                                        GlobalMethods.ShowPopupNotification("You have Unread Notifications", "Welcome " + User["username"] + ". You have " + getUserNotifications.Rows.Count + " unread notification.", 10000);
-                                    }
-                                    else
-                                    {
-                                        GlobalMethods.ShowPopupNotification("You have Unread Notifications", "Welcome " + User["username"] + ". You have " + getUserNotifications.Rows.Count + " unread notifications.", 10000);
-                                    }
+                                    GlobalMethods.ShowPopupNotification("U hebt een notificatie", "Welkom " + User["username"] + ". U hebt " + getUserNotifications.Rows.Count + " ongelezen notificatie.", 10000);
                                 }
                                 else
                                 {
-                                    GlobalMethods.ShowPopupNotification("Logged in", "Welcome " + User["username"] + ". You have no unread notifications.", 5000);
+                                    GlobalMethods.ShowPopupNotification("U hebt notificaties", "Welkom " + User["username"] + ". U hebt " + getUserNotifications.Rows.Count + " ongelezen notificaties.", 10000);
                                 }
                             }
+                            else
+                            {
+                                GlobalMethods.ShowPopupNotification("Ingelogd", "Welkom " + User["username"] + ". U hebt geen ongelezen notificaties.", 5000);
+                            }
                         }
+                        return true;
                     }
                 }
                 catch (Exception e) // Catches any errors.
                 {
                     MessageBox.Show("Error: " + e);
+                    return false;
                 }
             }
-            
         }
     }
 }
