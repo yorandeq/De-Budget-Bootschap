@@ -28,7 +28,6 @@ namespace login
         private void customizeDesign()
         {
             panelSubmenu.Visible = false;
-            panelSuperAdmin.Visible = false;
         }
 
         private void hideSubmenu()

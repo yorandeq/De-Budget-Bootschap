@@ -56,7 +56,7 @@
             this.panelSideMenu.Controls.Add(this.panelLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelSideMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSideMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(267, 603);
             this.panelSideMenu.TabIndex = 17;
@@ -68,7 +68,7 @@
             this.panelSubmenu.Controls.Add(this.navLogin);
             this.panelSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubmenu.Location = new System.Drawing.Point(0, 178);
-            this.panelSubmenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSubmenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubmenu.Name = "panelSubmenu";
             this.panelSubmenu.Size = new System.Drawing.Size(267, 55);
             this.panelSubmenu.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.navLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.navLogin.ForeColor = System.Drawing.Color.LightGray;
             this.navLogin.Location = new System.Drawing.Point(0, 0);
-            this.navLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.navLogin.Margin = new System.Windows.Forms.Padding(4);
             this.navLogin.Name = "navLogin";
             this.navLogin.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
             this.navLogin.Size = new System.Drawing.Size(267, 55);
@@ -99,7 +99,7 @@
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exit.ForeColor = System.Drawing.Color.Gainsboro;
             this.exit.Location = new System.Drawing.Point(0, 548);
-            this.exit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exit.Margin = new System.Windows.Forms.Padding(4);
             this.exit.Name = "exit";
             this.exit.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
             this.exit.Size = new System.Drawing.Size(267, 55);
@@ -107,6 +107,7 @@
             this.exit.Text = "Exit";
             this.exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
             // navSidemenu
             // 
@@ -116,7 +117,7 @@
             this.navSidemenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.navSidemenu.ForeColor = System.Drawing.Color.Gainsboro;
             this.navSidemenu.Location = new System.Drawing.Point(0, 123);
-            this.navSidemenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.navSidemenu.Margin = new System.Windows.Forms.Padding(4);
             this.navSidemenu.Name = "navSidemenu";
             this.navSidemenu.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.navSidemenu.Size = new System.Drawing.Size(267, 55);
@@ -130,7 +131,7 @@
             this.panelLogo.Controls.Add(this.label6);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(4);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(267, 123);
             this.panelLogo.TabIndex = 0;
@@ -158,7 +159,7 @@
             this.panelSuperAdmin.Controls.Add(this.txbUsrname);
             this.panelSuperAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSuperAdmin.Location = new System.Drawing.Point(267, 0);
-            this.panelSuperAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSuperAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.panelSuperAdmin.Name = "panelSuperAdmin";
             this.panelSuperAdmin.Size = new System.Drawing.Size(810, 603);
             this.panelSuperAdmin.TabIndex = 18;
@@ -197,7 +198,7 @@
             this.registerAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registerAcc.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.registerAcc.Location = new System.Drawing.Point(200, 338);
-            this.registerAcc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.registerAcc.Margin = new System.Windows.Forms.Padding(5);
             this.registerAcc.Name = "registerAcc";
             this.registerAcc.Size = new System.Drawing.Size(132, 34);
             this.registerAcc.TabIndex = 13;
@@ -209,7 +210,7 @@
             // 
             this.txbPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txbPassword.Location = new System.Drawing.Point(200, 302);
-            this.txbPassword.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txbPassword.Margin = new System.Windows.Forms.Padding(5);
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.PasswordChar = '*';
             this.txbPassword.Size = new System.Drawing.Size(174, 22);
@@ -219,7 +220,7 @@
             // 
             this.txbUsrname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txbUsrname.Location = new System.Drawing.Point(200, 239);
-            this.txbUsrname.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txbUsrname.Margin = new System.Windows.Forms.Padding(5);
             this.txbUsrname.Name = "txbUsrname";
             this.txbUsrname.Size = new System.Drawing.Size(174, 22);
             this.txbUsrname.TabIndex = 10;
@@ -232,7 +233,7 @@
             this.Controls.Add(this.panelSuperAdmin);
             this.Controls.Add(this.panelSideMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "register";
             this.Text = "Register";
             this.panelSideMenu.ResumeLayout(false);

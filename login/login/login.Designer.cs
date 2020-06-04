@@ -39,8 +39,8 @@
             this.txbLoginPassword = new System.Windows.Forms.TextBox();
             this.txbLoginUsrname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panelSuperAdmin = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelSideMenu.SuspendLayout();
             this.panelSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -82,7 +82,7 @@
             this.navRegister.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.navRegister.Size = new System.Drawing.Size(200, 45);
             this.navRegister.TabIndex = 0;
-            this.navRegister.Text = "Login";
+            this.navRegister.Text = "Registreer";
             this.navRegister.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.navRegister.UseVisualStyleBackColor = true;
             this.navRegister.Click += new System.EventHandler(this.navRegister_Click_1);
@@ -138,7 +138,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(200, 100);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Login";
+            this.label6.Text = "Inloggen";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // loginAcc
@@ -146,12 +146,13 @@
             this.loginAcc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.loginAcc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.loginAcc.FlatAppearance.BorderSize = 0;
+            this.loginAcc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(102)))));
             this.loginAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginAcc.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.loginAcc.Location = new System.Drawing.Point(153, 275);
+            this.loginAcc.Location = new System.Drawing.Point(241, 291);
             this.loginAcc.Margin = new System.Windows.Forms.Padding(4);
             this.loginAcc.Name = "loginAcc";
-            this.loginAcc.Size = new System.Drawing.Size(100, 28);
+            this.loginAcc.Size = new System.Drawing.Size(176, 52);
             this.loginAcc.TabIndex = 13;
             this.loginAcc.Text = "Login";
             this.loginAcc.UseVisualStyleBackColor = false;
@@ -160,42 +161,31 @@
             // txbLoginPassword
             // 
             this.txbLoginPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbLoginPassword.Location = new System.Drawing.Point(153, 245);
+            this.txbLoginPassword.Location = new System.Drawing.Point(227, 261);
             this.txbLoginPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txbLoginPassword.Name = "txbLoginPassword";
             this.txbLoginPassword.PasswordChar = '*';
-            this.txbLoginPassword.Size = new System.Drawing.Size(132, 22);
+            this.txbLoginPassword.Size = new System.Drawing.Size(208, 22);
             this.txbLoginPassword.TabIndex = 12;
             // 
             // txbLoginUsrname
             // 
             this.txbLoginUsrname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbLoginUsrname.Location = new System.Drawing.Point(150, 194);
+            this.txbLoginUsrname.Location = new System.Drawing.Point(227, 191);
             this.txbLoginUsrname.Margin = new System.Windows.Forms.Padding(4);
             this.txbLoginUsrname.Name = "txbLoginUsrname";
-            this.txbLoginUsrname.Size = new System.Drawing.Size(132, 22);
+            this.txbLoginUsrname.Size = new System.Drawing.Size(208, 22);
             this.txbLoginUsrname.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(150, 174);
+            this.label1.Location = new System.Drawing.Point(238, 147);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 16);
+            this.label1.Size = new System.Drawing.Size(187, 40);
             this.label1.TabIndex = 14;
             this.label1.Text = "Gebruikersnaam:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(150, 225);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 16);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Wachtwoord:";
             // 
             // panelSuperAdmin
             // 
@@ -210,6 +200,16 @@
             this.panelSuperAdmin.Name = "panelSuperAdmin";
             this.panelSuperAdmin.Size = new System.Drawing.Size(608, 490);
             this.panelSuperAdmin.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(238, 217);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(187, 40);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Wachtwoord:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // login
             // 
@@ -244,7 +244,7 @@
         private System.Windows.Forms.TextBox txbLoginPassword;
         private System.Windows.Forms.TextBox txbLoginUsrname;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelSuperAdmin;
+        private System.Windows.Forms.Label label2;
     }
 }
