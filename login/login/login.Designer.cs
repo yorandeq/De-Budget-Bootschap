@@ -28,134 +28,223 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.panelSubmenu = new System.Windows.Forms.Panel();
+            this.navRegister = new System.Windows.Forms.Button();
+            this.exit = new System.Windows.Forms.Button();
+            this.navSidemenu = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.loginAcc = new System.Windows.Forms.Button();
             this.txbLoginPassword = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txbLoginUsrname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.loginAcc = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.navRegister = new System.Windows.Forms.Button();
+            this.panelSuperAdmin = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panelSideMenu.SuspendLayout();
+            this.panelSubmenu.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            this.panelSuperAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label4
+            // panelSideMenu
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(190, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Op deze pagina kunt u inloggen.";
+            this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(179)))));
+            this.panelSideMenu.Controls.Add(this.panelSubmenu);
+            this.panelSideMenu.Controls.Add(this.exit);
+            this.panelSideMenu.Controls.Add(this.navSidemenu);
+            this.panelSideMenu.Controls.Add(this.panelLogo);
+            this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelSideMenu.Name = "panelSideMenu";
+            this.panelSideMenu.Size = new System.Drawing.Size(200, 490);
+            this.panelSideMenu.TabIndex = 16;
             // 
-            // label3
+            // panelSubmenu
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label3.Location = new System.Drawing.Point(1, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 21);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "De Budget Boodschap";
+            this.panelSubmenu.AutoSize = true;
+            this.panelSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelSubmenu.Controls.Add(this.navRegister);
+            this.panelSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubmenu.Location = new System.Drawing.Point(0, 145);
+            this.panelSubmenu.Name = "panelSubmenu";
+            this.panelSubmenu.Size = new System.Drawing.Size(200, 45);
+            this.panelSubmenu.TabIndex = 2;
+            // 
+            // navRegister
+            // 
+            this.navRegister.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navRegister.FlatAppearance.BorderSize = 0;
+            this.navRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.navRegister.ForeColor = System.Drawing.Color.LightGray;
+            this.navRegister.Location = new System.Drawing.Point(0, 0);
+            this.navRegister.Name = "navRegister";
+            this.navRegister.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.navRegister.Size = new System.Drawing.Size(200, 45);
+            this.navRegister.TabIndex = 0;
+            this.navRegister.Text = "Registreer";
+            this.navRegister.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.navRegister.UseVisualStyleBackColor = true;
+            this.navRegister.Click += new System.EventHandler(this.navRegister_Click_1);
+            // 
+            // exit
+            // 
+            this.exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(230)))));
+            this.exit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.exit.FlatAppearance.BorderSize = 0;
+            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit.ForeColor = System.Drawing.Color.Gainsboro;
+            this.exit.Location = new System.Drawing.Point(0, 445);
+            this.exit.Name = "exit";
+            this.exit.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.exit.Size = new System.Drawing.Size(200, 45);
+            this.exit.TabIndex = 0;
+            this.exit.Text = "Exit";
+            this.exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.logout_Click);
+            // 
+            // navSidemenu
+            // 
+            this.navSidemenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(255)))));
+            this.navSidemenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navSidemenu.FlatAppearance.BorderSize = 0;
+            this.navSidemenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.navSidemenu.ForeColor = System.Drawing.Color.Gainsboro;
+            this.navSidemenu.Location = new System.Drawing.Point(0, 100);
+            this.navSidemenu.Name = "navSidemenu";
+            this.navSidemenu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.navSidemenu.Size = new System.Drawing.Size(200, 45);
+            this.navSidemenu.TabIndex = 1;
+            this.navSidemenu.Text = "Heeft u nog geen account?";
+            this.navSidemenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.navSidemenu.UseVisualStyleBackColor = false;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Controls.Add(this.label6);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(200, 100);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(200, 100);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Inloggen";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // loginAcc
+            // 
+            this.loginAcc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginAcc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.loginAcc.FlatAppearance.BorderSize = 0;
+            this.loginAcc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(102)))));
+            this.loginAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginAcc.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.loginAcc.Location = new System.Drawing.Point(241, 291);
+            this.loginAcc.Margin = new System.Windows.Forms.Padding(4);
+            this.loginAcc.Name = "loginAcc";
+            this.loginAcc.Size = new System.Drawing.Size(176, 52);
+            this.loginAcc.TabIndex = 13;
+            this.loginAcc.Text = "Login";
+            this.loginAcc.UseVisualStyleBackColor = false;
+            this.loginAcc.Click += new System.EventHandler(this.loginAcc_Click);
             // 
             // txbLoginPassword
             // 
-            this.txbLoginPassword.Location = new System.Drawing.Point(12, 125);
+            this.txbLoginPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbLoginPassword.Location = new System.Drawing.Point(227, 261);
+            this.txbLoginPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txbLoginPassword.Name = "txbLoginPassword";
             this.txbLoginPassword.PasswordChar = '*';
-            this.txbLoginPassword.Size = new System.Drawing.Size(100, 20);
+            this.txbLoginPassword.Size = new System.Drawing.Size(208, 22);
             this.txbLoginPassword.TabIndex = 12;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Password";
             // 
             // txbLoginUsrname
             // 
-            this.txbLoginUsrname.Location = new System.Drawing.Point(12, 81);
+            this.txbLoginUsrname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbLoginUsrname.Location = new System.Drawing.Point(227, 191);
+            this.txbLoginUsrname.Margin = new System.Windows.Forms.Padding(4);
             this.txbLoginUsrname.Name = "txbLoginUsrname";
-            this.txbLoginUsrname.Size = new System.Drawing.Size(100, 20);
+            this.txbLoginUsrname.Size = new System.Drawing.Size(208, 22);
             this.txbLoginUsrname.TabIndex = 10;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 64);
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(238, 147);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Username";
+            this.label1.Size = new System.Drawing.Size(187, 40);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Gebruikersnaam:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // loginAcc
+            // panelSuperAdmin
             // 
-            this.loginAcc.Location = new System.Drawing.Point(12, 152);
-            this.loginAcc.Name = "loginAcc";
-            this.loginAcc.Size = new System.Drawing.Size(75, 23);
-            this.loginAcc.TabIndex = 13;
-            this.loginAcc.Text = "Login";
-            this.loginAcc.UseVisualStyleBackColor = true;
-            this.loginAcc.Click += new System.EventHandler(this.loginAcc_Click);
+            this.panelSuperAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.panelSuperAdmin.Controls.Add(this.label2);
+            this.panelSuperAdmin.Controls.Add(this.label1);
+            this.panelSuperAdmin.Controls.Add(this.loginAcc);
+            this.panelSuperAdmin.Controls.Add(this.txbLoginPassword);
+            this.panelSuperAdmin.Controls.Add(this.txbLoginUsrname);
+            this.panelSuperAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSuperAdmin.Location = new System.Drawing.Point(200, 0);
+            this.panelSuperAdmin.Name = "panelSuperAdmin";
+            this.panelSuperAdmin.Size = new System.Drawing.Size(608, 490);
+            this.panelSuperAdmin.TabIndex = 17;
             // 
-            // label5
+            // label2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(9, 182);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(162, 16);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Heeft u nog geen account?:";
-            // 
-            // navRegister
-            // 
-            this.navRegister.Location = new System.Drawing.Point(12, 201);
-            this.navRegister.Name = "navRegister";
-            this.navRegister.Size = new System.Drawing.Size(75, 23);
-            this.navRegister.TabIndex = 15;
-            this.navRegister.Text = "Register";
-            this.navRegister.UseVisualStyleBackColor = true;
-            this.navRegister.Click += new System.EventHandler(this.navRegister_Click);
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(238, 217);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(187, 40);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Wachtwoord:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.navRegister);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.loginAcc);
-            this.Controls.Add(this.txbLoginPassword);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txbLoginUsrname);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(808, 490);
+            this.Controls.Add(this.panelSuperAdmin);
+            this.Controls.Add(this.panelSideMenu);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "login";
             this.Text = "Login";
+            this.panelSideMenu.ResumeLayout(false);
+            this.panelSideMenu.PerformLayout();
+            this.panelSubmenu.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
+            this.panelSuperAdmin.ResumeLayout(false);
+            this.panelSuperAdmin.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panelSideMenu;
+        private System.Windows.Forms.Panel panelSubmenu;
+        private System.Windows.Forms.Button navRegister;
+        private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Button navSidemenu;
+        private System.Windows.Forms.Panel panelLogo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button loginAcc;
         private System.Windows.Forms.TextBox txbLoginPassword;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbLoginUsrname;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button loginAcc;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button navRegister;
+        private System.Windows.Forms.Panel panelSuperAdmin;
+        private System.Windows.Forms.Label label2;
     }
 }

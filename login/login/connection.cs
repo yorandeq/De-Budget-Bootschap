@@ -69,7 +69,7 @@ namespace login
                 try
                 {
                     configClass.databaseConnection.Open();
-                    string query = "SELECT username, password FROM data WHERE username = @loginUsername AND password = @loginPassword;";
+                    string query = "SELECT * FROM data WHERE username = @loginUsername AND password = @loginPassword;";
                     MySqlCommand cmdSelect = new MySqlCommand(query, configClass.databaseConnection);
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     cmdSelect.Parameters.AddWithValue("@loginUsername", loginUsername);
@@ -91,7 +91,7 @@ namespace login
                                 string admin = read[0].ToString();
                                 if (admin == "admin")
                                 {
-                                    MessageBox.Show("U bent ingelogd als een admin!");
+                                    MessageBox.Show("U bent ingelogd als een super admin!");
                                     adminPanel.Show();
                                     Form login = Application.OpenForms["login"];
                                     login.Hide();
