@@ -28,44 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.showTestPopupBtn = new System.Windows.Forms.Button();
+            this.markReadBtn = new System.Windows.Forms.Button();
             this.refreshNotificationsBtn = new System.Windows.Forms.Button();
-            this.notificationsListBox = new System.Windows.Forms.CheckedListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // showTestPopupBtn
+            // markReadBtn
             // 
-            this.showTestPopupBtn.Location = new System.Drawing.Point(12, 72);
-            this.showTestPopupBtn.Name = "showTestPopupBtn";
-            this.showTestPopupBtn.Size = new System.Drawing.Size(129, 23);
-            this.showTestPopupBtn.TabIndex = 0;
-            this.showTestPopupBtn.Text = "Show test pop-up";
-            this.showTestPopupBtn.UseVisualStyleBackColor = true;
-            this.showTestPopupBtn.Click += new System.EventHandler(this.showTestPopupBtn_Click);
+            this.markReadBtn.Location = new System.Drawing.Point(12, 72);
+            this.markReadBtn.Name = "markReadBtn";
+            this.markReadBtn.Size = new System.Drawing.Size(129, 23);
+            this.markReadBtn.TabIndex = 0;
+            this.markReadBtn.Text = "Mark checked as read";
+            this.markReadBtn.UseVisualStyleBackColor = true;
+            this.markReadBtn.Click += new System.EventHandler(this.markReadBtn_Click);
             // 
             // refreshNotificationsBtn
             // 
             this.refreshNotificationsBtn.Location = new System.Drawing.Point(147, 72);
             this.refreshNotificationsBtn.Name = "refreshNotificationsBtn";
-            this.refreshNotificationsBtn.Size = new System.Drawing.Size(117, 23);
+            this.refreshNotificationsBtn.Size = new System.Drawing.Size(115, 23);
             this.refreshNotificationsBtn.TabIndex = 1;
             this.refreshNotificationsBtn.Text = "Refresh Notifications";
             this.refreshNotificationsBtn.UseVisualStyleBackColor = true;
             this.refreshNotificationsBtn.Click += new System.EventHandler(this.refreshNotificationsBtn_Click);
-            // 
-            // notificationsListBox
-            // 
-            this.notificationsListBox.CheckOnClick = true;
-            this.notificationsListBox.FormattingEnabled = true;
-            this.notificationsListBox.Items.AddRange(new object[] {
-            "test1",
-            "test2"});
-            this.notificationsListBox.Location = new System.Drawing.Point(12, 101);
-            this.notificationsListBox.Name = "notificationsListBox";
-            this.notificationsListBox.Size = new System.Drawing.Size(776, 334);
-            this.notificationsListBox.TabIndex = 2;
             // 
             // label4
             // 
@@ -92,12 +79,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.notificationsListBox);
             this.Controls.Add(this.refreshNotificationsBtn);
-            this.Controls.Add(this.showTestPopupBtn);
+            this.Controls.Add(this.markReadBtn);
             this.Name = "notifications";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -107,9 +94,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button showTestPopupBtn;
+        private System.Windows.Forms.Button markReadBtn;
         private System.Windows.Forms.Button refreshNotificationsBtn;
-        private System.Windows.Forms.CheckedListBox notificationsListBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
     }
