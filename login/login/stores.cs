@@ -12,6 +12,9 @@ namespace login
 {
     public partial class stores : Form
     {
+        // Load neccessities.
+        GlobalMethods GlobalMethods = new GlobalMethods();
+
         int Yposition = 1;
         public stores()
         {
@@ -57,6 +60,11 @@ namespace login
             itemContainer.Controls.Add(itemImg);
             itemContainer.Controls.Add(itemName);
             itemContainer.Controls.Add(itemBtn);
+        }
+
+        private void ToProducts_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(new products());
         }
     }
 }

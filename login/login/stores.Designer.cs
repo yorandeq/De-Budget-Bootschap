@@ -31,6 +31,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.ToProducts = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,12 +66,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Wat coole text hier";
             // 
+            // ToProducts
+            // 
+            this.ToProducts.Location = new System.Drawing.Point(713, 376);
+            this.ToProducts.Name = "ToProducts";
+            this.ToProducts.Size = new System.Drawing.Size(75, 23);
+            this.ToProducts.TabIndex = 2;
+            this.ToProducts.Text = "ToProducts";
+            this.ToProducts.UseVisualStyleBackColor = true;
+            this.ToProducts.Click += new System.EventHandler(this.ToProducts_Click);
+            // 
             // stores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 449);
+            this.Controls.Add(this.ToProducts);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Name = "stores";
@@ -86,5 +98,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button ToProducts;
     }
 }
