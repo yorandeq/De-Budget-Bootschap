@@ -17,15 +17,14 @@ namespace login
         // Load Neccessities.
         DataLayer DataLayer = new DataLayer();
         GlobalMethods GlobalMethods = new GlobalMethods();
-        
         List<Panel> NotificationPanels = new List<Panel>();
 
-        // Method for getting and showing unread user notifications. might later be placed into connection.cs
+        // Method for getting and showing unread user notifications.
         public void getUnreadUserNotifications()
         {
             int Yposition = 1;
 
-            DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 0",
+            DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 1",
             p => {
                 p.Add("@UserId", MySqlDbType.Int16, 255).Value = GlobalMethods.LoginInfo.UserID;
             });
@@ -81,7 +80,7 @@ namespace login
             }
         }
 
-        // Method for setting notifications that are checked to the read state. will also be placed into connection.cs later.
+        // Method for setting notifications that are checked to the read state.
         public void setReadNotifications()
         {
             foreach (Panel itemContainer in NotificationPanels)
@@ -90,14 +89,15 @@ namespace login
                 CheckBox itemCheckbox = itemContainer.Controls.Find("NotificationCheckbox", true)[0] as CheckBox;
                 Label itemId = itemContainer.Controls.Find("ItemId", true)[0] as Label;
 
-                // If the checkbox was checked, sets the state to 1.
+                // If the checkbox was checked, sets the state to 2 and removes the container.
                 if(itemCheckbox.Checked == true)
                 {
-                    DataTable setUserNotifications = DataLayer.Query("UPDATE notifications SET state = 1 WHERE notification_id = @NotificationId",
+                    DataTable setUserNotifications = DataLayer.Query("UPDATE notifications SET state = 2 WHERE notification_id = @NotificationId",
                     p =>
                     {
                         p.Add("@NotificationId", MySqlDbType.Int32, 255).Value = itemId.Text;
                     });
+                    itemContainer.Dispose();
                 }
             }
         }

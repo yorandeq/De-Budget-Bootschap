@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data;
 using Tulpep.NotificationWindow;
+using System.Timers;
 
 namespace login
 {
@@ -15,6 +16,7 @@ namespace login
         // Load Neccessities.
         DataLayer DataLayer = new DataLayer();
         GlobalMethods GlobalMethods = new GlobalMethods();
+        private static System.Timers.Timer notificationsTimer;
 
         // Method for creating a new account.
         public bool addAccount(string username, string password)
@@ -96,7 +98,7 @@ namespace login
                             GlobalMethods.LoginInfo.Username = (string)User["username"];
 
                             // Gets every notification of current user and displays the amount of unread notifications.
-                            DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 0",
+                            DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 0 OR state = 1",
                             p =>
                             {
                                 p.Add("@UserId", MySqlDbType.Int16, 255).Value = User["user_id"];
@@ -107,11 +109,11 @@ namespace login
                             {
                                 if (getUserNotifications.Rows.Count == 1)
                                 {
-                                    GlobalMethods.ShowPopupNotification("U hebt een notificatie", "Welkom " + User["username"] + ". U hebt " + getUserNotifications.Rows.Count + " ongelezen notificatie.", 10000);
+                                    GlobalMethods.ShowPopupNotification("Ongelezen notificatie", "Welkom " + User["username"] + ". U hebt " + getUserNotifications.Rows.Count + " ongelezen notificatie.", 10000);
                                 }
                                 else
                                 {
-                                    GlobalMethods.ShowPopupNotification("U hebt notificaties", "Welkom " + User["username"] + ". U hebt " + getUserNotifications.Rows.Count + " ongelezen notificaties.", 10000);
+                                    GlobalMethods.ShowPopupNotification("Ongelezen notificaties", "Welkom " + User["username"] + ". U hebt " + getUserNotifications.Rows.Count + " ongelezen notificaties.", 10000);
                                 }
                             }
                             else
@@ -127,6 +129,40 @@ namespace login
                     MessageBox.Show("Error: " + e);
                     return false;
                 }
+            }
+        }
+
+        // Used to start the timer for notification checking.
+        public void StartTimer()
+        {
+            notificationsTimer = new System.Timers.Timer(10000);
+            notificationsTimer.Elapsed += checkNewNotifications;
+            notificationsTimer.AutoReset = true;
+            notificationsTimer.Enabled = true;
+        }
+
+        // Method for getting and showing new notifications.
+        public void checkNewNotifications(Object source, ElapsedEventArgs e)
+        {
+            // Gets every notification from user with state 0.
+            DataTable NewNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 0;",
+            p =>
+            {
+                p.Add("@UserId", MySqlDbType.Int32, 255).Value = GlobalMethods.LoginInfo.UserID;
+            });
+            if (NewNotifications.Rows.Count > 0)
+            {
+                // Shows the notification. ShowPopupNotification has to be done with an invoke on the current active form to show properly.
+                Form.ActiveForm.Invoke((MethodInvoker)delegate
+                {
+                    GlobalMethods.ShowPopupNotification("Nieuwe Notificatie", (string)NewNotifications.Rows[0]["message"], 5000);
+                });
+                // Sets the shown notification to state 1.
+                DataTable setNewNotification = DataLayer.Query("UPDATE notifications SET state = 1 WHERE notification_id = @NotificationId",
+                p =>
+                {
+                    p.Add("@NotificationId", MySqlDbType.Int32, 255).Value = NewNotifications.Rows[0]["notification_id"];
+                });
             }
         }
     }

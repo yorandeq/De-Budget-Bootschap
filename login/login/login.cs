@@ -37,6 +37,7 @@ namespace login
             if (loggedin)
             {
                 GlobalMethods.SwitchForm(new notifications());
+                connection.StartTimer();
             }
         }
     }
