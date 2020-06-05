@@ -94,6 +94,7 @@ namespace login
                             // Stores user information in global methods.
                             GlobalMethods.LoginInfo.UserID = (int)User["user_id"];
                             GlobalMethods.LoginInfo.Username = (string)User["username"];
+                            GlobalMethods.LoginInfo.Admin = (int)User["admin"];
 
                             // Gets every notification of current user and displays the amount of unread notifications.
                             DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 0",

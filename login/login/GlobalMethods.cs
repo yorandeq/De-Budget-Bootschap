@@ -16,6 +16,7 @@ namespace login
         {
             public static int UserID;
             public static string Username;
+            public static int Admin;
         }
 
         // Method for switching forms quickly.
