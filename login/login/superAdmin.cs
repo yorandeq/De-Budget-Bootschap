@@ -63,9 +63,9 @@ namespace login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            hideSubmenu();
             panelAddAdmin.Visible = true;
             panelAddSupermarket.Visible = false;
+            hideSubmenu();
         }
 
         private void button1_Click(object sender, EventArgs e)
