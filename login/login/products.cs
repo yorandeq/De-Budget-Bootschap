@@ -15,6 +15,7 @@ namespace login
         // Load neccessities.
         GlobalMethods GlobalMethods = new GlobalMethods();
         connection connection = new connection();
+        DataLayer DataLayer = new DataLayer();
 
         int Yposition = 1;
 
@@ -25,7 +26,7 @@ namespace login
 
         private void products_Load(object sender, EventArgs e)
         {
-            DataTable aa = connection.query("SELECT brand, category FROM discount_offers");
+            DataTable aa = DataLayer.Query("SELECT brand, category FROM discount_offers", p => { });
             DataRow[] row = aa.Select();
             for (int i = 0; i < row.Length; i++)
             {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2020 at 03:03 PM
+-- Generation Time: Jun 08, 2020 at 02:07 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -67,6 +67,14 @@ CREATE TABLE `notifications` (
   `state` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`notification_id`, `user`, `message`, `state`) VALUES
+(1, 1, 'test notificatie 1', 1),
+(2, 1, 'test notificatie 2', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -104,7 +112,8 @@ CREATE TABLE `supermarkets` (
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `password` text NOT NULL,
+  `password_salt` text NOT NULL,
   `admin` int(1) NOT NULL,
   `admin_supermarket` int(11) DEFAULT NULL,
   `amount_shopped` int(11) NOT NULL
@@ -114,8 +123,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `admin`, `admin_supermarket`, `amount_shopped`) VALUES
-(1, 'user1', 'pass1', 0, NULL, 0);
+INSERT INTO `users` (`user_id`, `username`, `password`, `password_salt`, `admin`, `admin_supermarket`, `amount_shopped`) VALUES
+(1, 'user1', 'tcITXx4BpfwzK8ndFVPPAHWCgco3YHZCJJUau6V2pAw=', 'a/U5GbHautUG9OH2k1nDLcYUbEEJifrYTnt2QdATRac=', 0, NULL, 0),
+(2, 'user2', 'Ks4az6unlQJAoxXvGvfANK8gpoxyTDQ15F8SSP44b38=', 'GBxFOIYj12q++W7e/jZL5PummvYUtuy0KIjk3bleBRY=', 0, NULL, 0);
 
 --
 -- Indexes for dumped tables
@@ -184,7 +194,7 @@ ALTER TABLE `discount_products`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `registration`
@@ -202,7 +212,7 @@ ALTER TABLE `supermarkets`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
