@@ -57,7 +57,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.productsLabel);
             this.Controls.Add(this.offersLabel);
-            this.Controls.Add(this.Title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "products";
             this.ShowIcon = false;
