@@ -391,9 +391,11 @@
             this.Controls.Add(this.panelSuperAdmin);
             this.Controls.Add(this.panelSideMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "superAdmin";
-            this.Text = "Super Admin";
+            this.ShowIcon = false;
+            this.Text = "Super Admin - Budget Boodschapwijzer";
             this.panelSideMenu.ResumeLayout(false);
             this.panelSideMenu.PerformLayout();
             this.panelSubmenu.ResumeLayout(false);

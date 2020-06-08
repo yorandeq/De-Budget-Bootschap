@@ -27,7 +27,7 @@ namespace login
         private void saveStore(object storeId)
         {
             GlobalMethods.StoresInfo.StoreID = int.Parse(storeId.ToString());
-            GlobalMethods.SwitchForm(new products());
+            GlobalMethods.SwitchForm(this, new products());
         }
 
         private void stores_Load(object sender, EventArgs e)
@@ -106,7 +106,7 @@ namespace login
 
         private void ToProducts_Click(object sender, EventArgs e)
         {
-            GlobalMethods.SwitchForm(new products());
+            GlobalMethods.SwitchForm(this, new products());
         }
     }
 }

@@ -28,26 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Title = new System.Windows.Forms.Label();
+            this.offersLabel = new System.Windows.Forms.Label();
+            this.productsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Title
+            // offersLabel
             // 
-            this.Title.AutoSize = true;
-            this.Title.Location = new System.Drawing.Point(336, 22);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(26, 13);
-            this.Title.TabIndex = 0;
-            this.Title.Text = "Hey";
+            this.offersLabel.AutoSize = true;
+            this.offersLabel.Location = new System.Drawing.Point(104, 69);
+            this.offersLabel.Name = "offersLabel";
+            this.offersLabel.Size = new System.Drawing.Size(35, 13);
+            this.offersLabel.TabIndex = 0;
+            this.offersLabel.Text = "Offers";
+            // 
+            // productsLabel
+            // 
+            this.productsLabel.AutoSize = true;
+            this.productsLabel.Location = new System.Drawing.Point(553, 69);
+            this.productsLabel.Name = "productsLabel";
+            this.productsLabel.Size = new System.Drawing.Size(49, 13);
+            this.productsLabel.TabIndex = 1;
+            this.productsLabel.Text = "Products";
             // 
             // products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Title);
+            this.Controls.Add(this.productsLabel);
+            this.Controls.Add(this.offersLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "products";
-            this.Text = "Products";
+            this.ShowIcon = false;
+            this.Text = "Producten - Budget Boodschapwijzer";
             this.Load += new System.EventHandler(this.products_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -56,6 +69,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label Title;
+        private System.Windows.Forms.Label offersLabel;
+        private System.Windows.Forms.Label productsLabel;
     }
 }
