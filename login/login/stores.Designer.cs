@@ -74,8 +74,10 @@
             this.ClientSize = new System.Drawing.Size(800, 449);
             this.Controls.Add(this.ToProducts);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "stores";
-            this.Text = "stores";
+            this.ShowIcon = false;
+            this.Text = "Winkels - Budget Boodschapwijzer";
             this.Load += new System.EventHandler(this.stores_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

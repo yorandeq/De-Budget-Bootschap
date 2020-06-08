@@ -36,11 +36,11 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panelSuperAdmin = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.registerAcc = new System.Windows.Forms.Button();
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.txbUsrname = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelSideMenu.SuspendLayout();
             this.panelSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -58,7 +58,7 @@
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(267, 603);
+            this.panelSideMenu.Size = new System.Drawing.Size(200, 490);
             this.panelSideMenu.TabIndex = 17;
             // 
             // panelSubmenu
@@ -67,10 +67,10 @@
             this.panelSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.panelSubmenu.Controls.Add(this.navLogin);
             this.panelSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubmenu.Location = new System.Drawing.Point(0, 178);
+            this.panelSubmenu.Location = new System.Drawing.Point(0, 168);
             this.panelSubmenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubmenu.Name = "panelSubmenu";
-            this.panelSubmenu.Size = new System.Drawing.Size(267, 55);
+            this.panelSubmenu.Size = new System.Drawing.Size(200, 45);
             this.panelSubmenu.TabIndex = 2;
             // 
             // navLogin
@@ -84,7 +84,7 @@
             this.navLogin.Margin = new System.Windows.Forms.Padding(4);
             this.navLogin.Name = "navLogin";
             this.navLogin.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
-            this.navLogin.Size = new System.Drawing.Size(267, 55);
+            this.navLogin.Size = new System.Drawing.Size(200, 45);
             this.navLogin.TabIndex = 0;
             this.navLogin.Text = "Inloggen";
             this.navLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -98,11 +98,11 @@
             this.exit.FlatAppearance.BorderSize = 0;
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exit.ForeColor = System.Drawing.Color.Gainsboro;
-            this.exit.Location = new System.Drawing.Point(0, 548);
+            this.exit.Location = new System.Drawing.Point(0, 445);
             this.exit.Margin = new System.Windows.Forms.Padding(4);
             this.exit.Name = "exit";
             this.exit.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
-            this.exit.Size = new System.Drawing.Size(267, 55);
+            this.exit.Size = new System.Drawing.Size(200, 45);
             this.exit.TabIndex = 0;
             this.exit.Text = "Exit";
             this.exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -120,7 +120,7 @@
             this.navSidemenu.Margin = new System.Windows.Forms.Padding(4);
             this.navSidemenu.Name = "navSidemenu";
             this.navSidemenu.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.navSidemenu.Size = new System.Drawing.Size(267, 55);
+            this.navSidemenu.Size = new System.Drawing.Size(200, 45);
             this.navSidemenu.TabIndex = 1;
             this.navSidemenu.Text = "Heeft u al een account?";
             this.navSidemenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -133,7 +133,7 @@
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Margin = new System.Windows.Forms.Padding(4);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(267, 123);
+            this.panelLogo.Size = new System.Drawing.Size(200, 123);
             this.panelLogo.TabIndex = 0;
             // 
             // label6
@@ -144,7 +144,7 @@
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(267, 123);
+            this.label6.Size = new System.Drawing.Size(200, 123);
             this.label6.TabIndex = 0;
             this.label6.Text = "Registreren";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,37 +158,11 @@
             this.panelSuperAdmin.Controls.Add(this.txbPassword);
             this.panelSuperAdmin.Controls.Add(this.txbUsrname);
             this.panelSuperAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSuperAdmin.Location = new System.Drawing.Point(267, 0);
+            this.panelSuperAdmin.Location = new System.Drawing.Point(200, 0);
             this.panelSuperAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.panelSuperAdmin.Name = "panelSuperAdmin";
-            this.panelSuperAdmin.Size = new System.Drawing.Size(810, 603);
+            this.panelSuperAdmin.Size = new System.Drawing.Size(608, 490);
             this.panelSuperAdmin.TabIndex = 18;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(196, 277);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 16);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Wachtwoord:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(196, 214);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 16);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Gebruikersnaam:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // registerAcc
             // 
@@ -197,10 +171,10 @@
             this.registerAcc.FlatAppearance.BorderSize = 0;
             this.registerAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registerAcc.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.registerAcc.Location = new System.Drawing.Point(200, 338);
+            this.registerAcc.Location = new System.Drawing.Point(241, 291);
             this.registerAcc.Margin = new System.Windows.Forms.Padding(5);
             this.registerAcc.Name = "registerAcc";
-            this.registerAcc.Size = new System.Drawing.Size(132, 34);
+            this.registerAcc.Size = new System.Drawing.Size(176, 52);
             this.registerAcc.TabIndex = 13;
             this.registerAcc.Text = "Registreer";
             this.registerAcc.UseVisualStyleBackColor = false;
@@ -209,33 +183,55 @@
             // txbPassword
             // 
             this.txbPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbPassword.Location = new System.Drawing.Point(200, 302);
+            this.txbPassword.Location = new System.Drawing.Point(227, 261);
             this.txbPassword.Margin = new System.Windows.Forms.Padding(5);
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.PasswordChar = '*';
-            this.txbPassword.Size = new System.Drawing.Size(174, 22);
+            this.txbPassword.Size = new System.Drawing.Size(208, 22);
             this.txbPassword.TabIndex = 12;
             // 
             // txbUsrname
             // 
             this.txbUsrname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbUsrname.Location = new System.Drawing.Point(200, 239);
+            this.txbUsrname.Location = new System.Drawing.Point(227, 191);
             this.txbUsrname.Margin = new System.Windows.Forms.Padding(5);
             this.txbUsrname.Name = "txbUsrname";
-            this.txbUsrname.Size = new System.Drawing.Size(174, 22);
+            this.txbUsrname.Size = new System.Drawing.Size(208, 22);
             this.txbUsrname.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(238, 216);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(187, 40);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Wachtwoord:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(238, 146);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(187, 40);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Gebruikersnaam:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 603);
+            this.ClientSize = new System.Drawing.Size(808, 490);
             this.Controls.Add(this.panelSuperAdmin);
             this.Controls.Add(this.panelSideMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "register";
-            this.Text = "Register";
+            this.ShowIcon = false;
+            this.Text = "Registreren - Budget Boodschapwijzer";
             this.panelSideMenu.ResumeLayout(false);
             this.panelSideMenu.PerformLayout();
             this.panelSubmenu.ResumeLayout(false);
@@ -255,11 +251,11 @@
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panelSuperAdmin;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button registerAcc;
         private System.Windows.Forms.TextBox txbPassword;
         private System.Windows.Forms.TextBox txbUsrname;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

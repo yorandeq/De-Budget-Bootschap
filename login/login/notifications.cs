@@ -46,13 +46,14 @@ namespace login
                 Label itemId = new Label();
 
                 // Options
-                itemContainer.BackColor = SystemColors.ControlDark;
+                itemContainer.BackColor = Color.FromArgb(0, 128, 255);
                 itemContainer.Height = 30;
-                itemContainer.Width = 750;
+                itemContainer.Width = 580;
                 itemContainer.Top = 62 + Yposition * 40;
-                itemContainer.Left = 12;
+                itemContainer.Left = 211;
 
                 itemName.Text = (string)Notification["message"];
+                itemName.ForeColor = Color.WhiteSmoke;
                 itemName.Top = 10;
                 itemName.Left = 25;
                 itemName.Width = 750;
@@ -80,7 +81,7 @@ namespace login
             }
         }
 
-        // Method for setting notifications that are checked to the read state.
+        // Method for setting notifications that are checked to the read state in the database.
         public void setReadNotifications()
         {
             foreach (Panel itemContainer in NotificationPanels)
@@ -116,6 +117,16 @@ namespace login
         private void markReadBtn_Click(object sender, EventArgs e)
         {
             setReadNotifications();
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void navStores_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new stores());
         }
     }
 }

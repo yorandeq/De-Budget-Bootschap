@@ -23,7 +23,7 @@ namespace login
 
         private void navRegister_Click(object sender, EventArgs e)
         {
-            GlobalMethods.SwitchForm(new register());
+            GlobalMethods.SwitchForm(this, new register());
         }
 
         private void logout_Click(object sender, EventArgs e)
@@ -38,10 +38,10 @@ namespace login
             {
                 if(GlobalMethods.LoginInfo.Admin == 2)
                 {
-                    GlobalMethods.SwitchForm(new superAdmin());
+                    GlobalMethods.SwitchForm(this, new superAdmin());
                 } else
                 {
-                    GlobalMethods.SwitchForm(new stores());
+                    GlobalMethods.SwitchForm(this, new notifications());
                 }
                 connection.StartTimer();
             }

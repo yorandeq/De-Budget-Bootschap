@@ -98,7 +98,7 @@ namespace login
 
         private void ToProducts_Click(object sender, EventArgs e)
         {
-            GlobalMethods.SwitchForm(new products());
+            GlobalMethods.SwitchForm(this, new products());
         }
     }
 }
