@@ -27,7 +27,7 @@ namespace login
 
         private void products_Load(object sender, EventArgs e)
         {
-            DataTable offers = DataLayer.Query("SELECT brand, category FROM discount_offers", p => { });
+            DataTable offers = DataLayer.Query("SELECT brand, category, icon FROM discount_offers", p => { });
             DataRow[] offersRow = offers.Select();
             for (int i = 0; i < offersRow.Length; i++)
             {
@@ -35,6 +35,7 @@ namespace login
                 Panel itemContainer = new Panel();
                 PictureBox itemImg = new PictureBox();
                 Label itemName = new Label();
+                Label itemCategory = new Label();
                 Button itemBtn = new Button();
                 //options
                 itemContainer.BackColor = SystemColors.ControlDark;
@@ -43,21 +44,25 @@ namespace login
                 itemContainer.Top = YpositionOffers * 112;
                 itemContainer.Left = 12;
 
-                //itemImg.Image = Properties.Resources.albert_heijn;
-                //itemImg.SizeMode = PictureBoxSizeMode.Zoom;
-                //itemImg.Top = 10;
-                //itemImg.Left = 10;
-                //itemImg.Width = 80;
-                //itemImg.Height = 80;
+                itemImg.Image = Image.FromStream(GlobalMethods.convertImg(offersRow[i][2]));
+                itemImg.SizeMode = PictureBoxSizeMode.Zoom;
+                itemImg.Top = 10;
+                itemImg.Left = 10;
+                itemImg.Width = 80;
+                itemImg.Height = 80;
 
                 itemName.Text = offersRow[i][0].ToString();
-                itemName.Top = 10;
+                itemName.Top = 50;
                 itemName.Left = 110;
 
-                itemBtn.Text = offersRow[i][1].ToString();
+                itemCategory.Text = offersRow[i][1].ToString();
+                itemCategory.Top = 10;
+                itemCategory.Left = 110;
+
+                itemBtn.Text = "Kopen";
                 itemBtn.BackColor = SystemColors.Control;
                 itemBtn.Width = 80;
-                itemBtn.Top = 10;
+                itemBtn.Top = 75;
                 itemBtn.Left = 210;
 
                 //move next item down
@@ -67,10 +72,11 @@ namespace login
                 //add controls inside panel
                 itemContainer.Controls.Add(itemImg);
                 itemContainer.Controls.Add(itemName);
+                itemContainer.Controls.Add(itemCategory);
                 itemContainer.Controls.Add(itemBtn);
             }
 
-            DataTable products = DataLayer.Query("SELECT name, total_price FROM discount_products", p => { });
+            DataTable products = DataLayer.Query("SELECT name, total_price, icon FROM discount_products", p => { });
             DataRow[] productsRow = products.Select();
             for (int i = 0; i < productsRow.Length; i++)
             {
@@ -78,6 +84,7 @@ namespace login
                 Panel itemContainer = new Panel();
                 PictureBox itemImg = new PictureBox();
                 Label itemName = new Label();
+                Label itemPrice = new Label();
                 Button itemBtn = new Button();
                 //options
                 itemContainer.BackColor = SystemColors.ControlDark;
@@ -86,21 +93,25 @@ namespace login
                 itemContainer.Top = YpositionProducts * 112;
                 itemContainer.Left = 320;
 
-                //itemImg.Image = Properties.Resources.albert_heijn;
-                //itemImg.SizeMode = PictureBoxSizeMode.Zoom;
-                //itemImg.Top = 10;
-                //itemImg.Left = 10;
-                //itemImg.Width = 80;
-                //itemImg.Height = 80;
+                itemImg.Image = Image.FromStream(GlobalMethods.convertImg(productsRow[i][2]));
+                itemImg.SizeMode = PictureBoxSizeMode.Zoom;
+                itemImg.Top = 10;
+                itemImg.Left = 20;
+                itemImg.Width = 80;
+                itemImg.Height = 80;
 
                 itemName.Text = productsRow[i][0].ToString();
                 itemName.Top = 10;
                 itemName.Left = 110;
 
-                itemBtn.Text = productsRow[i][1].ToString();
+                itemPrice.Text = "Prijs: €" + productsRow[i][1].ToString();
+                itemPrice.Top = 50;
+                itemPrice.Left = 110;
+
+                itemBtn.Text = "Kopen";
                 itemBtn.BackColor = SystemColors.Control;
                 itemBtn.Width = 80;
-                itemBtn.Top = 10;
+                itemBtn.Top = 75;
                 itemBtn.Left = 210;
 
                 //move next item down
@@ -110,6 +121,7 @@ namespace login
                 //add controls inside panel
                 itemContainer.Controls.Add(itemImg);
                 itemContainer.Controls.Add(itemName);
+                itemContainer.Controls.Add(itemPrice);
                 itemContainer.Controls.Add(itemBtn);
             }
         }
