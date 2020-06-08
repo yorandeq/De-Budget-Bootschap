@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using System.IO;
 
 namespace login
 {
@@ -33,6 +34,20 @@ namespace login
             PopUp.ContentText = contentText;
             PopUp.Delay = PopupDuration;
             PopUp.Popup();
+        }
+
+        // Method for converting blobs from databases to MemoryStream wich can be used as for images
+        public MemoryStream convertImg(object img)
+        {
+            byte[] byteImg = (byte[])img;
+            MemoryStream msImg = new MemoryStream(byteImg);
+            return msImg;
+        }
+
+        //opensite
+        public void openSite(string href)
+        {
+            System.Diagnostics.Process.Start(href);
         }
     }
 }
