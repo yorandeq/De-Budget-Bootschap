@@ -23,6 +23,13 @@ namespace login
             InitializeComponent();
         }
 
+        //save what store is clicked and go to the product page
+        private void saveStore(object storeId)
+        {
+            GlobalMethods.StoresInfo.StoreID = int.Parse(storeId.ToString());
+            GlobalMethods.SwitchForm(new products());
+        }
+
         private void stores_Load(object sender, EventArgs e)
         {
             try
@@ -69,6 +76,7 @@ namespace login
                     offerBtn.Left = 410;
                     offerBtn.Width = 80;
                     offerBtn.Height = 40;
+                    offerBtn.Click += (obj, ev) => { saveStore(row["supermarket_id"]); };
 
                     siteBtn.Text = "Naar site";
                     siteBtn.BackColor = SystemColors.Control;
@@ -76,7 +84,7 @@ namespace login
                     siteBtn.Left = 410;
                     siteBtn.Width = 80;
                     siteBtn.Height = 40;
-                    siteBtn.Click += (obj, ev) => { GlobalMethods.openSite(row["link"].ToString()); };
+                    siteBtn.Click += (obj, ev) => { GlobalMethods.openSite(row["link"]); };
 
                     //move next item down
                     Yposition++;
@@ -90,9 +98,9 @@ namespace login
                     itemContainer.Controls.Add(siteBtn);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error: " + ex);
             }
         }
 
