@@ -43,6 +43,7 @@ namespace login
                 {
                     GlobalMethods.SwitchForm(new stores());
                 }
+                connection.StartTimer();
             }
         }
     }
