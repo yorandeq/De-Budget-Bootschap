@@ -57,8 +57,11 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.productsLabel);
             this.Controls.Add(this.offersLabel);
+            this.Controls.Add(this.Title);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "products";
-            this.Text = "Products";
+            this.ShowIcon = false;
+            this.Text = "Producten - Budget Boodschapwijzer";
             this.Load += new System.EventHandler(this.products_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
