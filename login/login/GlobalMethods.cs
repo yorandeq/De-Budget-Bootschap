@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using System.Timers;
 
 namespace login
 {
@@ -20,7 +21,7 @@ namespace login
         }
 
         // Method for switching forms quickly.
-        public void SwitchForm(dynamic newForm)
+        public void SwitchForm(Form newForm)
         {
             Form.ActiveForm.Hide();
             newForm.Show();
