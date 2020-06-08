@@ -25,9 +25,7 @@ namespace login
 
         private void Logout_Click(object sender, EventArgs e)
         {
-            var loginForm = (login)Tag;
-            loginForm.Show();
-            this.Close();
+            Close();
         }
 
         private void customizeDesign()

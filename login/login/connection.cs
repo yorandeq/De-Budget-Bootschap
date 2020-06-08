@@ -49,34 +49,28 @@ namespace login
                         byte[] SaltedHash = GlobalMethods.GenerateSaltedHash(Encoding.UTF8.GetBytes(password), NewSalt);
                         string SaltedHashString = Convert.ToBase64String(SaltedHash);
 
-                        // Inserts new account into database.
-                        DataLayer.Query("INSERT INTO `users` (username, password, password_salt, admin, amount_shopped) VALUES (@Username, @Password, @PasswordSalt, 0, 0);",
-                        p =>
-                        {
-                            p.Add("@Username", MySqlDbType.VarChar, 255).Value = username;
-                            p.Add("@Password", MySqlDbType.VarChar, 255).Value = SaltedHashString;
-                            p.Add("@PasswordSalt", MySqlDbType.VarChar, 255).Value = NewSaltString;
-                        });
                         MessageBox.Show("uw account is toegevoegd!");
                         if (superAdminCheck == true) 
                         {
-                            DataLayer.Query("INSERT INTO `users` (username, password, admin, amount_shopped) VALUES (@Username, @Password, 1, 0);",
+                            DataLayer.Query("INSERT INTO `users` (username, password, password_salt, admin, amount_shopped) VALUES (@Username, @Password, @PasswordSalt, 1, 0);",
                             p =>
                             {
                                 p.Add("@Username", MySqlDbType.VarChar, 255).Value = username;
-                                p.Add("@Password", MySqlDbType.VarChar, 255).Value = password;
+                                p.Add("@Password", MySqlDbType.VarChar, 255).Value = SaltedHashString;
+                                p.Add("@PasswordSalt", MySqlDbType.VarChar, 255).Value = NewSaltString;
                             });
                                 MessageBox.Show("uw supermarkt admin account is toegevoegd!");
                         } 
                         else
                         {
-                            DataLayer.Query("INSERT INTO `users` (username, password, admin, amount_shopped) VALUES (@Username, @Password, 0, 0);",
+                            // Inserts new account into database.
+                            DataLayer.Query("INSERT INTO `users` (username, password, password_salt, admin, amount_shopped) VALUES (@Username, @Password, @PasswordSalt, 0, 0);",
                             p =>
                             {
                                 p.Add("@Username", MySqlDbType.VarChar, 255).Value = username;
-                                p.Add("@Password", MySqlDbType.VarChar, 255).Value = password;
+                                p.Add("@Password", MySqlDbType.VarChar, 255).Value = SaltedHashString;
+                                p.Add("@PasswordSalt", MySqlDbType.VarChar, 255).Value = NewSaltString;
                             });
-                                MessageBox.Show("uw account is toegevoegd!");
                         }
                         return true;
                     }
