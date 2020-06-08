@@ -25,7 +25,8 @@ namespace login
 
         private void registerAcc_Click(object sender, EventArgs e)
         {
-            bool createdAcc = connection.addAccount(txbUsrname.Text, txbPassword.Text);
+            bool superAdminCheck = false;
+            bool createdAcc = connection.addAccount(txbUsrname.Text, txbPassword.Text, superAdminCheck);
             if (createdAcc)
             {
                 GlobalMethods.SwitchForm(new login());

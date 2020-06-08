@@ -8,6 +8,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using Tulpep.NotificationWindow;
 using System.Timers;
+using System.Drawing;
 
 namespace login
 {
@@ -19,7 +20,7 @@ namespace login
         private static System.Timers.Timer notificationsTimer;
 
         // Method for creating a new account.
-        public bool addAccount(string username, string password)
+        public bool addAccount(string username, string password, bool superAdminCheck)
         {
             // Check if user has filled in the textboxes.
             if (username == "" || password == "")
@@ -40,13 +41,26 @@ namespace login
                     // Checks if user already exists in database. If it already exists, shows a MessageBox.
                     if (GetUsernameUsers.Rows.Count <= 0)
                     {
-                        DataLayer.Query("INSERT INTO `users` (username, password, admin, amount_shopped) VALUES (@Username, @Password, 0, 0);",
-                        p =>
+                        if (superAdminCheck == true) 
                         {
-                            p.Add("@Username", MySqlDbType.VarChar, 255).Value = username;
-                            p.Add("@Password", MySqlDbType.VarChar, 255).Value = password;
-                        });
-                        MessageBox.Show("uw account is toegevoegd!");
+                            DataLayer.Query("INSERT INTO `users` (username, password, admin, amount_shopped) VALUES (@Username, @Password, 1, 0);",
+                            p =>
+                            {
+                                p.Add("@Username", MySqlDbType.VarChar, 255).Value = username;
+                                p.Add("@Password", MySqlDbType.VarChar, 255).Value = password;
+                            });
+                                MessageBox.Show("uw supermarkt admin account is toegevoegd!");
+                        } 
+                        else
+                        {
+                            DataLayer.Query("INSERT INTO `users` (username, password, admin, amount_shopped) VALUES (@Username, @Password, 0, 0);",
+                            p =>
+                            {
+                                p.Add("@Username", MySqlDbType.VarChar, 255).Value = username;
+                                p.Add("@Password", MySqlDbType.VarChar, 255).Value = password;
+                            });
+                                MessageBox.Show("uw account is toegevoegd!");
+                        }
                         return true;
                     }
                     else
@@ -164,6 +178,51 @@ namespace login
                 {
                     p.Add("@NotificationId", MySqlDbType.Int32, 255).Value = NewNotifications.Rows[0]["notification_id"];
                 });
+            }
+        }
+
+        // Method for adding a new supermarket to the database
+        public bool addSupermarket(string superMarketName, string superMarketDesc, string superMarketLink)
+        {
+            if (superMarketName == "" || superMarketDesc == "" || superMarketLink == "")
+            {
+                MessageBox.Show("Voer alle velden in om een supermarkt toetevoegen");
+                return false;
+            }
+            else
+            {
+                try
+                {
+                    DataTable GetSupermarketNames = DataLayer.Query("SELECT name FROM supermarkets WHERE name = @SupermarketName;",
+                        p =>
+                        {
+                            p.Add("@SupermarketName", MySqlDbType.VarChar, 255).Value = superMarketName;
+                        });
+
+                    // Checks if supermarket already exists in database. If it already exists, shows a MessageBox.
+                    if (GetSupermarketNames.Rows.Count <= 0)
+                    {
+                        DataLayer.Query("INSERT INTO `supermarkets` (name, description, link) VALUES (@Name, @Description, @Link);",
+                        p =>
+                        {
+                            p.Add("@Name", MySqlDbType.VarChar, 255).Value = superMarketName;
+                            p.Add("@Description", MySqlDbType.VarChar, 255).Value = superMarketDesc;
+                            p.Add("@Link", MySqlDbType.VarChar, 255).Value = superMarketLink;
+                        });
+                        MessageBox.Show("De supermarkt is toegevoegd!");
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("De supermarkt '" + superMarketName + "' bestaat al.");
+                        return false;
+                    }
+                }
+                catch (Exception e) // Catches any errors.
+                {
+                    MessageBox.Show("Error: " + e);
+                    return false;
+                }
             }
         }
     }

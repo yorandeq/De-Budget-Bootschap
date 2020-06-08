@@ -12,6 +12,11 @@ namespace login
 {
     public partial class superAdmin : Form
     {
+        // Load neccessities.
+        GlobalMethods GlobalMethods = new GlobalMethods();
+        connection connection = new connection();
+        OpenFileDialog open = new OpenFileDialog();
+
         public superAdmin()
         {
             InitializeComponent();
@@ -59,11 +64,32 @@ namespace login
         private void button2_Click(object sender, EventArgs e)
         {
             hideSubmenu();
+            panelAddAdmin.Visible = true;
+            panelAddSupermarket.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            panelAddSupermarket.Visible = true;
+            panelAddAdmin.Visible = false;
             hideSubmenu();
+        }
+
+        private void addAdmin_Click(object sender, EventArgs e)
+        {
+            bool superAdminCheck = true;
+            connection.addAccount(txbAddUsrname.Text, txbAddPassword.Text, superAdminCheck);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            open.Filter = "Files|*.jpg;*.jpeg;*.png";
+            open.Title = "Please select an image file to encrypt.";
+        }
+
+        private void addSupermarket_Click(object sender, EventArgs e)
+        {
+            bool createSupermarket = connection.addSupermarket(txbSupermarketName.Text, txbDescription.Text, txbLink.Text);
         }
     }
 }
