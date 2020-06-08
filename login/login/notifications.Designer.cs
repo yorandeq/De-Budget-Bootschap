@@ -138,6 +138,7 @@
             this.navSuperadmin.Text = "Superadmin paneel";
             this.navSuperadmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.navSuperadmin.UseVisualStyleBackColor = false;
+            this.navSuperadmin.Click += new System.EventHandler(this.navSuperadmin_Click);
             // 
             // navNotifications
             // 

@@ -128,5 +128,17 @@ namespace login
         {
             GlobalMethods.SwitchForm(this, new stores());
         }
+
+        private void navSuperadmin_Click(object sender, EventArgs e)
+        {
+            if (GlobalMethods.LoginInfo.Admin == 2)
+            {
+                GlobalMethods.SwitchForm(this, new superAdmin());
+            }
+            else
+            {
+                MessageBox.Show("U bent niet gemachtigt om daar naar toe te gaan.");
+            }
+        }
     }
 }

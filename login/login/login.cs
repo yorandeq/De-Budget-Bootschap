@@ -36,13 +36,7 @@ namespace login
             bool loggedin = connection.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text);
             if (loggedin)
             {
-                if(GlobalMethods.LoginInfo.Admin == 2)
-                {
-                    GlobalMethods.SwitchForm(this, new superAdmin());
-                } else
-                {
-                    GlobalMethods.SwitchForm(this, new notifications());
-                }
+                GlobalMethods.SwitchForm(this, new notifications());
                 connection.StartTimer();
             }
         }
