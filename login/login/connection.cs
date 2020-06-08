@@ -41,6 +41,23 @@ namespace login
                     // Checks if user already exists in database. If it already exists, shows a MessageBox.
                     if (GetUsernameUsers.Rows.Count <= 0)
                     {
+                        // Generates a new salt and the string to be saved into database.
+                        byte[] NewSalt = GlobalMethods.GetSalt();
+                        string NewSaltString = Convert.ToBase64String(NewSalt);
+
+                        // Generates a salted hash and the string to be saved into database. Password plaintext has to be converted to bytes array to be properly hashed with salt.
+                        byte[] SaltedHash = GlobalMethods.GenerateSaltedHash(Encoding.UTF8.GetBytes(password), NewSalt);
+                        string SaltedHashString = Convert.ToBase64String(SaltedHash);
+
+                        // Inserts new account into database.
+                        DataLayer.Query("INSERT INTO `users` (username, password, password_salt, admin, amount_shopped) VALUES (@Username, @Password, @PasswordSalt, 0, 0);",
+                        p =>
+                        {
+                            p.Add("@Username", MySqlDbType.VarChar, 255).Value = username;
+                            p.Add("@Password", MySqlDbType.VarChar, 255).Value = SaltedHashString;
+                            p.Add("@PasswordSalt", MySqlDbType.VarChar, 255).Value = NewSaltString;
+                        });
+                        MessageBox.Show("uw account is toegevoegd!");
                         if (superAdminCheck == true) 
                         {
                             DataLayer.Query("INSERT INTO `users` (username, password, admin, amount_shopped) VALUES (@Username, @Password, 1, 0);",
@@ -90,53 +107,64 @@ namespace login
             {
                 try
                 {
-                    DataTable GetUser = DataLayer.Query("SELECT user_id, admin, username, password FROM users WHERE username = @loginUsername AND password = @loginPassword;",
-                        p =>
-                        {
-                            p.Add("@loginUsername", MySqlDbType.VarChar, 255).Value = loginUsername;
-                            p.Add("@loginPassword", MySqlDbType.VarChar, 255).Value = loginPassword;
-                        });
-                    // Checks if username and password combination exists.
-                    if (GetUser.Rows.Count <= 0 && GetUser != null)
+                    DataTable GetUsers = DataLayer.Query("SELECT user_id, admin, username, password, password_salt FROM users;", p => {});
+                    if(GetUsers.Rows.Count >= 0 || GetUsers != null)
                     {
-                        MessageBox.Show("Uw account bestaat niet of uw gegevens waren onjuist.");
-                        return false;
-                    }
-                    else
-                    {
-                        // Cycles through query result of GetUser.
-                        foreach (DataRow User in GetUser.Select())
+                        foreach (DataRow User in GetUsers.Select())
                         {
-                            // Stores user information in global methods.
-                            GlobalMethods.LoginInfo.UserID = (int)User["user_id"];
-                            GlobalMethods.LoginInfo.Username = (string)User["username"];
-                            GlobalMethods.LoginInfo.Admin = (int)User["admin"];
+                            // Gets the salt byte array from the selected user.
+                            string SaltString = (string)User["password_salt"];
+                            byte[] Salt = Convert.FromBase64String(SaltString);
 
-                            // Gets every notification of current user and displays the amount of unread notifications.
-                            DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 0 OR state = 1",
-                            p =>
-                            {
-                                p.Add("@UserId", MySqlDbType.Int16, 255).Value = User["user_id"];
-                            });
+                            // Gets the user password hash byte array from the selected user.
+                            string UserPasswordHashString = (string)User["password"];
+                            byte[] UserPasswordHash = Convert.FromBase64String(UserPasswordHashString);
 
-                            // Checks if user has unread notifications and displays a notification if so.
-                            if (getUserNotifications.Rows.Count > 0)
+                            // Using the salt byte array from the selected user, generates a new salted hash with the typed in login password.
+                            byte[] LoginPasswordHash = GlobalMethods.GenerateSaltedHash(Encoding.UTF8.GetBytes(loginPassword), Salt);
+
+                            // Checks if the typed in username is the same username and compares the password hash from the database with the password hash from the typed in login password.
+                            if (loginUsername == (string)User["username"] && GlobalMethods.CompareByteArrays(UserPasswordHash, LoginPasswordHash))
                             {
-                                if (getUserNotifications.Rows.Count == 1)
+                                // Stores user information in global methods.
+                                GlobalMethods.LoginInfo.UserID = (int)User["user_id"];
+                                GlobalMethods.LoginInfo.Username = (string)User["username"];
+                                GlobalMethods.LoginInfo.Admin = (int)User["admin"];
+
+                                // Gets every notification of current user and displays the amount of unread notifications.
+                                DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE (user = @UserId AND state = 0) OR (user = @UserId2 AND state = 1)",
+                                p =>
                                 {
-                                    GlobalMethods.ShowPopupNotification("Ongelezen notificatie", "Welkom " + User["username"] + ". U hebt " + getUserNotifications.Rows.Count + " ongelezen notificatie.", 10000);
+                                    p.Add("@UserId", MySqlDbType.Int16, 255).Value = User["user_id"];
+                                    p.Add("@UserId2", MySqlDbType.Int16, 255).Value = User["user_id"];
+                                });
+
+                                // Checks if user has unread notifications and displays a notification if so.
+                                if (getUserNotifications.Rows.Count > 0)
+                                {
+                                    if (getUserNotifications.Rows.Count == 1)
+                                    {
+                                        GlobalMethods.ShowPopupNotification("Ongelezen notificatie", "Welkom " + User["username"] + ". U hebt " + getUserNotifications.Rows.Count + " ongelezen notificatie.", 10000);
+                                    }
+                                    else
+                                    {
+                                        GlobalMethods.ShowPopupNotification("Ongelezen notificaties", "Welkom " + User["username"] + ". U hebt " + getUserNotifications.Rows.Count + " ongelezen notificaties.", 10000);
+                                    }
                                 }
                                 else
                                 {
-                                    GlobalMethods.ShowPopupNotification("Ongelezen notificaties", "Welkom " + User["username"] + ". U hebt " + getUserNotifications.Rows.Count + " ongelezen notificaties.", 10000);
+                                    GlobalMethods.ShowPopupNotification("Ingelogd", "Welkom " + User["username"] + ". U hebt geen ongelezen notificaties.", 5000);
                                 }
-                            }
-                            else
-                            {
-                                GlobalMethods.ShowPopupNotification("Ingelogd", "Welkom " + User["username"] + ". U hebt geen ongelezen notificaties.", 5000);
+                                return true;
                             }
                         }
-                        return true;
+                        MessageBox.Show("Uw account bestaat niet of uw gegevens waren onjuist."); // If no user matched the username and password combination.
+                        return false;
+                    }
+                    else // If there are no results from the user query.
+                    {
+                        MessageBox.Show("Er ging iets mis met de verbinding.");
+                        return false;
                     }
                 }
                 catch (Exception e) // Catches any errors.
@@ -167,8 +195,11 @@ namespace login
             });
             if (NewNotifications.Rows.Count > 0)
             {
+                // Gets current opened form.
+                var CurrentOpenForm = Application.OpenForms[0];
+
                 // Shows the notification. ShowPopupNotification has to be done with an invoke on the current active form to show properly.
-                Form.ActiveForm.Invoke((MethodInvoker)delegate
+                CurrentOpenForm.Invoke((MethodInvoker)delegate
                 {
                     GlobalMethods.ShowPopupNotification("Nieuwe Notificatie", (string)NewNotifications.Rows[0]["message"], 5000);
                 });
