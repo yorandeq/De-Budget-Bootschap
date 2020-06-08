@@ -17,7 +17,6 @@ namespace login
 
         int Yposition = 1;
         DataLayer DataLayer = new DataLayer();
-        GlobalMethods GlobalMethods = new GlobalMethods();
 
         public stores()
         {
