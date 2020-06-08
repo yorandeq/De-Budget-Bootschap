@@ -22,6 +22,13 @@ namespace login
             public static int Admin;
         }
 
+        // Used to store info about what stores and products have been selected
+        public static class StoresInfo
+        {
+            public static int StoreID;
+            public static int ProductID;
+        }
+
         // Method for switching forms quickly.
         public void SwitchForm(Form newForm)
         {
@@ -94,9 +101,9 @@ namespace login
         }
 
         //opensite
-        public void openSite(string href)
+        public void openSite(object href)
         {
-            System.Diagnostics.Process.Start(href);
+            System.Diagnostics.Process.Start(href.ToString());
         }
     }
 }
