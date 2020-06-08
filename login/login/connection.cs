@@ -166,5 +166,15 @@ namespace login
                 });
             }
         }
+        public DataTable query(string query)
+        {
+            DataTable table = DataLayer.Query(query,
+                parameters =>
+                {
+                    
+                });
+
+            return table;
+        }
     }
 }

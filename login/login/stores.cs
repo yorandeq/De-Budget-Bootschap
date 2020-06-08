@@ -12,6 +12,9 @@ namespace login
 {
     public partial class stores : Form
     {
+        // Load neccessities.
+        GlobalMethods GlobalMethods = new GlobalMethods();
+
         int Yposition = 1;
         DataLayer DataLayer = new DataLayer();
         GlobalMethods GlobalMethods = new GlobalMethods();
@@ -92,6 +95,11 @@ namespace login
             {
 
             }
+        }
+
+        private void ToProducts_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(new products());
         }
     }
 }
