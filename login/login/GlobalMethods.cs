@@ -8,6 +8,7 @@ using Tulpep.NotificationWindow;
 using System.IO;
 using System.Timers;
 using System.Security.Cryptography;
+using System.Drawing;
 
 namespace login
 {
@@ -98,6 +99,14 @@ namespace login
             byte[] byteImg = (byte[])img;
             MemoryStream msImg = new MemoryStream(byteImg);
             return msImg;
+        }
+
+        //Method for converting images to Byte array
+        public static byte[] ImageToByteArray(Image imageIn)
+        {
+            var ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+            return ms.ToArray();
         }
 
         //opensite

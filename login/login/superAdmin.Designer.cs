@@ -184,8 +184,8 @@
             // panelSuperAdmin
             // 
             this.panelSuperAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.panelSuperAdmin.Controls.Add(this.panelAddAdmin);
             this.panelSuperAdmin.Controls.Add(this.panelAddSupermarket);
+            this.panelSuperAdmin.Controls.Add(this.panelAddAdmin);
             this.panelSuperAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSuperAdmin.Location = new System.Drawing.Point(267, 0);
             this.panelSuperAdmin.Margin = new System.Windows.Forms.Padding(4);

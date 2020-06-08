@@ -207,7 +207,7 @@ namespace login
         }
 
         // Method for adding a new supermarket to the database
-        public bool addSupermarket(string superMarketName, string superMarketDesc, string superMarketLink)
+        public bool addSupermarket(string superMarketName, string superMarketDesc, string superMarketLink, byte[] blobImg)
         {
             if (superMarketName == "" || superMarketDesc == "" || superMarketLink == "")
             {
@@ -227,10 +227,11 @@ namespace login
                     // Checks if supermarket already exists in database. If it already exists, shows a MessageBox.
                     if (GetSupermarketNames.Rows.Count <= 0)
                     {
-                        DataLayer.Query("INSERT INTO `supermarkets` (name, description, link) VALUES (@Name, @Description, @Link);",
+                        DataLayer.Query("INSERT INTO `supermarkets` (name, icon, description, link) VALUES (@Name, @Icon, @Description, @Link);",
                         p =>
                         {
                             p.Add("@Name", MySqlDbType.VarChar, 255).Value = superMarketName;
+                            p.Add("@Icon", MySqlDbType.LongBlob, 255).Value = blobImg;
                             p.Add("@Description", MySqlDbType.VarChar, 255).Value = superMarketDesc;
                             p.Add("@Link", MySqlDbType.VarChar, 255).Value = superMarketLink;
                         });

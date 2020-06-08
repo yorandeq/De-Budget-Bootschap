@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -83,11 +84,15 @@ namespace login
         {
             open.Filter = "Files|*.jpg;*.jpeg;*.png";
             open.Title = "Please select an image file to encrypt.";
+            if(open.ShowDialog() == DialogResult.OK) {
+            }
         }
 
         private void addSupermarket_Click(object sender, EventArgs e)
         {
-            bool createSupermarket = connection.addSupermarket(txbSupermarketName.Text, txbDescription.Text, txbLink.Text);
+            Image superMarketImg = new Bitmap(open.FileName);
+            byte[] blobData = GlobalMethods.ImageToByteArray(superMarketImg);
+            bool createSupermarket = connection.addSupermarket(txbSupermarketName.Text, txbDescription.Text, txbLink.Text, blobData);
         }
     }
 }
