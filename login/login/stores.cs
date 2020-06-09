@@ -45,11 +45,11 @@ namespace login
                     Button offerBtn = new Button();
                     Button siteBtn = new Button();
                     //options
-                    itemContainer.BackColor = SystemColors.ControlDark;
+                    itemContainer.BackColor = ColorTranslator.FromHtml("#ff9e66");
                     itemContainer.Height = 100;
                     itemContainer.Width = 500;
                     itemContainer.Top = Yposition * 112;
-                    itemContainer.Left = 12;
+                    itemContainer.Left = 207;
 
                     itemImg.Image = Image.FromStream(GlobalMethods.convertImg(row["icon"]));
                     itemImg.SizeMode = PictureBoxSizeMode.Zoom;
@@ -71,19 +71,23 @@ namespace login
                     itemDesc.Height = 58;
 
                     offerBtn.Text = "Naar offers";
-                    offerBtn.BackColor = SystemColors.Control;
+                    offerBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                    offerBtn.ForeColor = SystemColors.Window;
                     offerBtn.Top = 10;
                     offerBtn.Left = 410;
                     offerBtn.Width = 80;
                     offerBtn.Height = 40;
+                    offerBtn.FlatStyle = FlatStyle.Flat;
                     offerBtn.Click += (obj, ev) => { saveStore(row["supermarket_id"]); };
 
                     siteBtn.Text = "Naar site";
-                    siteBtn.BackColor = SystemColors.Control;
+                    siteBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                    siteBtn.ForeColor = SystemColors.Window;
                     siteBtn.Top = 50;
                     siteBtn.Left = 410;
                     siteBtn.Width = 80;
                     siteBtn.Height = 40;
+                    siteBtn.FlatStyle = FlatStyle.Flat;
                     siteBtn.Click += (obj, ev) => { GlobalMethods.openSite(row["link"]); };
 
                     //move next item down
@@ -107,6 +111,16 @@ namespace login
         private void ToProducts_Click(object sender, EventArgs e)
         {
             GlobalMethods.SwitchForm(this, new products());
+        }
+
+        private void navNotifications_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new notifications());
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
