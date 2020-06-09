@@ -27,7 +27,13 @@ namespace login
         public static class StoresInfo
         {
             public static int StoreID;
-            public static int ProductID;
+            //public static int ProductID;
+        }
+
+        // Saves image to sent it to the database
+        public static class ImageInfo
+        {
+            public static byte[] ImageFile;
         }
 
         // Method for switching forms quickly.
@@ -108,6 +114,20 @@ namespace login
             var ms = new MemoryStream();
             imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
             return ms.ToArray();
+        }
+
+        // Method for picking a file
+        public void openFile()
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Files|*.jpg;*.jpeg;*.png";
+            open.Title = "Please select an image file to encrypt.";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                Image superMarketImg = new Bitmap(open.FileName);
+                byte[] blobData = ImageToByteArray(superMarketImg);
+                ImageInfo.ImageFile = blobData;
+            }
         }
 
         //opensite

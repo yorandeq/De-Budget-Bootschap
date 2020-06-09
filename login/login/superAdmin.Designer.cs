@@ -37,12 +37,6 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelSuperAdmin = new System.Windows.Forms.Panel();
-            this.panelAddAdmin = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.addAdmin = new System.Windows.Forms.Button();
-            this.txbAddPassword = new System.Windows.Forms.TextBox();
-            this.txbAddUsrname = new System.Windows.Forms.TextBox();
             this.panelAddSupermarket = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,12 +47,22 @@
             this.addSupermarket = new System.Windows.Forms.Button();
             this.txbDescription = new System.Windows.Forms.TextBox();
             this.txbSupermarketName = new System.Windows.Forms.TextBox();
+            this.panelAddAdmin = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.addAdmin = new System.Windows.Forms.Button();
+            this.txbAddPassword = new System.Windows.Forms.TextBox();
+            this.txbAddUsrname = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txbMarketName = new System.Windows.Forms.TextBox();
             this.panelSideMenu.SuspendLayout();
             this.panelSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelSuperAdmin.SuspendLayout();
-            this.panelAddAdmin.SuspendLayout();
             this.panelAddSupermarket.SuspendLayout();
+            this.panelAddAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
             // logout
@@ -118,7 +122,7 @@
             this.button1.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(267, 55);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Supermarkten";
+            this.button1.Text = "Supermarkt toevoegen";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -135,7 +139,7 @@
             this.button2.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
             this.button2.Size = new System.Drawing.Size(267, 55);
             this.button2.TabIndex = 0;
-            this.button2.Text = "Supermarkt Admins";
+            this.button2.Text = "Supermarkt admin toevoegen";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -184,8 +188,8 @@
             // panelSuperAdmin
             // 
             this.panelSuperAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.panelSuperAdmin.Controls.Add(this.panelAddSupermarket);
             this.panelSuperAdmin.Controls.Add(this.panelAddAdmin);
+            this.panelSuperAdmin.Controls.Add(this.panelAddSupermarket);
             this.panelSuperAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSuperAdmin.Location = new System.Drawing.Point(267, 0);
             this.panelSuperAdmin.Margin = new System.Windows.Forms.Padding(4);
@@ -193,79 +197,10 @@
             this.panelSuperAdmin.Size = new System.Drawing.Size(541, 490);
             this.panelSuperAdmin.TabIndex = 2;
             // 
-            // panelAddAdmin
-            // 
-            this.panelAddAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.panelAddAdmin.Controls.Add(this.label4);
-            this.panelAddAdmin.Controls.Add(this.label5);
-            this.panelAddAdmin.Controls.Add(this.addAdmin);
-            this.panelAddAdmin.Controls.Add(this.txbAddPassword);
-            this.panelAddAdmin.Controls.Add(this.txbAddUsrname);
-            this.panelAddAdmin.Location = new System.Drawing.Point(8, 13);
-            this.panelAddAdmin.Margin = new System.Windows.Forms.Padding(4);
-            this.panelAddAdmin.Name = "panelAddAdmin";
-            this.panelAddAdmin.Size = new System.Drawing.Size(520, 464);
-            this.panelAddAdmin.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(167, 204);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(187, 40);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Wachtwoord:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(167, 134);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 40);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Gebruikersnaam:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // addAdmin
-            // 
-            this.addAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.addAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.addAdmin.FlatAppearance.BorderSize = 0;
-            this.addAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(102)))));
-            this.addAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addAdmin.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.addAdmin.Location = new System.Drawing.Point(170, 278);
-            this.addAdmin.Margin = new System.Windows.Forms.Padding(4);
-            this.addAdmin.Name = "addAdmin";
-            this.addAdmin.Size = new System.Drawing.Size(176, 52);
-            this.addAdmin.TabIndex = 18;
-            this.addAdmin.Text = "Registreer";
-            this.addAdmin.UseVisualStyleBackColor = false;
-            this.addAdmin.Click += new System.EventHandler(this.addAdmin_Click);
-            // 
-            // txbAddPassword
-            // 
-            this.txbAddPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbAddPassword.Location = new System.Drawing.Point(156, 248);
-            this.txbAddPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txbAddPassword.Name = "txbAddPassword";
-            this.txbAddPassword.PasswordChar = '*';
-            this.txbAddPassword.Size = new System.Drawing.Size(208, 22);
-            this.txbAddPassword.TabIndex = 17;
-            // 
-            // txbAddUsrname
-            // 
-            this.txbAddUsrname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbAddUsrname.Location = new System.Drawing.Point(156, 178);
-            this.txbAddUsrname.Margin = new System.Windows.Forms.Padding(4);
-            this.txbAddUsrname.Name = "txbAddUsrname";
-            this.txbAddUsrname.Size = new System.Drawing.Size(208, 22);
-            this.txbAddUsrname.TabIndex = 16;
-            // 
             // panelAddSupermarket
             // 
             this.panelAddSupermarket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.panelAddSupermarket.Controls.Add(this.label9);
             this.panelAddSupermarket.Controls.Add(this.button3);
             this.panelAddSupermarket.Controls.Add(this.label7);
             this.panelAddSupermarket.Controls.Add(this.txbLink);
@@ -289,7 +224,7 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button3.Location = new System.Drawing.Point(205, 335);
+            this.button3.Location = new System.Drawing.Point(201, 355);
             this.button3.Margin = new System.Windows.Forms.Padding(1);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(108, 28);
@@ -301,7 +236,7 @@
             // label7
             // 
             this.label7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label7.Location = new System.Drawing.Point(167, 290);
+            this.label7.Location = new System.Drawing.Point(167, 305);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(187, 40);
             this.label7.TabIndex = 28;
@@ -311,7 +246,7 @@
             // txbLink
             // 
             this.txbLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbLink.Location = new System.Drawing.Point(156, 264);
+            this.txbLink.Location = new System.Drawing.Point(156, 279);
             this.txbLink.Margin = new System.Windows.Forms.Padding(4);
             this.txbLink.Name = "txbLink";
             this.txbLink.Size = new System.Drawing.Size(208, 22);
@@ -320,7 +255,7 @@
             // label6
             // 
             this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label6.Location = new System.Drawing.Point(167, 220);
+            this.label6.Location = new System.Drawing.Point(167, 227);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(187, 40);
             this.label6.TabIndex = 26;
@@ -330,7 +265,7 @@
             // label2
             // 
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(167, 104);
+            this.label2.Location = new System.Drawing.Point(167, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 40);
             this.label2.TabIndex = 25;
@@ -355,7 +290,7 @@
             this.addSupermarket.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(102)))));
             this.addSupermarket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addSupermarket.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.addSupermarket.Location = new System.Drawing.Point(170, 385);
+            this.addSupermarket.Location = new System.Drawing.Point(170, 393);
             this.addSupermarket.Margin = new System.Windows.Forms.Padding(4);
             this.addSupermarket.Name = "addSupermarket";
             this.addSupermarket.Size = new System.Drawing.Size(176, 52);
@@ -367,7 +302,7 @@
             // txbDescription
             // 
             this.txbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbDescription.Location = new System.Drawing.Point(156, 148);
+            this.txbDescription.Location = new System.Drawing.Point(156, 158);
             this.txbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txbDescription.Multiline = true;
             this.txbDescription.Name = "txbDescription";
@@ -382,6 +317,118 @@
             this.txbSupermarketName.Name = "txbSupermarketName";
             this.txbSupermarketName.Size = new System.Drawing.Size(208, 22);
             this.txbSupermarketName.TabIndex = 21;
+            // 
+            // panelAddAdmin
+            // 
+            this.panelAddAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.panelAddAdmin.Controls.Add(this.txbMarketName);
+            this.panelAddAdmin.Controls.Add(this.label10);
+            this.panelAddAdmin.Controls.Add(this.label8);
+            this.panelAddAdmin.Controls.Add(this.label4);
+            this.panelAddAdmin.Controls.Add(this.label5);
+            this.panelAddAdmin.Controls.Add(this.addAdmin);
+            this.panelAddAdmin.Controls.Add(this.txbAddPassword);
+            this.panelAddAdmin.Controls.Add(this.txbAddUsrname);
+            this.panelAddAdmin.Location = new System.Drawing.Point(8, 13);
+            this.panelAddAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.panelAddAdmin.Name = "panelAddAdmin";
+            this.panelAddAdmin.Size = new System.Drawing.Size(520, 464);
+            this.panelAddAdmin.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Location = new System.Drawing.Point(167, 156);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(187, 40);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Wachtwoord:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label5.Location = new System.Drawing.Point(167, 86);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(187, 40);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Gebruikersnaam:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // addAdmin
+            // 
+            this.addAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.addAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.addAdmin.FlatAppearance.BorderSize = 0;
+            this.addAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(102)))));
+            this.addAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addAdmin.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.addAdmin.Location = new System.Drawing.Point(170, 303);
+            this.addAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.addAdmin.Name = "addAdmin";
+            this.addAdmin.Size = new System.Drawing.Size(176, 52);
+            this.addAdmin.TabIndex = 18;
+            this.addAdmin.Text = "Registreer";
+            this.addAdmin.UseVisualStyleBackColor = false;
+            this.addAdmin.Click += new System.EventHandler(this.addAdmin_Click);
+            // 
+            // txbAddPassword
+            // 
+            this.txbAddPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbAddPassword.Location = new System.Drawing.Point(156, 200);
+            this.txbAddPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txbAddPassword.Name = "txbAddPassword";
+            this.txbAddPassword.PasswordChar = '*';
+            this.txbAddPassword.Size = new System.Drawing.Size(208, 22);
+            this.txbAddPassword.TabIndex = 17;
+            // 
+            // txbAddUsrname
+            // 
+            this.txbAddUsrname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbAddUsrname.Location = new System.Drawing.Point(156, 130);
+            this.txbAddUsrname.Margin = new System.Windows.Forms.Padding(4);
+            this.txbAddUsrname.Name = "txbAddUsrname";
+            this.txbAddUsrname.Size = new System.Drawing.Size(208, 22);
+            this.txbAddUsrname.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label8.Location = new System.Drawing.Point(167, 34);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(187, 40);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "U kan hier admins toevoegen voor bij de winkels.";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label9.Location = new System.Drawing.Point(167, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(187, 40);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "U kan hier supermarkten toevoegen voor bij de winkels";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label10.Location = new System.Drawing.Point(167, 226);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(187, 40);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Supermarkt naam:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txbMarketName
+            // 
+            this.txbMarketName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbMarketName.Location = new System.Drawing.Point(156, 270);
+            this.txbMarketName.Margin = new System.Windows.Forms.Padding(4);
+            this.txbMarketName.Name = "txbMarketName";
+            this.txbMarketName.Size = new System.Drawing.Size(208, 22);
+            this.txbMarketName.TabIndex = 23;
             // 
             // superAdmin
             // 
@@ -401,10 +448,10 @@
             this.panelSubmenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelSuperAdmin.ResumeLayout(false);
-            this.panelAddAdmin.ResumeLayout(false);
-            this.panelAddAdmin.PerformLayout();
             this.panelAddSupermarket.ResumeLayout(false);
             this.panelAddSupermarket.PerformLayout();
+            this.panelAddAdmin.ResumeLayout(false);
+            this.panelAddAdmin.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -436,5 +483,9 @@
         private System.Windows.Forms.TextBox txbDescription;
         private System.Windows.Forms.TextBox txbSupermarketName;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txbMarketName;
+        private System.Windows.Forms.Label label10;
     }
 }
