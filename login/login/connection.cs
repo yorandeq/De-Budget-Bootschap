@@ -71,7 +71,7 @@ namespace login
                                         p.Add("@PasswordSalt", MySqlDbType.VarChar, 255).Value = NewSaltString;
                                         p.Add("@StoreID", MySqlDbType.VarChar, 255).Value = superMarketID;
                                     });
-                                MessageBox.Show("Uw supermarkt admin account is toegevoegd!");
+                                MessageBox.Show("Uw supermarkt admin account voor de " + superMarketName + " is toegevoegd!");
                             }
                             else
                             {
