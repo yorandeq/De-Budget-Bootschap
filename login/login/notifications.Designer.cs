@@ -32,8 +32,6 @@
             this.refreshNotificationsBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.navAdmin = new System.Windows.Forms.Button();
-            this.navSuperadmin = new System.Windows.Forms.Button();
             this.navNotifications = new System.Windows.Forms.Button();
             this.navOverview = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -90,8 +88,6 @@
             // panelSideMenu
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(179)))));
-            this.panelSideMenu.Controls.Add(this.navAdmin);
-            this.panelSideMenu.Controls.Add(this.navSuperadmin);
             this.panelSideMenu.Controls.Add(this.navNotifications);
             this.panelSideMenu.Controls.Add(this.navOverview);
             this.panelSideMenu.Controls.Add(this.button1);
@@ -104,40 +100,6 @@
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(200, 490);
             this.panelSideMenu.TabIndex = 17;
-            // 
-            // navAdmin
-            // 
-            this.navAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.navAdmin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navAdmin.FlatAppearance.BorderSize = 0;
-            this.navAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.navAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.navAdmin.ForeColor = System.Drawing.Color.LightGray;
-            this.navAdmin.Location = new System.Drawing.Point(0, 370);
-            this.navAdmin.Name = "navAdmin";
-            this.navAdmin.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navAdmin.Size = new System.Drawing.Size(200, 45);
-            this.navAdmin.TabIndex = 7;
-            this.navAdmin.Text = "Admin paneel";
-            this.navAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.navAdmin.UseVisualStyleBackColor = false;
-            // 
-            // navSuperadmin
-            // 
-            this.navSuperadmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.navSuperadmin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navSuperadmin.FlatAppearance.BorderSize = 0;
-            this.navSuperadmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.navSuperadmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.navSuperadmin.ForeColor = System.Drawing.Color.LightGray;
-            this.navSuperadmin.Location = new System.Drawing.Point(0, 325);
-            this.navSuperadmin.Name = "navSuperadmin";
-            this.navSuperadmin.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navSuperadmin.Size = new System.Drawing.Size(200, 45);
-            this.navSuperadmin.TabIndex = 6;
-            this.navSuperadmin.Text = "Superadmin paneel";
-            this.navSuperadmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.navSuperadmin.UseVisualStyleBackColor = false;
             // 
             // navNotifications
             // 
@@ -283,10 +245,10 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(808, 490);
-            this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.refreshNotificationsBtn);
             this.Controls.Add(this.markReadBtn);
+            this.Controls.Add(this.panelSideMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "notifications";
             this.Text = "Notificaties - Budget Boodschapwijzer";
@@ -311,10 +273,8 @@
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button navSidemenu;
-        private System.Windows.Forms.Button navSuperadmin;
         private System.Windows.Forms.Button navNotifications;
         private System.Windows.Forms.Button navOverview;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button navAdmin;
     }
 }

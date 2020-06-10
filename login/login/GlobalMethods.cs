@@ -20,6 +20,7 @@ namespace login
             public static int UserID;
             public static string Username;
             public static int Admin;
+            public static int Supermarket;
         }
 
         // Used to store info about what stores and products have been selected
