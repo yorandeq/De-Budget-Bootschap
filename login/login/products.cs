@@ -27,7 +27,8 @@ namespace login
 
         private void products_Load(object sender, EventArgs e)
         {
-            DataTable offers = DataLayer.Query("SELECT brand, category, icon FROM discount_offers", p => { });
+            DataTable offers = DataLayer.Query("SELECT o.brand, o.category, o.icon FROM discount_offers o WHERE supermarket = " + GlobalMethods.StoresInfo.StoreID,
+                p => { });
             DataRow[] offersRow = offers.Select();
             for (int i = 0; i < offersRow.Length; i++)
             {
@@ -38,11 +39,11 @@ namespace login
                 Label itemCategory = new Label();
                 Button itemBtn = new Button();
                 //options
-                itemContainer.BackColor = SystemColors.ControlDark;
+                itemContainer.BackColor = ColorTranslator.FromHtml("#ff9e66");
                 itemContainer.Height = 100;
-                itemContainer.Width = 300;
+                itemContainer.Width = 250;
                 itemContainer.Top = YpositionOffers * 112;
-                itemContainer.Left = 12;
+                itemContainer.Left = 207;
 
                 itemImg.Image = Image.FromStream(GlobalMethods.convertImg(offersRow[i][2]));
                 itemImg.SizeMode = PictureBoxSizeMode.Zoom;
@@ -60,10 +61,12 @@ namespace login
                 itemCategory.Left = 110;
 
                 itemBtn.Text = "Kopen";
-                itemBtn.BackColor = SystemColors.Control;
+                itemBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                itemBtn.ForeColor = SystemColors.Window;
                 itemBtn.Width = 80;
                 itemBtn.Top = 75;
-                itemBtn.Left = 210;
+                itemBtn.Left = 160;
+                itemBtn.FlatStyle = FlatStyle.Flat;
 
                 //move next item down
                 YpositionOffers++;
@@ -76,7 +79,9 @@ namespace login
                 itemContainer.Controls.Add(itemBtn);
             }
 
-            DataTable products = DataLayer.Query("SELECT name, total_price, icon FROM discount_products", p => { });
+            DataTable products = DataLayer.Query("SELECT p.name, p.total_price, p.icon FROM discount_products p " +
+                "INNER JOIN discount_offers o ON p.discount_offer = o.offer_id WHERE o.supermarket = " + GlobalMethods.StoresInfo.StoreID,
+                p => { });
             DataRow[] productsRow = products.Select();
             for (int i = 0; i < productsRow.Length; i++)
             {
@@ -87,11 +92,11 @@ namespace login
                 Label itemPrice = new Label();
                 Button itemBtn = new Button();
                 //options
-                itemContainer.BackColor = SystemColors.ControlDark;
+                itemContainer.BackColor = ColorTranslator.FromHtml("#ff9e66");
                 itemContainer.Height = 100;
-                itemContainer.Width = 300;
+                itemContainer.Width = 250;
                 itemContainer.Top = YpositionProducts * 112;
-                itemContainer.Left = 320;
+                itemContainer.Left = 520;
 
                 itemImg.Image = Image.FromStream(GlobalMethods.convertImg(productsRow[i][2]));
                 itemImg.SizeMode = PictureBoxSizeMode.Zoom;
@@ -109,10 +114,12 @@ namespace login
                 itemPrice.Left = 110;
 
                 itemBtn.Text = "Kopen";
-                itemBtn.BackColor = SystemColors.Control;
+                itemBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                itemBtn.ForeColor = SystemColors.Window;
                 itemBtn.Width = 80;
                 itemBtn.Top = 75;
-                itemBtn.Left = 210;
+                itemBtn.Left = 160;
+                itemBtn.FlatStyle = FlatStyle.Flat;
 
                 //move next item down
                 YpositionProducts++;
@@ -124,6 +131,21 @@ namespace login
                 itemContainer.Controls.Add(itemPrice);
                 itemContainer.Controls.Add(itemBtn);
             }
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void navStores_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new stores());
+        }
+
+        private void navNotifications_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new notifications());
         }
     }
 }

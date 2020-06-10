@@ -101,6 +101,41 @@
             this.panelSideMenu.Size = new System.Drawing.Size(200, 490);
             this.panelSideMenu.TabIndex = 17;
             // 
+            // navAdmin
+            // 
+            this.navAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.navAdmin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navAdmin.FlatAppearance.BorderSize = 0;
+            this.navAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.navAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.navAdmin.ForeColor = System.Drawing.Color.LightGray;
+            this.navAdmin.Location = new System.Drawing.Point(0, 370);
+            this.navAdmin.Name = "navAdmin";
+            this.navAdmin.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.navAdmin.Size = new System.Drawing.Size(200, 45);
+            this.navAdmin.TabIndex = 7;
+            this.navAdmin.Text = "Admin paneel";
+            this.navAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.navAdmin.UseVisualStyleBackColor = false;
+            // 
+            // navSuperadmin
+            // 
+            this.navSuperadmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.navSuperadmin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navSuperadmin.FlatAppearance.BorderSize = 0;
+            this.navSuperadmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.navSuperadmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.navSuperadmin.ForeColor = System.Drawing.Color.LightGray;
+            this.navSuperadmin.Location = new System.Drawing.Point(0, 325);
+            this.navSuperadmin.Name = "navSuperadmin";
+            this.navSuperadmin.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.navSuperadmin.Size = new System.Drawing.Size(200, 45);
+            this.navSuperadmin.TabIndex = 6;
+            this.navSuperadmin.Text = "Superadmin paneel";
+            this.navSuperadmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.navSuperadmin.UseVisualStyleBackColor = false;
+            this.navSuperadmin.Click += new System.EventHandler(this.navSuperadmin_Click);
+            // 
             // navNotifications
             // 
             this.navNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(229)))));
