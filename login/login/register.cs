@@ -14,27 +14,33 @@ namespace login
 {
     public partial class register : Form
     {
-        connection con = new connection();
+        // Load neccessities.
+        GlobalMethods GlobalMethods = new GlobalMethods();
+        connection connection = new connection();
+
         public register()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void registerAcc_Click(object sender, EventArgs e)
         {
-            con.addAccount(txbUsrname.Text, txbPassword.Text);
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            bool superAdminCheck = false;
+            bool createdAcc = connection.addAccount(txbUsrname.Text, txbPassword.Text, superAdminCheck, null);
+            if (createdAcc)
+            {
+                GlobalMethods.SwitchForm(this, new login());
+            }
         }
 
         private void navLogin_Click(object sender, EventArgs e)
         {
-            var loginForm = new login();
-            Hide();
-            loginForm.Show();
+            GlobalMethods.SwitchForm(this, new login());
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
