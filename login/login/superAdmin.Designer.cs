@@ -160,7 +160,6 @@
             this.navSupermarket.Text = "Admin";
             this.navSupermarket.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.navSupermarket.UseVisualStyleBackColor = false;
-            this.navSupermarket.Click += new System.EventHandler(this.navSupermarket_Click);
             // 
             // panelLogo
             // 
