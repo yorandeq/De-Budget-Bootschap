@@ -27,7 +27,8 @@ namespace login
 
         private void products_Load(object sender, EventArgs e)
         {
-            DataTable offers = DataLayer.Query("SELECT brand, category, icon FROM discount_offers", p => { });
+            DataTable offers = DataLayer.Query("SELECT o.brand, o.category, o.icon FROM discount_offers o WHERE supermarket = " + GlobalMethods.StoresInfo.StoreID,
+                p => { });
             DataRow[] offersRow = offers.Select();
             for (int i = 0; i < offersRow.Length; i++)
             {
@@ -78,7 +79,9 @@ namespace login
                 itemContainer.Controls.Add(itemBtn);
             }
 
-            DataTable products = DataLayer.Query("SELECT name, total_price, icon FROM discount_products", p => { });
+            DataTable products = DataLayer.Query("SELECT p.name, p.total_price, p.icon FROM discount_products p " +
+                "INNER JOIN discount_offers o ON p.discount_offer = o.offer_id WHERE o.supermarket = " + GlobalMethods.StoresInfo.StoreID,
+                p => { });
             DataRow[] productsRow = products.Select();
             for (int i = 0; i < productsRow.Length; i++)
             {
