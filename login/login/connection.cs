@@ -269,5 +269,13 @@ namespace login
                 }
             }
         }
+
+        // Method for retrieving all the supermarkets so I can display it in a datagridview
+        public DataTable getAllSupermarkets()
+        {
+
+            DataTable supermarketList = DataLayer.Query("SELECT supermarket_id, name, description, link FROM supermarkets", p => { });
+            return supermarketList;
+        }
     }
 }
