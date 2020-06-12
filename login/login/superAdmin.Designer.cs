@@ -31,12 +31,15 @@
             this.logout = new System.Windows.Forms.Button();
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panelSubmenu = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.navSupermarket = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelSuperAdmin = new System.Windows.Forms.Panel();
+            this.panelMarketList = new System.Windows.Forms.Panel();
+            this.dgvMarketList = new System.Windows.Forms.DataGridView();
             this.panelAddAdmin = new System.Windows.Forms.Panel();
             this.txbMarketName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -57,19 +60,19 @@
             this.addSupermarket = new System.Windows.Forms.Button();
             this.txbDescription = new System.Windows.Forms.TextBox();
             this.txbSupermarketName = new System.Windows.Forms.TextBox();
-            this.panelMarketList = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dgvMarketList = new System.Windows.Forms.DataGridView();
+            this.panelUserList = new System.Windows.Forms.Panel();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.button5 = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelSuperAdmin.SuspendLayout();
-            this.panelAddAdmin.SuspendLayout();
-            this.panelAddSupermarket.SuspendLayout();
-            this.panelAddAdmin.SuspendLayout();
-            this.panelAddSupermarket.SuspendLayout();
             this.panelMarketList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarketList)).BeginInit();
+            this.panelAddAdmin.SuspendLayout();
+            this.panelAddSupermarket.SuspendLayout();
+            this.panelUserList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // logout
@@ -108,6 +111,7 @@
             // 
             this.panelSubmenu.AutoSize = true;
             this.panelSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelSubmenu.Controls.Add(this.button5);
             this.panelSubmenu.Controls.Add(this.button4);
             this.panelSubmenu.Controls.Add(this.button1);
             this.panelSubmenu.Controls.Add(this.button2);
@@ -115,8 +119,25 @@
             this.panelSubmenu.Location = new System.Drawing.Point(0, 178);
             this.panelSubmenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubmenu.Name = "panelSubmenu";
-            this.panelSubmenu.Size = new System.Drawing.Size(267, 165);
+            this.panelSubmenu.Size = new System.Drawing.Size(267, 220);
             this.panelSubmenu.TabIndex = 2;
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.LightGray;
+            this.button4.Location = new System.Drawing.Point(0, 110);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(267, 55);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Supermarkt lijst";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
@@ -195,6 +216,7 @@
             // panelSuperAdmin
             // 
             this.panelSuperAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.panelSuperAdmin.Controls.Add(this.panelUserList);
             this.panelSuperAdmin.Controls.Add(this.panelMarketList);
             this.panelSuperAdmin.Controls.Add(this.panelAddAdmin);
             this.panelSuperAdmin.Controls.Add(this.panelAddSupermarket);
@@ -204,6 +226,33 @@
             this.panelSuperAdmin.Name = "panelSuperAdmin";
             this.panelSuperAdmin.Size = new System.Drawing.Size(541, 490);
             this.panelSuperAdmin.TabIndex = 2;
+            // 
+            // panelMarketList
+            // 
+            this.panelMarketList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.panelMarketList.Controls.Add(this.dgvMarketList);
+            this.panelMarketList.Location = new System.Drawing.Point(8, 13);
+            this.panelMarketList.Margin = new System.Windows.Forms.Padding(4);
+            this.panelMarketList.Name = "panelMarketList";
+            this.panelMarketList.Size = new System.Drawing.Size(520, 464);
+            this.panelMarketList.TabIndex = 24;
+            this.panelMarketList.Visible = false;
+            // 
+            // dgvMarketList
+            // 
+            this.dgvMarketList.AllowUserToAddRows = false;
+            this.dgvMarketList.AllowUserToDeleteRows = false;
+            this.dgvMarketList.AllowUserToResizeColumns = false;
+            this.dgvMarketList.AllowUserToResizeRows = false;
+            this.dgvMarketList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMarketList.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMarketList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMarketList.Location = new System.Drawing.Point(13, 15);
+            this.dgvMarketList.MultiSelect = false;
+            this.dgvMarketList.Name = "dgvMarketList";
+            this.dgvMarketList.ReadOnly = true;
+            this.dgvMarketList.Size = new System.Drawing.Size(495, 430);
+            this.dgvMarketList.TabIndex = 0;
             // 
             // panelAddAdmin
             // 
@@ -438,49 +487,49 @@
             this.txbSupermarketName.Size = new System.Drawing.Size(208, 22);
             this.txbSupermarketName.TabIndex = 21;
             // 
-            // panelMarketList
+            // panelUserList
             // 
-            this.panelMarketList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.panelMarketList.Controls.Add(this.dgvMarketList);
-            this.panelMarketList.Location = new System.Drawing.Point(8, 13);
-            this.panelMarketList.Margin = new System.Windows.Forms.Padding(4);
-            this.panelMarketList.Name = "panelMarketList";
-            this.panelMarketList.Size = new System.Drawing.Size(520, 464);
-            this.panelMarketList.TabIndex = 24;
-            this.panelMarketList.Visible = false;
+            this.panelUserList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.panelUserList.Controls.Add(this.dgvUsers);
+            this.panelUserList.Location = new System.Drawing.Point(8, 13);
+            this.panelUserList.Margin = new System.Windows.Forms.Padding(4);
+            this.panelUserList.Name = "panelUserList";
+            this.panelUserList.Size = new System.Drawing.Size(520, 464);
+            this.panelUserList.TabIndex = 25;
+            this.panelUserList.Visible = false;
             // 
-            // button4
+            // dgvUsers
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.LightGray;
-            this.button4.Location = new System.Drawing.Point(0, 110);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(267, 55);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Supermarkt lijst";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.dgvUsers.AllowUserToAddRows = false;
+            this.dgvUsers.AllowUserToDeleteRows = false;
+            this.dgvUsers.AllowUserToResizeColumns = false;
+            this.dgvUsers.AllowUserToResizeRows = false;
+            this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUsers.BackgroundColor = System.Drawing.Color.White;
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Location = new System.Drawing.Point(13, 15);
+            this.dgvUsers.MultiSelect = false;
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.ReadOnly = true;
+            this.dgvUsers.Size = new System.Drawing.Size(495, 430);
+            this.dgvUsers.TabIndex = 0;
             // 
-            // dgvMarketList
+            // button5
             // 
-            this.dgvMarketList.AllowUserToAddRows = false;
-            this.dgvMarketList.AllowUserToDeleteRows = false;
-            this.dgvMarketList.AllowUserToResizeColumns = false;
-            this.dgvMarketList.AllowUserToResizeRows = false;
-            this.dgvMarketList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMarketList.BackgroundColor = System.Drawing.Color.White;
-            this.dgvMarketList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMarketList.Location = new System.Drawing.Point(13, 15);
-            this.dgvMarketList.MultiSelect = false;
-            this.dgvMarketList.Name = "dgvMarketList";
-            this.dgvMarketList.ReadOnly = true;
-            this.dgvMarketList.Size = new System.Drawing.Size(495, 430);
-            this.dgvMarketList.TabIndex = 0;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.LightGray;
+            this.button5.Location = new System.Drawing.Point(0, 165);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
+            this.button5.Size = new System.Drawing.Size(267, 55);
+            this.button5.TabIndex = 3;
+            this.button5.Text = "Gebruikers lijst";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // superAdmin
             // 
@@ -500,12 +549,14 @@
             this.panelSubmenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelSuperAdmin.ResumeLayout(false);
+            this.panelMarketList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMarketList)).EndInit();
             this.panelAddAdmin.ResumeLayout(false);
             this.panelAddAdmin.PerformLayout();
             this.panelAddSupermarket.ResumeLayout(false);
             this.panelAddSupermarket.PerformLayout();
-            this.panelMarketList.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMarketList)).EndInit();
+            this.panelUserList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -544,5 +595,8 @@
         private System.Windows.Forms.Panel panelMarketList;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dgvMarketList;
+        private System.Windows.Forms.Panel panelUserList;
+        private System.Windows.Forms.DataGridView dgvUsers;
+        private System.Windows.Forms.Button button5;
     }
 }

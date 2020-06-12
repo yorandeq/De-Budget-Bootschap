@@ -21,6 +21,7 @@ namespace login
         {
             InitializeComponent();
             dgvMarketList.DataSource = connection.getAllSupermarkets();
+            dgvUsers.DataSource = connection.getAllUsers();
         }
 
         private void Logout_Click(object sender, EventArgs e)
@@ -34,12 +35,14 @@ namespace login
             panelAddAdmin.Visible = true;
             panelAddSupermarket.Visible = false;
             panelMarketList.Visible = false;
+            panelUserList.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             panelAddSupermarket.Visible = true;
             panelAddAdmin.Visible = false;
+            panelUserList.Visible = false;
             panelMarketList.Visible = false;
         }
 
@@ -65,7 +68,17 @@ namespace login
             panelMarketList.Visible = true;
             panelAddAdmin.Visible = false;
             panelAddSupermarket.Visible = false;
+            panelUserList.Visible = false;
             dgvMarketList.DataSource = connection.getAllSupermarkets();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            panelAddSupermarket.Visible = false;
+            panelAddAdmin.Visible = false;
+            panelMarketList.Visible = false;
+            panelUserList.Visible = true;
+            dgvUsers.DataSource = connection.getAllUsers();
         }
     }
 }
