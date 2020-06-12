@@ -9,12 +9,16 @@ using System.IO;
 using System.Timers;
 using System.Security.Cryptography;
 using System.Drawing;
+using System.Data;
 
 namespace login
 {
     // When included, these methods can be used in any csharp file.
     class GlobalMethods
     {
+        // Load neccessities.
+        DataLayer DataLayer = new DataLayer();
+
         // Used to store login session info.
         public static class LoginInfo
         {
@@ -134,6 +138,27 @@ namespace login
         public void openSite(object href)
         {
             System.Diagnostics.Process.Start(href.ToString());
+        }
+
+        public void ExpireOffers()
+        {
+            long todayTicks = DateTime.Today.Ticks;
+            long todayMilliseconds = todayTicks / TimeSpan.TicksPerMillisecond;
+
+            DataTable expirationOffers = DataLayer.Query("SELECT offer_id, expiration_date FROM discount_offers", 
+                p => { });
+
+            foreach (DataRow row in expirationOffers.Rows)
+            {
+                long dateTicks = row.Field<DateTime>("expiration_date").Ticks;
+                long dateMilliseconds = dateTicks / TimeSpan.TicksPerMillisecond;
+
+                if (dateMilliseconds - todayMilliseconds < 0)
+                {
+                    DataLayer.Query("DELETE FROM discount_offers WHERE offer_id = " + row["offer_id"],
+                        p => { });
+                }
+            }
         }
     }
 }
