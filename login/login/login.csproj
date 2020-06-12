@@ -53,6 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
+    <Compile Include="offer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="offer.Designer.cs">
+      <DependentUpon>offer.cs</DependentUpon>
+    </Compile>
     <Compile Include="products.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="notifications.resx">
       <DependentUpon>notifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="offer.resx">
+      <DependentUpon>offer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="products.resx">
       <DependentUpon>products.cs</DependentUpon>

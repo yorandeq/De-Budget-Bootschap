@@ -27,6 +27,7 @@ namespace login
         {
             public static int StoreID;
             public static int ProductID;
+            public static int OfferID;
         }
 
         // Method for switching forms quickly.
