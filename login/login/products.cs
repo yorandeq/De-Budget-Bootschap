@@ -27,6 +27,8 @@ namespace login
 
         private void products_Load(object sender, EventArgs e)
         {
+            GlobalMethods.ExpireOffers();
+
             DataTable offers = DataLayer.Query("SELECT o.brand, o.category, o.icon FROM discount_offers o WHERE supermarket = " + GlobalMethods.StoresInfo.StoreID,
                 p => { });
             DataRow[] offersRow = offers.Select();
