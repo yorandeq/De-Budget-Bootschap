@@ -40,7 +40,7 @@ namespace login
         // Method for switching forms quickly.
         public void SwitchForm(Form previousForm, Form newForm)
         {
-            Form.ActiveForm.Hide();
+            previousForm.Hide();
             newForm.Show();
             newForm.Location = previousForm.Location;
         }
