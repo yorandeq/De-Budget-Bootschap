@@ -119,7 +119,7 @@ namespace login
             {
                 try
                 {
-                    DataTable GetUsers = DataLayer.Query("SELECT user_id, admin, username, password, password_salt FROM users;", p => {});
+                    DataTable GetUsers = DataLayer.Query("SELECT * FROM users;", p => {});
                     if(GetUsers.Rows.Count >= 0 || GetUsers != null)
                     {
                         foreach (DataRow User in GetUsers.Select())
@@ -138,11 +138,12 @@ namespace login
                             // Checks if the typed in username is the same username and compares the password hash from the database with the password hash from the typed in login password.
                             if (loginUsername == (string)User["username"] && GlobalMethods.CompareByteArrays(UserPasswordHash, LoginPasswordHash))
                             {
-                                // Stores user information in global methods.
+                                // Stores user information in global methods. In admin_supermarket it first checks if the value isn't null.
                                 GlobalMethods.LoginInfo.UserID = (int)User["user_id"];
                                 GlobalMethods.LoginInfo.Username = (string)User["username"];
                                 GlobalMethods.LoginInfo.Admin = (int)User["admin"];
-
+                                GlobalMethods.LoginInfo.Supermarket = User["admin_supermarket"] != DBNull.Value ? (int)User["admin_supermarket"] : 0;
+                                
                                 // Gets every notification of current user and displays the amount of unread notifications.
                                 DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE (user = @UserId AND state = 0) OR (user = @UserId2 AND state = 1)",
                                 p =>

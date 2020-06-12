@@ -19,33 +19,22 @@ namespace login
         GlobalMethods GlobalMethods = new GlobalMethods();
         List<Panel> NotificationPanels = new List<Panel>();
 
-        // Method for checking if the user is an admin, and gives the right button to panelSideMenu if so.
-        public void addAdminButton()
+        public void checkAdmin()
         {
-            Console.WriteLine(GlobalMethods.LoginInfo.Admin);
-            // Adds admin panel button if users admin state is 1.
             if (GlobalMethods.LoginInfo.Admin == 1)
             {
-                Button adminPanelBtn = new Button();
-                adminPanelBtn.Text = "Admin Paneel";
-                adminPanelBtn.BackColor = Color.FromArgb(0, 128, 255);
-                adminPanelBtn.FlatStyle = FlatStyle.Flat;
-                adminPanelBtn.Width = 200;
-                adminPanelBtn.Height = 45;
-                adminPanelBtn.Click += (obj, ev) => { GlobalMethods.SwitchForm(this, new admin()); };
-                panelSideMenu.Controls.Add(adminPanelBtn);
+                navSuperadmin.Visible = false;
+                navAdmin.Visible = true;
             }
-            // Adds superadmin panel button if users admin state is 2.
             else if (GlobalMethods.LoginInfo.Admin == 2)
             {
-                Button superAdminPanelBtn = new Button();
-                superAdminPanelBtn.Text = "SuperAdmin Paneel";
-                superAdminPanelBtn.BackColor = Color.FromArgb(0, 128, 255);
-                superAdminPanelBtn.FlatStyle = FlatStyle.Flat;
-                superAdminPanelBtn.Width = 200;
-                superAdminPanelBtn.Height = 45;
-                superAdminPanelBtn.Click += (obj, ev) => { GlobalMethods.SwitchForm(this, new superAdmin()); };
-                panelSideMenu.Controls.Add(superAdminPanelBtn);
+                navSuperadmin.Visible = true;
+                navAdmin.Visible = false;
+            }
+            else
+            {
+                navSuperadmin.Visible = false;
+                navAdmin.Visible = false;
             }
         }
 
@@ -137,7 +126,7 @@ namespace login
         {
             InitializeComponent();
             getUnreadUserNotifications();
-            addAdminButton();
+            checkAdmin();
         }
 
         private void refreshNotificationsBtn_Click(object sender, EventArgs e)
@@ -165,6 +154,18 @@ namespace login
             if (GlobalMethods.LoginInfo.Admin == 2)
             {
                 GlobalMethods.SwitchForm(this, new superAdmin());
+            }
+            else
+            {
+                MessageBox.Show("U bent niet gemachtigt om daar naar toe te gaan.");
+            }
+        }
+
+        private void navAdmin_Click(object sender, EventArgs e)
+        {
+            if (GlobalMethods.LoginInfo.Admin == 1)
+            {
+                GlobalMethods.SwitchForm(this, new admin());
             }
             else
             {

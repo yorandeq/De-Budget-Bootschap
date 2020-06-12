@@ -37,7 +37,17 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelSuperAdmin = new System.Windows.Forms.Panel();
+            this.panelAddAdmin = new System.Windows.Forms.Panel();
+            this.txbMarketName = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.addAdmin = new System.Windows.Forms.Button();
+            this.txbAddPassword = new System.Windows.Forms.TextBox();
+            this.txbAddUsrname = new System.Windows.Forms.TextBox();
             this.panelAddSupermarket = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txbLink = new System.Windows.Forms.TextBox();
@@ -47,22 +57,12 @@
             this.addSupermarket = new System.Windows.Forms.Button();
             this.txbDescription = new System.Windows.Forms.TextBox();
             this.txbSupermarketName = new System.Windows.Forms.TextBox();
-            this.panelAddAdmin = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.addAdmin = new System.Windows.Forms.Button();
-            this.txbAddPassword = new System.Windows.Forms.TextBox();
-            this.txbAddUsrname = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txbMarketName = new System.Windows.Forms.TextBox();
             this.panelSideMenu.SuspendLayout();
             this.panelSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelSuperAdmin.SuspendLayout();
-            this.panelAddSupermarket.SuspendLayout();
             this.panelAddAdmin.SuspendLayout();
+            this.panelAddSupermarket.SuspendLayout();
             this.SuspendLayout();
             // 
             // logout
@@ -196,6 +196,108 @@
             this.panelSuperAdmin.Size = new System.Drawing.Size(541, 490);
             this.panelSuperAdmin.TabIndex = 2;
             // 
+            // panelAddAdmin
+            // 
+            this.panelAddAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.panelAddAdmin.Controls.Add(this.txbMarketName);
+            this.panelAddAdmin.Controls.Add(this.label10);
+            this.panelAddAdmin.Controls.Add(this.label8);
+            this.panelAddAdmin.Controls.Add(this.label4);
+            this.panelAddAdmin.Controls.Add(this.label5);
+            this.panelAddAdmin.Controls.Add(this.addAdmin);
+            this.panelAddAdmin.Controls.Add(this.txbAddPassword);
+            this.panelAddAdmin.Controls.Add(this.txbAddUsrname);
+            this.panelAddAdmin.Location = new System.Drawing.Point(8, 13);
+            this.panelAddAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.panelAddAdmin.Name = "panelAddAdmin";
+            this.panelAddAdmin.Size = new System.Drawing.Size(520, 464);
+            this.panelAddAdmin.TabIndex = 3;
+            // 
+            // txbMarketName
+            // 
+            this.txbMarketName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbMarketName.Location = new System.Drawing.Point(156, 270);
+            this.txbMarketName.Margin = new System.Windows.Forms.Padding(4);
+            this.txbMarketName.Name = "txbMarketName";
+            this.txbMarketName.Size = new System.Drawing.Size(208, 22);
+            this.txbMarketName.TabIndex = 23;
+            // 
+            // label10
+            // 
+            this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label10.Location = new System.Drawing.Point(167, 226);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(187, 40);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Supermarkt naam:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label8.Location = new System.Drawing.Point(167, 34);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(187, 40);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "U kan hier admins toevoegen voor bij de winkels.";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Location = new System.Drawing.Point(167, 156);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(187, 40);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Wachtwoord:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label5.Location = new System.Drawing.Point(167, 86);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(187, 40);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Gebruikersnaam:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // addAdmin
+            // 
+            this.addAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.addAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.addAdmin.FlatAppearance.BorderSize = 0;
+            this.addAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(102)))));
+            this.addAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addAdmin.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.addAdmin.Location = new System.Drawing.Point(170, 303);
+            this.addAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.addAdmin.Name = "addAdmin";
+            this.addAdmin.Size = new System.Drawing.Size(176, 52);
+            this.addAdmin.TabIndex = 18;
+            this.addAdmin.Text = "Registreer";
+            this.addAdmin.UseVisualStyleBackColor = false;
+            this.addAdmin.Click += new System.EventHandler(this.addAdmin_Click);
+            // 
+            // txbAddPassword
+            // 
+            this.txbAddPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbAddPassword.Location = new System.Drawing.Point(156, 200);
+            this.txbAddPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txbAddPassword.Name = "txbAddPassword";
+            this.txbAddPassword.PasswordChar = '*';
+            this.txbAddPassword.Size = new System.Drawing.Size(208, 22);
+            this.txbAddPassword.TabIndex = 17;
+            // 
+            // txbAddUsrname
+            // 
+            this.txbAddUsrname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbAddUsrname.Location = new System.Drawing.Point(156, 130);
+            this.txbAddUsrname.Margin = new System.Windows.Forms.Padding(4);
+            this.txbAddUsrname.Name = "txbAddUsrname";
+            this.txbAddUsrname.Size = new System.Drawing.Size(208, 22);
+            this.txbAddUsrname.TabIndex = 16;
+            // 
             // panelAddSupermarket
             // 
             this.panelAddSupermarket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
@@ -215,6 +317,16 @@
             this.panelAddSupermarket.Size = new System.Drawing.Size(520, 464);
             this.panelAddSupermarket.TabIndex = 4;
             this.panelAddSupermarket.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label9.Location = new System.Drawing.Point(167, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(187, 40);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "U kan hier supermarkten toevoegen voor bij de winkels";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button3
             // 
@@ -317,118 +429,6 @@
             this.txbSupermarketName.Size = new System.Drawing.Size(208, 22);
             this.txbSupermarketName.TabIndex = 21;
             // 
-            // panelAddAdmin
-            // 
-            this.panelAddAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.panelAddAdmin.Controls.Add(this.txbMarketName);
-            this.panelAddAdmin.Controls.Add(this.label10);
-            this.panelAddAdmin.Controls.Add(this.label8);
-            this.panelAddAdmin.Controls.Add(this.label4);
-            this.panelAddAdmin.Controls.Add(this.label5);
-            this.panelAddAdmin.Controls.Add(this.addAdmin);
-            this.panelAddAdmin.Controls.Add(this.txbAddPassword);
-            this.panelAddAdmin.Controls.Add(this.txbAddUsrname);
-            this.panelAddAdmin.Location = new System.Drawing.Point(8, 13);
-            this.panelAddAdmin.Margin = new System.Windows.Forms.Padding(4);
-            this.panelAddAdmin.Name = "panelAddAdmin";
-            this.panelAddAdmin.Size = new System.Drawing.Size(520, 464);
-            this.panelAddAdmin.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(167, 156);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(187, 40);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Wachtwoord:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(167, 86);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 40);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Gebruikersnaam:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // addAdmin
-            // 
-            this.addAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.addAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.addAdmin.FlatAppearance.BorderSize = 0;
-            this.addAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(102)))));
-            this.addAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addAdmin.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.addAdmin.Location = new System.Drawing.Point(170, 303);
-            this.addAdmin.Margin = new System.Windows.Forms.Padding(4);
-            this.addAdmin.Name = "addAdmin";
-            this.addAdmin.Size = new System.Drawing.Size(176, 52);
-            this.addAdmin.TabIndex = 18;
-            this.addAdmin.Text = "Registreer";
-            this.addAdmin.UseVisualStyleBackColor = false;
-            this.addAdmin.Click += new System.EventHandler(this.addAdmin_Click);
-            // 
-            // txbAddPassword
-            // 
-            this.txbAddPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbAddPassword.Location = new System.Drawing.Point(156, 200);
-            this.txbAddPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txbAddPassword.Name = "txbAddPassword";
-            this.txbAddPassword.PasswordChar = '*';
-            this.txbAddPassword.Size = new System.Drawing.Size(208, 22);
-            this.txbAddPassword.TabIndex = 17;
-            // 
-            // txbAddUsrname
-            // 
-            this.txbAddUsrname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbAddUsrname.Location = new System.Drawing.Point(156, 130);
-            this.txbAddUsrname.Margin = new System.Windows.Forms.Padding(4);
-            this.txbAddUsrname.Name = "txbAddUsrname";
-            this.txbAddUsrname.Size = new System.Drawing.Size(208, 22);
-            this.txbAddUsrname.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label8.Location = new System.Drawing.Point(167, 34);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(187, 40);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "U kan hier admins toevoegen voor bij de winkels.";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label9.Location = new System.Drawing.Point(167, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(187, 40);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "U kan hier supermarkten toevoegen voor bij de winkels";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label10.Location = new System.Drawing.Point(167, 226);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(187, 40);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Supermarkt naam:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txbMarketName
-            // 
-            this.txbMarketName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbMarketName.Location = new System.Drawing.Point(156, 270);
-            this.txbMarketName.Margin = new System.Windows.Forms.Padding(4);
-            this.txbMarketName.Name = "txbMarketName";
-            this.txbMarketName.Size = new System.Drawing.Size(208, 22);
-            this.txbMarketName.TabIndex = 23;
-            // 
             // superAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -447,10 +447,10 @@
             this.panelSubmenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelSuperAdmin.ResumeLayout(false);
-            this.panelAddSupermarket.ResumeLayout(false);
-            this.panelAddSupermarket.PerformLayout();
             this.panelAddAdmin.ResumeLayout(false);
             this.panelAddAdmin.PerformLayout();
+            this.panelAddSupermarket.ResumeLayout(false);
+            this.panelAddSupermarket.PerformLayout();
             this.ResumeLayout(false);
 
         }

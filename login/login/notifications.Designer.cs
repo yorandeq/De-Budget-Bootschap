@@ -32,6 +32,8 @@
             this.refreshNotificationsBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.navAdmin = new System.Windows.Forms.Button();
+            this.navSuperadmin = new System.Windows.Forms.Button();
             this.navNotifications = new System.Windows.Forms.Button();
             this.navOverview = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -88,6 +90,8 @@
             // panelSideMenu
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(179)))));
+            this.panelSideMenu.Controls.Add(this.navAdmin);
+            this.panelSideMenu.Controls.Add(this.navSuperadmin);
             this.panelSideMenu.Controls.Add(this.navNotifications);
             this.panelSideMenu.Controls.Add(this.navOverview);
             this.panelSideMenu.Controls.Add(this.button1);
@@ -117,6 +121,7 @@
             this.navAdmin.Text = "Admin paneel";
             this.navAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.navAdmin.UseVisualStyleBackColor = false;
+            this.navAdmin.Click += new System.EventHandler(this.navAdmin_Click);
             // 
             // navSuperadmin
             // 
@@ -311,5 +316,7 @@
         private System.Windows.Forms.Button navNotifications;
         private System.Windows.Forms.Button navOverview;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button navSuperadmin;
+        private System.Windows.Forms.Button navAdmin;
     }
 }
