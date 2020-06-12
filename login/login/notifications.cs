@@ -19,6 +19,25 @@ namespace login
         GlobalMethods GlobalMethods = new GlobalMethods();
         List<Panel> NotificationPanels = new List<Panel>();
 
+        public void checkAdmin()
+        {
+            if (GlobalMethods.LoginInfo.Admin == 1)
+            {
+                navSuperadmin.Visible = false;
+                navAdmin.Visible = true;
+            }
+            else if (GlobalMethods.LoginInfo.Admin == 2)
+            {
+                navSuperadmin.Visible = true;
+                navAdmin.Visible = false;
+            }
+            else
+            {
+                navSuperadmin.Visible = false;
+                navAdmin.Visible = false;
+            }
+        }
+
         // Method for getting and showing unread user notifications.
         public void getUnreadUserNotifications()
         {
@@ -107,6 +126,7 @@ namespace login
         {
             InitializeComponent();
             getUnreadUserNotifications();
+            checkAdmin();
         }
 
         private void refreshNotificationsBtn_Click(object sender, EventArgs e)
@@ -134,6 +154,18 @@ namespace login
             if (GlobalMethods.LoginInfo.Admin == 2)
             {
                 GlobalMethods.SwitchForm(this, new superAdmin());
+            }
+            else
+            {
+                MessageBox.Show("U bent niet gemachtigt om daar naar toe te gaan.");
+            }
+        }
+
+        private void navAdmin_Click(object sender, EventArgs e)
+        {
+            if (GlobalMethods.LoginInfo.Admin == 1)
+            {
+                GlobalMethods.SwitchForm(this, new admin());
             }
             else
             {

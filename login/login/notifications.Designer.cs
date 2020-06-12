@@ -121,6 +121,7 @@
             this.navAdmin.Text = "Admin paneel";
             this.navAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.navAdmin.UseVisualStyleBackColor = false;
+            this.navAdmin.Click += new System.EventHandler(this.navAdmin_Click);
             // 
             // navSuperadmin
             // 
@@ -284,10 +285,10 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(808, 490);
-            this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.refreshNotificationsBtn);
             this.Controls.Add(this.markReadBtn);
+            this.Controls.Add(this.panelSideMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "notifications";
             this.Text = "Notificaties - Budget Boodschapwijzer";
@@ -312,10 +313,10 @@
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button navSidemenu;
-        private System.Windows.Forms.Button navSuperadmin;
         private System.Windows.Forms.Button navNotifications;
         private System.Windows.Forms.Button navOverview;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button navSuperadmin;
         private System.Windows.Forms.Button navAdmin;
     }
 }

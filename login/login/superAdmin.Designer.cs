@@ -66,6 +66,8 @@
             this.panelSuperAdmin.SuspendLayout();
             this.panelAddAdmin.SuspendLayout();
             this.panelAddSupermarket.SuspendLayout();
+            this.panelAddAdmin.SuspendLayout();
+            this.panelAddSupermarket.SuspendLayout();
             this.panelMarketList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarketList)).BeginInit();
             this.SuspendLayout();
