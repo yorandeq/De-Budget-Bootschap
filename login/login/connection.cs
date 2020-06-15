@@ -8,6 +8,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using Tulpep.NotificationWindow;
 using System.Timers;
+using System.Globalization;
 
 namespace login
 {
@@ -188,6 +189,36 @@ namespace login
                 {
                     p.Add("@NotificationId", MySqlDbType.Int32, 255).Value = NewNotifications.Rows[0]["notification_id"];
                 });
+            }
+        }
+
+        public void place_registration(object productName, object productId, decimal amount, object price)
+        {
+            decimal totalPrice = decimal.Parse(price.ToString()) * amount;
+            var confirmResult = MessageBox.Show("Wilt u " + amount.ToString() + " " + productName.ToString() + " kopen voor €" + totalPrice.ToString() + "?", "Product kopen", MessageBoxButtons.YesNo);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                try
+                {
+                    int user_id = GlobalMethods.LoginInfo.UserID;
+                    int product_id = (int)productId;
+                    int product_amount = (int)amount;
+                    float paid = (float)totalPrice;
+                    DataLayer.Query("INSERT INTO `registration` (`registration_id`, `user`, `product`, `product_amount`, `paid`) VALUES (NULL, @UserId, @ProductId, @ProductAmount, @TotalPrice)",
+                            p =>
+                            {
+                                p.Add("@UserId", MySqlDbType.Int32, 255).Value = user_id;
+                                p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
+                                p.Add("@ProductAmount", MySqlDbType.Int32, 255).Value = product_amount;
+                                p.Add("@TotalPrice", MySqlDbType.Float, 255).Value = paid;
+                            });
+                    MessageBox.Show("Bedankt voor uw bestelling!");
+                } 
+                catch (Exception e)
+                {
+                    MessageBox.Show("Error: " + e);
+                }
             }
         }
     }

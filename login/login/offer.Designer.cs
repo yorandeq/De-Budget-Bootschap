@@ -31,6 +31,7 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.offerContainer = new System.Windows.Forms.Panel();
             this.productContainer = new System.Windows.Forms.Panel();
+            this.registrationsContainer = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // backBtn
@@ -45,12 +46,10 @@
             // 
             // offerContainer
             // 
-            this.offerContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.offerContainer.BackColor = System.Drawing.Color.Gainsboro;
             this.offerContainer.Location = new System.Drawing.Point(12, 42);
             this.offerContainer.Name = "offerContainer";
-            this.offerContainer.Size = new System.Drawing.Size(473, 396);
+            this.offerContainer.Size = new System.Drawing.Size(473, 195);
             this.offerContainer.TabIndex = 1;
             // 
             // productContainer
@@ -64,11 +63,22 @@
             this.productContainer.Size = new System.Drawing.Size(300, 396);
             this.productContainer.TabIndex = 2;
             // 
+            // registrationsContainer
+            // 
+            this.registrationsContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.registrationsContainer.BackColor = System.Drawing.Color.Gainsboro;
+            this.registrationsContainer.Location = new System.Drawing.Point(13, 243);
+            this.registrationsContainer.Name = "registrationsContainer";
+            this.registrationsContainer.Size = new System.Drawing.Size(472, 195);
+            this.registrationsContainer.TabIndex = 3;
+            // 
             // offer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.registrationsContainer);
             this.Controls.Add(this.productContainer);
             this.Controls.Add(this.offerContainer);
             this.Controls.Add(this.backBtn);
@@ -84,5 +94,6 @@
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Panel offerContainer;
         private System.Windows.Forms.Panel productContainer;
+        private System.Windows.Forms.Panel registrationsContainer;
     }
 }

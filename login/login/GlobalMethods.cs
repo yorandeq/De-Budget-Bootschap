@@ -26,7 +26,6 @@ namespace login
         public static class StoresInfo
         {
             public static int StoreID;
-            public static int ProductID;
             public static int OfferID;
         }
 

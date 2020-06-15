@@ -15,6 +15,7 @@ namespace login
     {
         // Load neccessities.
         GlobalMethods GlobalMethods = new GlobalMethods();
+        connection connection = new connection();
         DataLayer DataLayer = new DataLayer();
         int Yposition = 0;
 
@@ -87,13 +88,15 @@ namespace login
                 PictureBox productImg = new PictureBox();
                 Label productName = new Label();
                 Label productPrice = new Label();
+                Label amountLabel = new Label();
+                NumericUpDown amountNumeric = new NumericUpDown();
                 Button productBtn = new Button();
 
                 //options
                 productPanel.BackColor = ColorTranslator.FromHtml("#ff9e66");
-                productPanel.Height = 100;
+                productPanel.Height = 140;
                 productPanel.Width = 265;
-                productPanel.Top = Yposition * 112;
+                productPanel.Top = Yposition * 152;
                 productPanel.Left = 10;
 
                 productImg.Image = Image.FromStream(GlobalMethods.convertImg(productRow["icon"]));
@@ -107,17 +110,29 @@ namespace login
                 productName.Top = 10;
                 productName.Left = 110;
 
-                productPrice.Text = "Prijs: €" + productRow["total_price"].ToString();
+                productPrice.Text = "Prijs: €" + productRow["total_price"].ToString() + " per stuk";
                 productPrice.Top = 35;
                 productPrice.Left = 110;
+
+                amountLabel.Text = "Aantal:";
+                amountLabel.Top = 110;
+                amountLabel.Left = 10;
+                amountLabel.Width = 40;
+
+                amountNumeric.Minimum = 1;
+                amountNumeric.Maximum = 20; //dit moet later uit de database komen
+                amountNumeric.Top = 107;
+                amountNumeric.Left = 60;
+                amountNumeric.Width = 40;
 
                 productBtn.Text = "Inschrijven";
                 productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
                 productBtn.ForeColor = SystemColors.Window;
                 productBtn.Width = 80;
-                productBtn.Top = 67;
+                productBtn.Top = 107;
                 productBtn.Left = 175;
                 productBtn.FlatStyle = FlatStyle.Flat;
+                productBtn.Click += (obj, ev) => { connection.place_registration(productRow["name"], productRow["product_id"], amountNumeric.Value, productRow["total_price"]); };
 
                 //move next item down
                 Yposition++;
@@ -129,9 +144,20 @@ namespace login
                 productPanel.Controls.Add(productImg);
                 productPanel.Controls.Add(productName);
                 productPanel.Controls.Add(productPrice);
+                productPanel.Controls.Add(amountLabel);
+                productPanel.Controls.Add(amountNumeric);
                 productPanel.Controls.Add(productBtn);
             }
 
+            DataTable GetRegistrations = DataLayer.Query("SELECT registration.registration_id, registration.user, registration.product, registration.product_amount, registration.paid, discount_products.discount_offer FROM `registration` INNER JOIN discount_products ON registration.product = discount_products.product_id WHERE discount_products.discount_offer = @OfferId",
+                p =>
+                {
+                    p.Add("@OfferId", MySqlDbType.Int32, 255).Value = GlobalMethods.StoresInfo.OfferID;
+                });
+            foreach (DataRow registrationRow in GetRegistrations.Rows)
+            {
+                //laat de orders zien
+            }
         }
 
         private void backBtn_Click(object sender, EventArgs e)
