@@ -52,24 +52,14 @@ namespace login
 
         class ListItem
         {
-            public string DisplayMember;
-            public int ValueMember;
-
-            public ListItem(string n, int v)
-            {
-                DisplayMember = n;
-                ValueMember = v;
-            }
-
-            public override string ToString()
-            {
-                return DisplayMember;
-            }
+            public string Name { get; set; }
+            public int Value { get; set; }
         }
 
         public void refreshDiscountOffersList()
         {
-            discountList.Items.Clear();
+            discountListBox.DataSource = null;
+            deleteDiscountListBox.DataSource = null;
             DataTable getDiscountOffers = DataLayer.Query("SELECT offer_id, category FROM discount_offers WHERE supermarket = @Supermarket",
             p =>
             {
@@ -78,11 +68,33 @@ namespace login
             ArrayList DiscountOfferList = new ArrayList();
             foreach (DataRow DiscountOffer in getDiscountOffers.Select())
             {
-                DiscountOfferList.Add(new ListItem((string)DiscountOffer["category"], (int)DiscountOffer["offer_id"]));
+                DiscountOfferList.Add(new ListItem { Name = (string)DiscountOffer["category"], Value = (int)DiscountOffer["offer_id"] });
             }
-            discountList.DataSource = DiscountOfferList;
-            discountList.DisplayMember = "DisplayMember";
-            discountList.ValueMember = "ValueMember";
+            discountListBox.ValueMember = "Value";
+            discountListBox.DisplayMember = "Name";
+            discountListBox.DataSource = DiscountOfferList;
+            deleteDiscountListBox.ValueMember = "Value";
+            deleteDiscountListBox.DisplayMember = "Name";
+            deleteDiscountListBox.DataSource = DiscountOfferList;
+        }
+
+        public void refreshProductsList()
+        {
+            deleteProductsListBox.DataSource = null;
+            DataTable getProducts = DataLayer.Query("SELECT discount_products.product_id, discount_products.name, discount_offers.supermarket FROM discount_products " +
+                "INNER JOIN discount_offers ON discount_products.discount_offer = discount_offers.offer_id WHERE supermarket = @Supermarket",
+                p =>
+                {
+                    p.Add("@Supermarket", MySqlDbType.Int32, 255).Value = GlobalMethods.LoginInfo.Supermarket;
+                });
+            ArrayList ProductList = new ArrayList();
+            foreach (DataRow Product in getProducts.Select())
+            {
+                ProductList.Add(new ListItem { Name = (string)Product["name"], Value = (int)Product["product_id"] });
+            }
+            deleteProductsListBox.ValueMember = "Value";
+            deleteProductsListBox.DisplayMember = "Name";
+            deleteProductsListBox.DataSource = ProductList;
         }
 
         public admin()
@@ -91,6 +103,7 @@ namespace login
             checkAdmin();
             setSupermarketLabel();
             refreshDiscountOffersList();
+            refreshProductsList();
         }
 
         private void navNotifications_Click(object sender, EventArgs e)
@@ -124,25 +137,18 @@ namespace login
 
         private void addProductBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(discountList.SelectedValue);
-
             // Adds new product to discount offer and resets saved image file.
-           // DataLayer.Query("INSERT INTO `discount_products` (discount_offer, name, icon, total_price) VALUES (@DiscountOfferID, @Name, @Icon, @TotalPrice);",
-            //p =>
-            //{
-            //    p.Add("@DiscountOfferID", MySqlDbType.Int16, 255).Value = null;
-            //    p.Add("@Name", MySqlDbType.VarChar, 255).Value = productNameTextBox.Text;
-            //    p.Add("@Icon", MySqlDbType.LongBlob, 255).Value = GlobalMethods.ImageInfo.ImageFile;
-            //    p.Add("@TotalPrice", MySqlDbType.VarChar, 255).Value = productPriceTextBox.Text;
-            //});
-            //GlobalMethods.ImageInfo.ImageFile = null;
+            DataLayer.Query("INSERT INTO `discount_products` (discount_offer, name, icon, total_price) VALUES (@DiscountOfferID, @Name, @Icon, @TotalPrice);",
+            p =>
+            {
+                p.Add("@DiscountOfferID", MySqlDbType.Int16, 255).Value = discountListBox.SelectedValue;
+                p.Add("@Name", MySqlDbType.VarChar, 255).Value = productNameTextBox.Text;
+                p.Add("@Icon", MySqlDbType.LongBlob, 255).Value = GlobalMethods.ImageInfo.ImageFile;
+                p.Add("@TotalPrice", MySqlDbType.VarChar, 255).Value = productPriceTextBox.Text;
+            });
+            GlobalMethods.ImageInfo.ImageFile = null;
+            refreshProductsList();
             MessageBox.Show("Nieuwe product toegevoegd.");
-        }
-
-        private void discountList_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            for (int ix = 0; ix < discountList.Items.Count; ++ix)
-                if (ix != e.Index) discountList.SetItemChecked(ix, false);
         }
 
         private void productIconBtn_Click(object sender, EventArgs e)
@@ -153,6 +159,38 @@ namespace login
         private void discountIconBtn_Click(object sender, EventArgs e)
         {
             GlobalMethods.openFile();
+        }
+
+        private void addItemsPanelBtn_Click(object sender, EventArgs e)
+        {
+            deletePanel.Visible = false;
+        }
+
+        private void deleteItemsPanelBtn_Click(object sender, EventArgs e)
+        {
+            deletePanel.Visible = true;
+        }
+
+        private void deleteDiscountOfferBtn_Click(object sender, EventArgs e)
+        {
+            // Deletes selected discount offer in discounts list and refreshes list.
+            DataLayer.Query("DELETE FROM `discount_offers` WHERE offer_id = @OfferId;",
+            p =>
+            {
+                p.Add("@OfferId", MySqlDbType.Int16, 255).Value = deleteDiscountListBox.SelectedValue;
+            });
+            refreshDiscountOffersList();
+        }
+
+        private void deleteProductBtn_Click(object sender, EventArgs e)
+        {
+            // Deletes selected product in products list and refreshes list.
+            DataLayer.Query("DELETE FROM `discount_products` WHERE product_id = @ProductId;",
+            p =>
+            {
+                p.Add("@ProductId", MySqlDbType.Int16, 255).Value = deleteProductsListBox.SelectedValue;
+            });
+            refreshProductsList();
         }
     }
 }

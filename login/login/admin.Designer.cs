@@ -53,7 +53,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.minimumTextBox = new System.Windows.Forms.TextBox();
-            this.discountList = new System.Windows.Forms.CheckedListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -64,9 +63,20 @@
             this.addProductBtn = new System.Windows.Forms.Button();
             this.productIconBtn = new System.Windows.Forms.Button();
             this.discountIconBtn = new System.Windows.Forms.Button();
+            this.discountListBox = new System.Windows.Forms.ComboBox();
+            this.deletePanel = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.deleteProductsListBox = new System.Windows.Forms.ComboBox();
+            this.deleteDiscountListBox = new System.Windows.Forms.ComboBox();
+            this.deleteProductBtn = new System.Windows.Forms.Button();
+            this.deleteDiscountOfferBtn = new System.Windows.Forms.Button();
+            this.addItemsPanelBtn = new System.Windows.Forms.Button();
+            this.deleteItemsPanelBtn = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            this.deletePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -273,7 +283,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(211, 92);
+            this.label1.Location = new System.Drawing.Point(211, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 40);
             this.label1.TabIndex = 20;
@@ -284,7 +294,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(206, 256);
+            this.label2.Location = new System.Drawing.Point(211, 269);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(205, 40);
             this.label2.TabIndex = 21;
@@ -308,9 +318,9 @@
             this.addDiscountBtn.FlatAppearance.BorderSize = 0;
             this.addDiscountBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addDiscountBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.addDiscountBtn.Location = new System.Drawing.Point(211, 214);
+            this.addDiscountBtn.Location = new System.Drawing.Point(211, 235);
             this.addDiscountBtn.Name = "addDiscountBtn";
-            this.addDiscountBtn.Size = new System.Drawing.Size(441, 28);
+            this.addDiscountBtn.Size = new System.Drawing.Size(577, 28);
             this.addDiscountBtn.TabIndex = 23;
             this.addDiscountBtn.Text = "Aanbieding Toevoegen";
             this.addDiscountBtn.UseVisualStyleBackColor = false;
@@ -318,7 +328,7 @@
             // 
             // brandTextBox
             // 
-            this.brandTextBox.Location = new System.Drawing.Point(269, 129);
+            this.brandTextBox.Location = new System.Drawing.Point(269, 140);
             this.brandTextBox.Name = "brandTextBox";
             this.brandTextBox.Size = new System.Drawing.Size(103, 20);
             this.brandTextBox.TabIndex = 24;
@@ -327,7 +337,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(211, 132);
+            this.label5.Location = new System.Drawing.Point(211, 143);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 25;
@@ -337,7 +347,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label7.Location = new System.Drawing.Point(211, 161);
+            this.label7.Location = new System.Drawing.Point(211, 172);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 27;
@@ -345,14 +355,14 @@
             // 
             // categoryTextBox
             // 
-            this.categoryTextBox.Location = new System.Drawing.Point(269, 158);
+            this.categoryTextBox.Location = new System.Drawing.Point(269, 169);
             this.categoryTextBox.Name = "categoryTextBox";
             this.categoryTextBox.Size = new System.Drawing.Size(103, 20);
             this.categoryTextBox.TabIndex = 26;
             // 
             // expireDateTime
             // 
-            this.expireDateTime.Location = new System.Drawing.Point(462, 129);
+            this.expireDateTime.Location = new System.Drawing.Point(541, 140);
             this.expireDateTime.Name = "expireDateTime";
             this.expireDateTime.Size = new System.Drawing.Size(190, 20);
             this.expireDateTime.TabIndex = 28;
@@ -361,7 +371,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label8.Location = new System.Drawing.Point(376, 132);
+            this.label8.Location = new System.Drawing.Point(455, 143);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(68, 13);
             this.label8.TabIndex = 29;
@@ -371,7 +381,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label9.Location = new System.Drawing.Point(376, 161);
+            this.label9.Location = new System.Drawing.Point(455, 172);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 13);
             this.label9.TabIndex = 30;
@@ -379,29 +389,16 @@
             // 
             // minimumTextBox
             // 
-            this.minimumTextBox.Location = new System.Drawing.Point(462, 158);
+            this.minimumTextBox.Location = new System.Drawing.Point(541, 169);
             this.minimumTextBox.Name = "minimumTextBox";
             this.minimumTextBox.Size = new System.Drawing.Size(104, 20);
             this.minimumTextBox.TabIndex = 31;
-            // 
-            // discountList
-            // 
-            this.discountList.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.discountList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.discountList.CheckOnClick = true;
-            this.discountList.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.discountList.FormattingEnabled = true;
-            this.discountList.Location = new System.Drawing.Point(214, 312);
-            this.discountList.Name = "discountList";
-            this.discountList.Size = new System.Drawing.Size(120, 92);
-            this.discountList.TabIndex = 32;
-            this.discountList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.discountList_ItemCheck);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label10.Location = new System.Drawing.Point(211, 296);
+            this.label10.Location = new System.Drawing.Point(223, 311);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 13);
             this.label10.TabIndex = 33;
@@ -411,7 +408,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label11.Location = new System.Drawing.Point(211, 190);
+            this.label11.Location = new System.Drawing.Point(211, 201);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(28, 13);
             this.label11.TabIndex = 34;
@@ -421,7 +418,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label12.Location = new System.Drawing.Point(347, 300);
+            this.label12.Location = new System.Drawing.Point(379, 316);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 13);
             this.label12.TabIndex = 36;
@@ -429,7 +426,7 @@
             // 
             // productNameTextBox
             // 
-            this.productNameTextBox.Location = new System.Drawing.Point(388, 296);
+            this.productNameTextBox.Location = new System.Drawing.Point(420, 312);
             this.productNameTextBox.Name = "productNameTextBox";
             this.productNameTextBox.Size = new System.Drawing.Size(103, 20);
             this.productNameTextBox.TabIndex = 35;
@@ -438,7 +435,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label13.Location = new System.Drawing.Point(347, 329);
+            this.label13.Location = new System.Drawing.Point(379, 345);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(26, 13);
             this.label13.TabIndex = 38;
@@ -446,7 +443,7 @@
             // 
             // productPriceTextBox
             // 
-            this.productPriceTextBox.Location = new System.Drawing.Point(388, 326);
+            this.productPriceTextBox.Location = new System.Drawing.Point(420, 342);
             this.productPriceTextBox.Name = "productPriceTextBox";
             this.productPriceTextBox.Size = new System.Drawing.Size(103, 20);
             this.productPriceTextBox.TabIndex = 37;
@@ -455,7 +452,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label14.Location = new System.Drawing.Point(347, 362);
+            this.label14.Location = new System.Drawing.Point(556, 321);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(28, 13);
             this.label14.TabIndex = 39;
@@ -467,9 +464,9 @@
             this.addProductBtn.FlatAppearance.BorderSize = 0;
             this.addProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addProductBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.addProductBtn.Location = new System.Drawing.Point(214, 412);
+            this.addProductBtn.Location = new System.Drawing.Point(214, 399);
             this.addProductBtn.Name = "addProductBtn";
-            this.addProductBtn.Size = new System.Drawing.Size(438, 28);
+            this.addProductBtn.Size = new System.Drawing.Size(574, 28);
             this.addProductBtn.TabIndex = 40;
             this.addProductBtn.Text = "Product Toevoegen";
             this.addProductBtn.UseVisualStyleBackColor = false;
@@ -481,7 +478,7 @@
             this.productIconBtn.FlatAppearance.BorderSize = 0;
             this.productIconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.productIconBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.productIconBtn.Location = new System.Drawing.Point(388, 357);
+            this.productIconBtn.Location = new System.Drawing.Point(597, 316);
             this.productIconBtn.Name = "productIconBtn";
             this.productIconBtn.Size = new System.Drawing.Size(75, 23);
             this.productIconBtn.TabIndex = 41;
@@ -495,7 +492,7 @@
             this.discountIconBtn.FlatAppearance.BorderSize = 0;
             this.discountIconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.discountIconBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.discountIconBtn.Location = new System.Drawing.Point(269, 185);
+            this.discountIconBtn.Location = new System.Drawing.Point(269, 196);
             this.discountIconBtn.Name = "discountIconBtn";
             this.discountIconBtn.Size = new System.Drawing.Size(75, 23);
             this.discountIconBtn.TabIndex = 42;
@@ -503,12 +500,132 @@
             this.discountIconBtn.UseVisualStyleBackColor = false;
             this.discountIconBtn.Click += new System.EventHandler(this.discountIconBtn_Click);
             // 
+            // discountListBox
+            // 
+            this.discountListBox.FormattingEnabled = true;
+            this.discountListBox.Location = new System.Drawing.Point(223, 327);
+            this.discountListBox.Name = "discountListBox";
+            this.discountListBox.Size = new System.Drawing.Size(121, 21);
+            this.discountListBox.TabIndex = 43;
+            // 
+            // deletePanel
+            // 
+            this.deletePanel.Controls.Add(this.label15);
+            this.deletePanel.Controls.Add(this.label3);
+            this.deletePanel.Controls.Add(this.deleteProductsListBox);
+            this.deletePanel.Controls.Add(this.deleteDiscountListBox);
+            this.deletePanel.Controls.Add(this.deleteProductBtn);
+            this.deletePanel.Controls.Add(this.deleteDiscountOfferBtn);
+            this.deletePanel.Location = new System.Drawing.Point(206, 100);
+            this.deletePanel.Name = "deletePanel";
+            this.deletePanel.Size = new System.Drawing.Size(603, 390);
+            this.deletePanel.TabIndex = 44;
+            this.deletePanel.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label15.Location = new System.Drawing.Point(2, 216);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(219, 40);
+            this.label15.TabIndex = 46;
+            this.label15.Text = "Bestaande product verwijderen:";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Location = new System.Drawing.Point(2, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(236, 40);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "Bestaande aanbieding verwijderen:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // deleteProductsListBox
+            // 
+            this.deleteProductsListBox.FormattingEnabled = true;
+            this.deleteProductsListBox.Location = new System.Drawing.Point(0, 264);
+            this.deleteProductsListBox.Name = "deleteProductsListBox";
+            this.deleteProductsListBox.Size = new System.Drawing.Size(146, 21);
+            this.deleteProductsListBox.TabIndex = 44;
+            // 
+            // deleteDiscountListBox
+            // 
+            this.deleteDiscountListBox.FormattingEnabled = true;
+            this.deleteDiscountListBox.Location = new System.Drawing.Point(0, 62);
+            this.deleteDiscountListBox.Name = "deleteDiscountListBox";
+            this.deleteDiscountListBox.Size = new System.Drawing.Size(146, 21);
+            this.deleteDiscountListBox.TabIndex = 43;
+            // 
+            // deleteProductBtn
+            // 
+            this.deleteProductBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.deleteProductBtn.FlatAppearance.BorderSize = 0;
+            this.deleteProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteProductBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.deleteProductBtn.Location = new System.Drawing.Point(169, 259);
+            this.deleteProductBtn.Name = "deleteProductBtn";
+            this.deleteProductBtn.Size = new System.Drawing.Size(413, 28);
+            this.deleteProductBtn.TabIndex = 42;
+            this.deleteProductBtn.Text = "Product Verwijderen";
+            this.deleteProductBtn.UseVisualStyleBackColor = false;
+            this.deleteProductBtn.Click += new System.EventHandler(this.deleteProductBtn_Click);
+            // 
+            // deleteDiscountOfferBtn
+            // 
+            this.deleteDiscountOfferBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.deleteDiscountOfferBtn.FlatAppearance.BorderSize = 0;
+            this.deleteDiscountOfferBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteDiscountOfferBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.deleteDiscountOfferBtn.Location = new System.Drawing.Point(169, 60);
+            this.deleteDiscountOfferBtn.Name = "deleteDiscountOfferBtn";
+            this.deleteDiscountOfferBtn.Size = new System.Drawing.Size(413, 28);
+            this.deleteDiscountOfferBtn.TabIndex = 41;
+            this.deleteDiscountOfferBtn.Text = "Aanbieding Verwijderen";
+            this.deleteDiscountOfferBtn.UseVisualStyleBackColor = false;
+            this.deleteDiscountOfferBtn.Click += new System.EventHandler(this.deleteDiscountOfferBtn_Click);
+            // 
+            // addItemsPanelBtn
+            // 
+            this.addItemsPanelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.addItemsPanelBtn.FlatAppearance.BorderSize = 0;
+            this.addItemsPanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addItemsPanelBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.addItemsPanelBtn.Location = new System.Drawing.Point(206, 72);
+            this.addItemsPanelBtn.Name = "addItemsPanelBtn";
+            this.addItemsPanelBtn.Size = new System.Drawing.Size(221, 28);
+            this.addItemsPanelBtn.TabIndex = 45;
+            this.addItemsPanelBtn.Text = "Items toevoegen paneel";
+            this.addItemsPanelBtn.UseVisualStyleBackColor = false;
+            this.addItemsPanelBtn.Click += new System.EventHandler(this.addItemsPanelBtn_Click);
+            // 
+            // deleteItemsPanelBtn
+            // 
+            this.deleteItemsPanelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.deleteItemsPanelBtn.FlatAppearance.BorderSize = 0;
+            this.deleteItemsPanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteItemsPanelBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.deleteItemsPanelBtn.Location = new System.Drawing.Point(433, 72);
+            this.deleteItemsPanelBtn.Name = "deleteItemsPanelBtn";
+            this.deleteItemsPanelBtn.Size = new System.Drawing.Size(221, 28);
+            this.deleteItemsPanelBtn.TabIndex = 46;
+            this.deleteItemsPanelBtn.Text = "Items verwijderen paneel";
+            this.deleteItemsPanelBtn.UseVisualStyleBackColor = false;
+            this.deleteItemsPanelBtn.Click += new System.EventHandler(this.deleteItemsPanelBtn_Click);
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(808, 490);
+            this.Controls.Add(this.deleteItemsPanelBtn);
+            this.Controls.Add(this.addItemsPanelBtn);
+            this.Controls.Add(this.deletePanel);
+            this.Controls.Add(this.discountListBox);
             this.Controls.Add(this.discountIconBtn);
             this.Controls.Add(this.productIconBtn);
             this.Controls.Add(this.addProductBtn);
@@ -519,7 +636,6 @@
             this.Controls.Add(this.productNameTextBox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.discountList);
             this.Controls.Add(this.minimumTextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -541,6 +657,7 @@
             this.panelSideMenu.PerformLayout();
             this.panelSubmenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            this.deletePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -573,7 +690,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox minimumTextBox;
-        private System.Windows.Forms.CheckedListBox discountList;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
@@ -584,5 +700,15 @@
         private System.Windows.Forms.Button addProductBtn;
         private System.Windows.Forms.Button productIconBtn;
         private System.Windows.Forms.Button discountIconBtn;
+        private System.Windows.Forms.ComboBox discountListBox;
+        private System.Windows.Forms.Panel deletePanel;
+        private System.Windows.Forms.ComboBox deleteProductsListBox;
+        private System.Windows.Forms.ComboBox deleteDiscountListBox;
+        private System.Windows.Forms.Button deleteProductBtn;
+        private System.Windows.Forms.Button deleteDiscountOfferBtn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button addItemsPanelBtn;
+        private System.Windows.Forms.Button deleteItemsPanelBtn;
     }
 }
