@@ -301,5 +301,19 @@ namespace login
                 }
             }
         }
+
+        // Method for retrieving all the supermarkets so I can display them in a datagridview
+        public DataTable getAllSupermarkets()
+        {
+            DataTable supermarketList = DataLayer.Query("SELECT supermarket_id, name, description, link FROM supermarkets", p => { });
+            return supermarketList;
+        }
+
+        // Method for retrieving all the supermarket admins so I can display them in a datagridview
+        public DataTable getAllUsers()
+        {
+            DataTable userList = DataLayer.Query("SELECT user_id, username, admin, admin_supermarket FROM users", p => { });
+            return userList;
+        }
     }
 }

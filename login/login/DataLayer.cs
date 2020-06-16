@@ -12,7 +12,7 @@ namespace login
     public class DataLayer
     {
         // Creates databaseConnection.
-        public static string MySQLConnectionString = "datasource=localhost;port=3306;username=root;password=;database=boodschapwijzer;";
+        public static string MySQLConnectionString = "datasource=localhost;port=3306;username=root;password=8269;database=boodschapwijzer;";
         public MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
 
         // Public method used to query to database connection.
