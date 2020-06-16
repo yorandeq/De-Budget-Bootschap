@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace login
 {
@@ -25,14 +26,23 @@ namespace login
             InitializeComponent();
         }
 
+        //save what offer is clicked and go to the offer page
+        private void saveOffer(object offerId)
+        {
+            GlobalMethods.StoresInfo.OfferID = int.Parse(offerId.ToString());
+            GlobalMethods.SwitchForm(this, new offer());
+        }
+
         private void products_Load(object sender, EventArgs e)
         {
             GlobalMethods.ExpireOffers();
 
-            DataTable offers = DataLayer.Query("SELECT o.brand, o.category, o.icon FROM discount_offers o WHERE supermarket = " + GlobalMethods.StoresInfo.StoreID,
-                p => { });
-            DataRow[] offersRow = offers.Select();
-            for (int i = 0; i < offersRow.Length; i++)
+            DataTable offers = DataLayer.Query("SELECT offer_id, brand, category, icon FROM discount_offers WHERE supermarket = @StoreId",
+                p => 
+                {
+                    p.Add("@StoreId", MySqlDbType.Int32, 255).Value = GlobalMethods.StoresInfo.StoreID;
+                });
+            foreach (DataRow row in offers.Rows)
             {
                 //components
                 Panel itemContainer = new Panel();
@@ -47,18 +57,18 @@ namespace login
                 itemContainer.Top = YpositionOffers * 112;
                 itemContainer.Left = 207;
 
-                itemImg.Image = Image.FromStream(GlobalMethods.convertImg(offersRow[i][2]));
+                itemImg.Image = Image.FromStream(GlobalMethods.convertImg(row["icon"]));
                 itemImg.SizeMode = PictureBoxSizeMode.Zoom;
                 itemImg.Top = 10;
                 itemImg.Left = 10;
                 itemImg.Width = 80;
                 itemImg.Height = 80;
 
-                itemName.Text = offersRow[i][0].ToString();
+                itemName.Text = row["brand"].ToString();
                 itemName.Top = 50;
                 itemName.Left = 110;
 
-                itemCategory.Text = offersRow[i][1].ToString();
+                itemCategory.Text = row["category"].ToString();
                 itemCategory.Top = 10;
                 itemCategory.Left = 110;
 
@@ -69,6 +79,7 @@ namespace login
                 itemBtn.Top = 75;
                 itemBtn.Left = 160;
                 itemBtn.FlatStyle = FlatStyle.Flat;
+                itemBtn.Click += (obj, ev) => { saveOffer(row["offer_id"]); };
 
                 //move next item down
                 YpositionOffers++;
@@ -81,11 +92,12 @@ namespace login
                 itemContainer.Controls.Add(itemBtn);
             }
 
-            DataTable products = DataLayer.Query("SELECT p.name, p.total_price, p.icon FROM discount_products p " +
-                "INNER JOIN discount_offers o ON p.discount_offer = o.offer_id WHERE o.supermarket = " + GlobalMethods.StoresInfo.StoreID,
-                p => { });
-            DataRow[] productsRow = products.Select();
-            for (int i = 0; i < productsRow.Length; i++)
+            DataTable products = DataLayer.Query("SELECT p.discount_offer, p.name, p.total_price, p.icon FROM discount_products p INNER JOIN discount_offers o ON p.discount_offer = o.offer_id WHERE o.supermarket = @StoreId",
+                p =>
+                {
+                    p.Add("@StoreId", MySqlDbType.Int32, 255).Value = GlobalMethods.StoresInfo.StoreID;
+                });
+            foreach (DataRow row in products.Rows)
             {
                 //components
                 Panel itemContainer = new Panel();
@@ -100,18 +112,18 @@ namespace login
                 itemContainer.Top = YpositionProducts * 112;
                 itemContainer.Left = 520;
 
-                itemImg.Image = Image.FromStream(GlobalMethods.convertImg(productsRow[i][2]));
+                itemImg.Image = Image.FromStream(GlobalMethods.convertImg(row["icon"]));
                 itemImg.SizeMode = PictureBoxSizeMode.Zoom;
                 itemImg.Top = 10;
                 itemImg.Left = 20;
                 itemImg.Width = 80;
                 itemImg.Height = 80;
 
-                itemName.Text = productsRow[i][0].ToString();
+                itemName.Text = row["name"].ToString();
                 itemName.Top = 10;
                 itemName.Left = 110;
 
-                itemPrice.Text = "Prijs: €" + productsRow[i][1].ToString();
+                itemPrice.Text = "Prijs: €" + row["total_price"].ToString();
                 itemPrice.Top = 50;
                 itemPrice.Left = 110;
 
@@ -122,6 +134,7 @@ namespace login
                 itemBtn.Top = 75;
                 itemBtn.Left = 160;
                 itemBtn.FlatStyle = FlatStyle.Flat;
+                itemBtn.Click += (obj, ev) => { saveOffer(row["discount_offer"]); };
 
                 //move next item down
                 YpositionProducts++;
