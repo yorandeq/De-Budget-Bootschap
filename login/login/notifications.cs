@@ -140,5 +140,10 @@ namespace login
                 MessageBox.Show("U bent niet gemachtigt om daar naar toe te gaan.");
             }
         }
+
+        private void navOverview_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new welcomescreen());
+        }
     }
 }

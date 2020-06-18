@@ -54,9 +54,10 @@
             this.markReadBtn.FlatAppearance.BorderSize = 0;
             this.markReadBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.markReadBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.markReadBtn.Location = new System.Drawing.Point(211, 43);
+            this.markReadBtn.Location = new System.Drawing.Point(281, 53);
+            this.markReadBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.markReadBtn.Name = "markReadBtn";
-            this.markReadBtn.Size = new System.Drawing.Size(239, 52);
+            this.markReadBtn.Size = new System.Drawing.Size(319, 64);
             this.markReadBtn.TabIndex = 0;
             this.markReadBtn.Text = "Markeer aangevinkt als gelezen";
             this.markReadBtn.UseVisualStyleBackColor = false;
@@ -68,9 +69,10 @@
             this.refreshNotificationsBtn.FlatAppearance.BorderSize = 0;
             this.refreshNotificationsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refreshNotificationsBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.refreshNotificationsBtn.Location = new System.Drawing.Point(456, 43);
+            this.refreshNotificationsBtn.Location = new System.Drawing.Point(608, 53);
+            this.refreshNotificationsBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.refreshNotificationsBtn.Name = "refreshNotificationsBtn";
-            this.refreshNotificationsBtn.Size = new System.Drawing.Size(239, 52);
+            this.refreshNotificationsBtn.Size = new System.Drawing.Size(319, 64);
             this.refreshNotificationsBtn.TabIndex = 1;
             this.refreshNotificationsBtn.Text = "Ververs notificaties";
             this.refreshNotificationsBtn.UseVisualStyleBackColor = false;
@@ -81,9 +83,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(206, 9);
+            this.label4.Location = new System.Drawing.Point(275, 11);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 29);
+            this.label4.Size = new System.Drawing.Size(161, 36);
             this.label4.TabIndex = 10;
             this.label4.Text = "Notificaties";
             // 
@@ -101,8 +104,9 @@
             this.panelSideMenu.Controls.Add(this.panelLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelSideMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(200, 490);
+            this.panelSideMenu.Size = new System.Drawing.Size(267, 603);
             this.panelSideMenu.TabIndex = 17;
             // 
             // navAdmin
@@ -113,10 +117,11 @@
             this.navAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.navAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.navAdmin.ForeColor = System.Drawing.Color.LightGray;
-            this.navAdmin.Location = new System.Drawing.Point(0, 370);
+            this.navAdmin.Location = new System.Drawing.Point(0, 453);
+            this.navAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.navAdmin.Name = "navAdmin";
-            this.navAdmin.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navAdmin.Size = new System.Drawing.Size(200, 45);
+            this.navAdmin.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
+            this.navAdmin.Size = new System.Drawing.Size(267, 55);
             this.navAdmin.TabIndex = 7;
             this.navAdmin.Text = "Admin paneel";
             this.navAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -130,10 +135,11 @@
             this.navSuperadmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.navSuperadmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.navSuperadmin.ForeColor = System.Drawing.Color.LightGray;
-            this.navSuperadmin.Location = new System.Drawing.Point(0, 325);
+            this.navSuperadmin.Location = new System.Drawing.Point(0, 398);
+            this.navSuperadmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.navSuperadmin.Name = "navSuperadmin";
-            this.navSuperadmin.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navSuperadmin.Size = new System.Drawing.Size(200, 45);
+            this.navSuperadmin.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
+            this.navSuperadmin.Size = new System.Drawing.Size(267, 55);
             this.navSuperadmin.TabIndex = 6;
             this.navSuperadmin.Text = "Superadmin paneel";
             this.navSuperadmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -150,10 +156,11 @@
             this.navNotifications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.navNotifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.navNotifications.ForeColor = System.Drawing.Color.LightGray;
-            this.navNotifications.Location = new System.Drawing.Point(0, 280);
+            this.navNotifications.Location = new System.Drawing.Point(0, 343);
+            this.navNotifications.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.navNotifications.Name = "navNotifications";
-            this.navNotifications.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navNotifications.Size = new System.Drawing.Size(200, 45);
+            this.navNotifications.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
+            this.navNotifications.Size = new System.Drawing.Size(267, 55);
             this.navNotifications.TabIndex = 5;
             this.navNotifications.Text = "Notificaties";
             this.navNotifications.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -167,14 +174,16 @@
             this.navOverview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.navOverview.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.navOverview.ForeColor = System.Drawing.Color.LightGray;
-            this.navOverview.Location = new System.Drawing.Point(0, 235);
+            this.navOverview.Location = new System.Drawing.Point(0, 288);
+            this.navOverview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.navOverview.Name = "navOverview";
-            this.navOverview.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navOverview.Size = new System.Drawing.Size(200, 45);
+            this.navOverview.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
+            this.navOverview.Size = new System.Drawing.Size(267, 55);
             this.navOverview.TabIndex = 4;
             this.navOverview.Text = "Overzicht";
             this.navOverview.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.navOverview.UseVisualStyleBackColor = false;
+            this.navOverview.Click += new System.EventHandler(this.navOverview_Click);
             // 
             // button1
             // 
@@ -184,10 +193,11 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.Location = new System.Drawing.Point(0, 190);
+            this.button1.Location = new System.Drawing.Point(0, 233);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(200, 45);
+            this.button1.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(267, 55);
             this.button1.TabIndex = 3;
             this.button1.Text = "Gebruiker:";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -199,9 +209,10 @@
             this.panelSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.panelSubmenu.Controls.Add(this.navStores);
             this.panelSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubmenu.Location = new System.Drawing.Point(0, 145);
+            this.panelSubmenu.Location = new System.Drawing.Point(0, 178);
+            this.panelSubmenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelSubmenu.Name = "panelSubmenu";
-            this.panelSubmenu.Size = new System.Drawing.Size(200, 45);
+            this.panelSubmenu.Size = new System.Drawing.Size(267, 55);
             this.panelSubmenu.TabIndex = 2;
             // 
             // navStores
@@ -212,9 +223,10 @@
             this.navStores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.navStores.ForeColor = System.Drawing.Color.LightGray;
             this.navStores.Location = new System.Drawing.Point(0, 0);
+            this.navStores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.navStores.Name = "navStores";
-            this.navStores.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navStores.Size = new System.Drawing.Size(200, 45);
+            this.navStores.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
+            this.navStores.Size = new System.Drawing.Size(267, 55);
             this.navStores.TabIndex = 0;
             this.navStores.Text = "Aanbiedingen bekijken";
             this.navStores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -229,10 +241,11 @@
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.exit.ForeColor = System.Drawing.Color.Gainsboro;
-            this.exit.Location = new System.Drawing.Point(0, 445);
+            this.exit.Location = new System.Drawing.Point(0, 548);
+            this.exit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.exit.Name = "exit";
-            this.exit.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.exit.Size = new System.Drawing.Size(200, 45);
+            this.exit.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
+            this.exit.Size = new System.Drawing.Size(267, 55);
             this.exit.TabIndex = 0;
             this.exit.Text = "Exit";
             this.exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -247,10 +260,11 @@
             this.navSidemenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.navSidemenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.navSidemenu.ForeColor = System.Drawing.Color.Gainsboro;
-            this.navSidemenu.Location = new System.Drawing.Point(0, 100);
+            this.navSidemenu.Location = new System.Drawing.Point(0, 123);
+            this.navSidemenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.navSidemenu.Name = "navSidemenu";
-            this.navSidemenu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.navSidemenu.Size = new System.Drawing.Size(200, 45);
+            this.navSidemenu.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.navSidemenu.Size = new System.Drawing.Size(267, 55);
             this.navSidemenu.TabIndex = 1;
             this.navSidemenu.Text = "Aanbiedingen:";
             this.navSidemenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -261,8 +275,9 @@
             this.panelLogo.Controls.Add(this.label6);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(200, 100);
+            this.panelLogo.Size = new System.Drawing.Size(267, 123);
             this.panelLogo.TabIndex = 0;
             // 
             // label6
@@ -271,24 +286,26 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
             this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(200, 100);
+            this.label6.Size = new System.Drawing.Size(267, 123);
             this.label6.TabIndex = 0;
             this.label6.Text = "De Budget Boodschapwijzer";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // notifications
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(808, 490);
+            this.ClientSize = new System.Drawing.Size(1077, 603);
             this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.refreshNotificationsBtn);
             this.Controls.Add(this.markReadBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "notifications";
             this.Text = "Notificaties - Budget Boodschapwijzer";
             this.panelSideMenu.ResumeLayout(false);
