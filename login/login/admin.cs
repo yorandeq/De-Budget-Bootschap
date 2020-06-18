@@ -192,5 +192,10 @@ namespace login
             });
             refreshProductsList();
         }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
