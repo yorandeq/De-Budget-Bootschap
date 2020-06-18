@@ -274,7 +274,12 @@ namespace login
 
         public void place_registration(object productName, object productId, decimal amount, object price)
         {
-            decimal totalPrice = decimal.Parse(price.ToString()) * amount;
+            DataTable paidPrice = DataLayer.Query("SELECT min_amount FROM discount_offers WHERE offer_id = @OfferID;",
+                p =>
+                {
+                    p.Add("@OfferID", MySqlDbType.Int32, 255).Value = GlobalMethods.StoresInfo.OfferID;
+                });
+            decimal totalPrice = decimal.Parse(price.ToString()) * amount / decimal.Parse(paidPrice.Rows[0]["min_amount"].ToString());
             var confirmResult = MessageBox.Show("Wilt u " + amount.ToString() + " " + productName.ToString() + " kopen voor €" + totalPrice.ToString() + "?", "Product kopen", MessageBoxButtons.YesNo);
 
             if (confirmResult == DialogResult.Yes)
