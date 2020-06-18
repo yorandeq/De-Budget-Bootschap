@@ -12,7 +12,7 @@ namespace login
     public class DataLayer
     {
         // Creates databaseConnection.
-        public static string MySQLConnectionString = "datasource=localhost;port=3306;username=root;password=;database=boodschapwijzer;";
+        public static string MySQLConnectionString = "datasource=localhost;port=3306;username=root;password=;database=boodschapwijzer;CharSet=utf8"; 
         public MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
 
         // Public method used to query to database connection.
@@ -24,9 +24,21 @@ namespace login
             {
                 // Add parameters to command and open database connection.
                 addParameters(command.Parameters);
-                databaseConnection.Open();
+                try
+                {
+                    databaseConnection.Open();
+                } catch (Exception x)
+                {
+                    MessageBox.Show(x.Message);
+                }
                 // Loads database result using command's ExecuteReader, and loads it into the result variable, then closes the connection.
-                result.Load(command.ExecuteReader(CommandBehavior.CloseConnection));
+                try 
+                { 
+                    result.Load(command.ExecuteReader(CommandBehavior.CloseConnection));
+                } catch (Exception x)
+                {
+                    MessageBox.Show(x.Message);
+                }
             }
             return result;
         }
