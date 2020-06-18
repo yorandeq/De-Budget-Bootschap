@@ -320,5 +320,18 @@ namespace login
             DataTable userList = DataLayer.Query("SELECT user_id, username, admin, admin_supermarket FROM users", p => { });
             return userList;
         }
+
+        // Method for retrieving the balance of the logged in user
+
+        public DataTable getBalance()
+        {
+            DataTable getBalance = DataLayer.Query("SELECT balance FROM `users` WHERE user_id = @UserID",
+                p =>
+                {
+                    p.Add("@Balance", MySqlDbType.Int16, 255).Value = 5.00;
+                    p.Add("@UserID", MySqlDbType.Int16, 11).Value = GlobalMethods.LoginInfo.UserID;
+                });
+            return getBalance;
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace login
 
         private void Logout_Click(object sender, EventArgs e)
         {
-            Close();
+            GlobalMethods.SwitchForm(this, new welcomescreen());
         }
 
 

@@ -18,8 +18,9 @@ namespace login
         DataLayer DataLayer = new DataLayer();
         GlobalMethods GlobalMethods = new GlobalMethods();
         List<Panel> NotificationPanels = new List<Panel>();
+        connection connection = new connection();
 
-      
+
 
         // Method for setting notifications that are checked to the read state in the database.
         public void setReadNotifications()
@@ -89,6 +90,7 @@ namespace login
         {
             getDiscountOffers();
             getUnreadUserNotifications();
+            balUsr.Text = "€" + connection.getBalance().Rows[0]["balance"].ToString();
         }
 
         public void getUnreadUserNotifications()
@@ -169,6 +171,18 @@ namespace login
         private void navOverview_Click(object sender, EventArgs e)
         {
             GlobalMethods.SwitchForm(this, new welcomescreen());
+        }
+
+        private void addMoney_Click(object sender, EventArgs e)
+        {
+            // Adds money to the logged in users balance
+            DataLayer.Query("UPDATE `users` SET balance = balance + @Balance WHERE user_id = @UserID", 
+                p => {
+                    p.Add("@Balance", MySqlDbType.Int16, 255).Value = 5.00;
+                    p.Add("@UserID", MySqlDbType.Int16, 11).Value = GlobalMethods.LoginInfo.UserID;
+                });
+            MessageBox.Show("U heeft €5,00 toegevoegd aan uw saldo!");
+            balUsr.Text = "€" + connection.getBalance().Rows[0]["balance"].ToString();
         }
     }
 }
