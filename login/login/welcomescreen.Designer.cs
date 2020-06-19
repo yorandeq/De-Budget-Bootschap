@@ -260,7 +260,7 @@
             // 
             // refreshNotificationsBtn
             // 
-            this.refreshNotificationsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(255)))));
+            this.refreshNotificationsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.refreshNotificationsBtn.FlatAppearance.BorderSize = 0;
             this.refreshNotificationsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refreshNotificationsBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -274,7 +274,7 @@
             // 
             // markReadBtn
             // 
-            this.markReadBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(255)))));
+            this.markReadBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.markReadBtn.FlatAppearance.BorderSize = 0;
             this.markReadBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.markReadBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -344,7 +344,7 @@
             // 
             // addMoney
             // 
-            this.addMoney.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(255)))));
+            this.addMoney.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.addMoney.FlatAppearance.BorderSize = 0;
             this.addMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
