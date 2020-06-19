@@ -22,6 +22,8 @@ namespace login
             InitializeComponent();
             dgvMarketList.DataSource = connection.getAllSupermarkets();
             dgvUsers.DataSource = connection.getAllUsers();
+            button2.BackColor = Color.FromArgb(0, 115, 229);
+            button2.Enabled = false;
         }
 
         private void Logout_Click(object sender, EventArgs e)
@@ -36,6 +38,14 @@ namespace login
             panelAddSupermarket.Visible = false;
             panelMarketList.Visible = false;
             panelUserList.Visible = false;
+            button2.Enabled = false;
+            button2.BackColor = Color.FromArgb(0, 115, 229);
+            button1.Enabled = true;
+            button1.BackColor = Color.FromArgb(0, 128, 255);
+            button4.Enabled = true;
+            button4.BackColor = Color.FromArgb(0, 128, 255);
+            button5.Enabled = true;
+            button5.BackColor = Color.FromArgb(0, 128, 255);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,6 +54,14 @@ namespace login
             panelAddAdmin.Visible = false;
             panelUserList.Visible = false;
             panelMarketList.Visible = false;
+            button1.Enabled = false;
+            button1.BackColor = Color.FromArgb(0, 115, 229);
+            button2.Enabled = true;
+            button2.BackColor = Color.FromArgb(0, 128, 255);
+            button4.Enabled = true;
+            button4.BackColor = Color.FromArgb(0, 128, 255);
+            button5.Enabled = true;
+            button5.BackColor = Color.FromArgb(0, 128, 255);
         }
 
         private void addAdmin_Click(object sender, EventArgs e)
@@ -70,6 +88,14 @@ namespace login
             panelAddSupermarket.Visible = false;
             panelUserList.Visible = false;
             dgvMarketList.DataSource = connection.getAllSupermarkets();
+            button1.Enabled = true;
+            button1.BackColor = Color.FromArgb(0, 128, 255);
+            button2.Enabled = true;
+            button2.BackColor = Color.FromArgb(0, 128, 255);
+            button4.Enabled = false;
+            button4.BackColor = Color.FromArgb(0, 115, 229);
+            button5.Enabled = true;
+            button5.BackColor = Color.FromArgb(0, 128, 255);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -79,6 +105,14 @@ namespace login
             panelMarketList.Visible = false;
             panelUserList.Visible = true;
             dgvUsers.DataSource = connection.getAllUsers();
+            button1.Enabled = true;
+            button1.BackColor = Color.FromArgb(0, 128, 255);
+            button2.Enabled = true;
+            button2.BackColor = Color.FromArgb(0, 128, 255);
+            button4.Enabled = true;
+            button4.BackColor = Color.FromArgb(0, 128, 255);
+            button5.Enabled = false;
+            button5.BackColor = Color.FromArgb(0, 115, 229);
         }
     }
 }

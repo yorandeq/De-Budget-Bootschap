@@ -22,6 +22,16 @@ namespace login
         public offer()
         {
             InitializeComponent();
+            navAdmin.Visible = false;
+            navSuperadmin.Visible = false;
+            if (GlobalMethods.LoginInfo.Admin == 1)
+            {
+                navAdmin.Visible = true;
+            } 
+            if (GlobalMethods.LoginInfo.Admin == 2)
+            {
+                navSuperadmin.Visible = true;
+            }
         }
 
         private void offer_Load(object sender, EventArgs e)
@@ -153,6 +163,31 @@ namespace login
         private void backBtn_Click(object sender, EventArgs e)
         {
             GlobalMethods.SwitchForm(this, new products());
+        }
+
+        private void navAdmin_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new admin());
+        }
+
+        private void navSuperadmin_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new superAdmin());
+        }
+
+        private void navNotifications_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new notifications());
+        }
+
+        private void navOverview_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new welcomescreen());
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

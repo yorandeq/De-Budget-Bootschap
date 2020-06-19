@@ -318,6 +318,7 @@
             this.addDiscountBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.addDiscountBtn.FlatAppearance.BorderSize = 0;
             this.addDiscountBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addDiscountBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.addDiscountBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.addDiscountBtn.Location = new System.Drawing.Point(211, 235);
             this.addDiscountBtn.Name = "addDiscountBtn";
@@ -464,6 +465,7 @@
             this.addProductBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.addProductBtn.FlatAppearance.BorderSize = 0;
             this.addProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addProductBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.addProductBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.addProductBtn.Location = new System.Drawing.Point(214, 399);
             this.addProductBtn.Name = "addProductBtn";
@@ -478,6 +480,7 @@
             this.productIconBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.productIconBtn.FlatAppearance.BorderSize = 0;
             this.productIconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.productIconBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.productIconBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.productIconBtn.Location = new System.Drawing.Point(597, 316);
             this.productIconBtn.Name = "productIconBtn";
@@ -492,6 +495,7 @@
             this.discountIconBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.discountIconBtn.FlatAppearance.BorderSize = 0;
             this.discountIconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.discountIconBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.discountIconBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.discountIconBtn.Location = new System.Drawing.Point(269, 196);
             this.discountIconBtn.Name = "discountIconBtn";
@@ -566,6 +570,7 @@
             this.deleteProductBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.deleteProductBtn.FlatAppearance.BorderSize = 0;
             this.deleteProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteProductBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.deleteProductBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.deleteProductBtn.Location = new System.Drawing.Point(169, 259);
             this.deleteProductBtn.Name = "deleteProductBtn";
@@ -580,6 +585,7 @@
             this.deleteDiscountOfferBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.deleteDiscountOfferBtn.FlatAppearance.BorderSize = 0;
             this.deleteDiscountOfferBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteDiscountOfferBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.deleteDiscountOfferBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.deleteDiscountOfferBtn.Location = new System.Drawing.Point(169, 60);
             this.deleteDiscountOfferBtn.Name = "deleteDiscountOfferBtn";
@@ -594,6 +600,7 @@
             this.addItemsPanelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.addItemsPanelBtn.FlatAppearance.BorderSize = 0;
             this.addItemsPanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addItemsPanelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.addItemsPanelBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.addItemsPanelBtn.Location = new System.Drawing.Point(206, 72);
             this.addItemsPanelBtn.Name = "addItemsPanelBtn";
@@ -608,6 +615,7 @@
             this.deleteItemsPanelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.deleteItemsPanelBtn.FlatAppearance.BorderSize = 0;
             this.deleteItemsPanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteItemsPanelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.deleteItemsPanelBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.deleteItemsPanelBtn.Location = new System.Drawing.Point(433, 72);
             this.deleteItemsPanelBtn.Name = "deleteItemsPanelBtn";
