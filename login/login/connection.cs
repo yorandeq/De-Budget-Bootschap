@@ -419,5 +419,29 @@ namespace login
                     p.Add("@StoreID", MySqlDbType.Int16, 11).Value = selectedStore;
                 });
         }
+
+        // Method for completing the offer
+
+        public void get_products(int productID, int userID, string productName)
+        {
+            var confirmResult = MessageBox.Show($"Wilt u {productName} ophalen?", "Ophalen", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes) 
+            {
+                try
+                {
+                    DataLayer.Query("UPDATE `discount_products` SET state = @State, bought_by = @UserID WHERE product_id = @ProductID",
+                        p =>
+                        {
+                            p.Add("@ProductID", MySqlDbType.Int16, 11).Value = productID;
+                            p.Add("@UserID", MySqlDbType.Int16, 11).Value = userID;
+                            p.Add("@State", MySqlDbType.Int16, 11).Value = 1;
+                        });
+                } catch (Exception x)
+                {
+                    MessageBox.Show("Error: " + x);
+                }
+
+            }     
+        }
     }
 }
