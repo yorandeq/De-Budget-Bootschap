@@ -284,40 +284,56 @@ namespace login
                     int product_id = (int)productId;
                     int product_amount = 1;
                     float paid = (float)price;
-                    DataLayer.Query("INSERT INTO `registration` (`registration_id`, `user`, `product`, `product_amount`, `paid`) VALUES (NULL, @UserId, @ProductId, @ProductAmount, @TotalPrice)",
-                            p =>
-                            {
-                                p.Add("@UserId", MySqlDbType.Int32, 255).Value = user_id;
-                                p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
-                                p.Add("@ProductAmount", MySqlDbType.Int32, 255).Value = product_amount;
-                                p.Add("@TotalPrice", MySqlDbType.Float, 255).Value = paid;
-                            });
-                    MessageBox.Show("Bedankt voor uw bestelling!");
-                    SubtractBalance(paid);
-
-                    // Checks if number of registers has reached the minimum.
-                    DataTable MinAmount = DataLayer.Query("SELECT discount_offers.min_amount, COUNT(registration.product) FROM discount_products INNER JOIN discount_offers ON discount_products.discount_offer = discount_offers.offer_id INNER JOIN registration ON discount_products.product_id = registration.product WHERE discount_products.product_id = @ProductId",
+                    DataTable checkIfRegistered = DataLayer.Query("SELECT * FROM `registration` WHERE product = @ProductId AND user = @UserID",
                         p =>
                         {
+                            p.Add("@UserId", MySqlDbType.Int32, 255).Value = user_id;
                             p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
                         });
-                    foreach(DataRow MinAmountRow in MinAmount.Rows)
+                    if (checkIfRegistered.Rows.Count > 0)
                     {
-                        if(Convert.ToInt64(MinAmountRow[0]) == Convert.ToInt64(MinAmountRow[1]))
+                        MessageBox.Show("U heeft zich al ingeschreven");
+                    }
+                    else
+                    {
+                        bool transactionComplete = SubtractBalance(paid);
+                        if (transactionComplete)
                         {
-                            // Adds notification for all registered users.
-                            DataTable RegisteredUsersProducts = DataLayer.Query("SELECT users.user_id, discount_products.name FROM discount_products INNER JOIN registration ON registration.product = discount_products.product_id INNER JOIN users ON users.user_id = registration.user WHERE discount_products.product_id = @ProductId",
-                            p =>
-                            {
-                                p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
-                            });
-                            foreach (DataRow RegisteredUser in RegisteredUsersProducts.Select())
-                            {
-                                DataLayer.Query("INSERT INTO `notifications` (`notification_id`, `user`, `message`, `state`) VALUES (NULL, @UserId, 'Uw geregistreerde product" + RegisteredUser["name"] + " kan nu opgehaald worden.', '0') ",
+                            DataLayer.Query("INSERT INTO `registration` (`registration_id`, `user`, `product`, `product_amount`, `paid`) VALUES (NULL, @UserId, @ProductId, @ProductAmount, @TotalPrice)",
                                 p =>
                                 {
-                                    p.Add("@UserId", MySqlDbType.Int32, 255).Value = RegisteredUser["user_id"];
+                                    p.Add("@UserId", MySqlDbType.Int32, 255).Value = user_id;
+                                    p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
+                                    p.Add("@ProductAmount", MySqlDbType.Int32, 255).Value = product_amount;
+                                    p.Add("@TotalPrice", MySqlDbType.Float, 255).Value = paid;
                                 });
+                            MessageBox.Show("Bedankt voor uw bestelling!");
+
+                            // Checks if number of registers has reached the minimum.
+                            DataTable MinAmount = DataLayer.Query("SELECT discount_offers.min_amount, COUNT(registration.product) FROM discount_products INNER JOIN discount_offers ON discount_products.discount_offer = discount_offers.offer_id INNER JOIN registration ON discount_products.product_id = registration.product WHERE discount_products.product_id = @ProductId",
+                                p =>
+                                {
+                                    p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
+                                });
+                            foreach (DataRow MinAmountRow in MinAmount.Rows)
+                            {
+                                if (Convert.ToInt64(MinAmountRow[0]) == Convert.ToInt64(MinAmountRow[1]))
+                                {
+                                    // Adds notification for all registered users.
+                                    DataTable RegisteredUsersProducts = DataLayer.Query("SELECT users.user_id, discount_products.name FROM discount_products INNER JOIN registration ON registration.product = discount_products.product_id INNER JOIN users ON users.user_id = registration.user WHERE discount_products.product_id = @ProductId",
+                                    p =>
+                                    {
+                                        p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
+                                    });
+                                    foreach (DataRow RegisteredUser in RegisteredUsersProducts.Select())
+                                    {
+                                        DataLayer.Query("INSERT INTO `notifications` (`notification_id`, `user`, `message`, `state`) VALUES (NULL, @UserId, 'Uw geregistreerde product " + RegisteredUser["name"] + " kan nu opgehaald worden.', '0') ",
+                                        p =>
+                                        {
+                                            p.Add("@UserId", MySqlDbType.Int32, 255).Value = RegisteredUser["user_id"];
+                                        });
+                                    }
+                                }
                             }
                         }
                     }
@@ -357,7 +373,7 @@ namespace login
         }
 
         // Method for subtracting balance
-        public void SubtractBalance(float paid)
+        public bool SubtractBalance(float paid)
         {
             DataTable getBalance = DataLayer.Query("SELECT balance FROM `users` WHERE user_id = @UserID",
                 p =>
@@ -367,12 +383,19 @@ namespace login
 
             float newBalance = float.Parse(getBalance.Rows[0]["balance"].ToString()) - paid;
 
+            if (newBalance < 0)
+            {
+                MessageBox.Show("U heeft niet genoeg balans om deze aankoop te doen");
+                return false;
+            }
+
             DataTable setBalance = DataLayer.Query("UPDATE `users` SET balance = @Balance WHERE user_id = @UserId",
                 p =>
                 {
                     p.Add("@Balance", MySqlDbType.Decimal, 255).Value = newBalance;
                     p.Add("@UserID", MySqlDbType.Int16, 11).Value = GlobalMethods.LoginInfo.UserID;
                 });
+            return true;
         }
 
         // Method for deleting a specific user from the database
