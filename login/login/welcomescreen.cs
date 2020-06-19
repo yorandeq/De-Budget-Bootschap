@@ -123,7 +123,8 @@ namespace login
                 Label notification = new Label();
                 notification.Text = "Je hebt geen ongelezen notificaties!";
                 notification.ForeColor = Color.WhiteSmoke;
-                notification.Top = 80;
+                notification.Top = 0;
+                notification.Width = 200;
                 notificationContainer.Controls.Add(notification);
             }
 
