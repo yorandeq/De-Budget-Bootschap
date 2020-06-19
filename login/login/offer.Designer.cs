@@ -43,6 +43,7 @@
             this.navSidemenu = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.backBtn = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -50,10 +51,10 @@
             // 
             // offerContainer
             // 
-            this.offerContainer.BackColor = System.Drawing.Color.White;
+            this.offerContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(102)))));
             this.offerContainer.Location = new System.Drawing.Point(206, 49);
             this.offerContainer.Name = "offerContainer";
-            this.offerContainer.Size = new System.Drawing.Size(279, 225);
+            this.offerContainer.Size = new System.Drawing.Size(311, 140);
             this.offerContainer.TabIndex = 1;
             // 
             // productContainer
@@ -61,20 +62,20 @@
             this.productContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.productContainer.AutoScroll = true;
-            this.productContainer.BackColor = System.Drawing.Color.White;
-            this.productContainer.Location = new System.Drawing.Point(491, 12);
+            this.productContainer.BackColor = System.Drawing.Color.Transparent;
+            this.productContainer.Location = new System.Drawing.Point(523, 49);
             this.productContainer.Name = "productContainer";
-            this.productContainer.Size = new System.Drawing.Size(300, 470);
+            this.productContainer.Size = new System.Drawing.Size(268, 433);
             this.productContainer.TabIndex = 2;
             // 
             // registrationsContainer
             // 
             this.registrationsContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.registrationsContainer.BackColor = System.Drawing.Color.White;
-            this.registrationsContainer.Location = new System.Drawing.Point(206, 280);
+            this.registrationsContainer.BackColor = System.Drawing.Color.Transparent;
+            this.registrationsContainer.Location = new System.Drawing.Point(206, 195);
             this.registrationsContainer.Name = "registrationsContainer";
-            this.registrationsContainer.Size = new System.Drawing.Size(279, 202);
+            this.registrationsContainer.Size = new System.Drawing.Size(265, 287);
             this.registrationsContainer.TabIndex = 3;
             // 
             // panelSideMenu
@@ -272,12 +273,29 @@
             this.label6.Text = "De Budget Boodschapwijzer";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // backBtn
+            // 
+            this.backBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.backBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.backBtn.Location = new System.Drawing.Point(206, 14);
+            this.backBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(76, 27);
+            this.backBtn.TabIndex = 20;
+            this.backBtn.Text = "< Ga terug";
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // offer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 494);
+            this.Controls.Add(this.backBtn);
             this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.registrationsContainer);
             this.Controls.Add(this.productContainer);
@@ -310,5 +328,6 @@
         private System.Windows.Forms.Button navSidemenu;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button backBtn;
     }
 }

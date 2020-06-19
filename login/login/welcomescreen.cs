@@ -197,5 +197,10 @@ namespace login
             MessageBox.Show("U heeft €5,00 toegevoegd aan uw saldo!");
             balUsr.Text = "€" + connection.getBalance().Rows[0]["balance"].ToString();
         }
+
+        private void exit_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -207,6 +207,7 @@
             this.exit.Text = "Exit";
             this.exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click_1);
             // 
             // navSidemenu
             // 

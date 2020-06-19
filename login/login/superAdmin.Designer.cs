@@ -88,7 +88,7 @@
             this.logout.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
             this.logout.Size = new System.Drawing.Size(267, 55);
             this.logout.TabIndex = 0;
-            this.logout.Text = "Exit";
+            this.logout.Text = "< Ga terug";
             this.logout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logout.UseVisualStyleBackColor = false;
             this.logout.Click += new System.EventHandler(this.Logout_Click);

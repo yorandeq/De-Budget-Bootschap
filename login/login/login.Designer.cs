@@ -35,12 +35,12 @@
             this.navSidemenu = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.loginAcc = new System.Windows.Forms.Button();
             this.txbLoginPassword = new System.Windows.Forms.TextBox();
             this.txbLoginUsrname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelSuperAdmin = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.loginAcc = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -141,27 +141,9 @@
             this.label6.Text = "Inloggen";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // loginAcc
-            // 
-            this.loginAcc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.loginAcc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.loginAcc.FlatAppearance.BorderSize = 0;
-            this.loginAcc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(102)))));
-            this.loginAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loginAcc.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.loginAcc.Location = new System.Drawing.Point(241, 291);
-            this.loginAcc.Margin = new System.Windows.Forms.Padding(4);
-            this.loginAcc.Name = "loginAcc";
-            this.loginAcc.Size = new System.Drawing.Size(176, 52);
-            this.loginAcc.TabIndex = 13;
-            this.loginAcc.Text = "Login";
-            this.loginAcc.UseVisualStyleBackColor = false;
-            this.loginAcc.Click += new System.EventHandler(this.loginAcc_Click);
-            // 
             // txbLoginPassword
             // 
-            this.txbLoginPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbLoginPassword.Location = new System.Drawing.Point(227, 261);
+            this.txbLoginPassword.Location = new System.Drawing.Point(215, 245);
             this.txbLoginPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txbLoginPassword.Name = "txbLoginPassword";
             this.txbLoginPassword.PasswordChar = '*';
@@ -170,8 +152,7 @@
             // 
             // txbLoginUsrname
             // 
-            this.txbLoginUsrname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbLoginUsrname.Location = new System.Drawing.Point(227, 191);
+            this.txbLoginUsrname.Location = new System.Drawing.Point(215, 175);
             this.txbLoginUsrname.Margin = new System.Windows.Forms.Padding(4);
             this.txbLoginUsrname.Name = "txbLoginUsrname";
             this.txbLoginUsrname.Size = new System.Drawing.Size(208, 22);
@@ -180,7 +161,7 @@
             // label1
             // 
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(238, 147);
+            this.label1.Location = new System.Drawing.Point(226, 131);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 40);
             this.label1.TabIndex = 14;
@@ -190,9 +171,9 @@
             // panelSuperAdmin
             // 
             this.panelSuperAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.panelSuperAdmin.Controls.Add(this.loginAcc);
             this.panelSuperAdmin.Controls.Add(this.label2);
             this.panelSuperAdmin.Controls.Add(this.label1);
-            this.panelSuperAdmin.Controls.Add(this.loginAcc);
             this.panelSuperAdmin.Controls.Add(this.txbLoginPassword);
             this.panelSuperAdmin.Controls.Add(this.txbLoginUsrname);
             this.panelSuperAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -204,12 +185,27 @@
             // label2
             // 
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(238, 217);
+            this.label2.Location = new System.Drawing.Point(226, 201);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 40);
             this.label2.TabIndex = 15;
             this.label2.Text = "Wachtwoord:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // loginAcc
+            // 
+            this.loginAcc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.loginAcc.FlatAppearance.BorderSize = 0;
+            this.loginAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginAcc.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.loginAcc.Location = new System.Drawing.Point(229, 276);
+            this.loginAcc.Margin = new System.Windows.Forms.Padding(5);
+            this.loginAcc.Name = "loginAcc";
+            this.loginAcc.Size = new System.Drawing.Size(176, 52);
+            this.loginAcc.TabIndex = 16;
+            this.loginAcc.Text = "Login";
+            this.loginAcc.UseVisualStyleBackColor = false;
+            this.loginAcc.Click += new System.EventHandler(this.loginAcc_Click);
             // 
             // login
             // 
@@ -242,11 +238,11 @@
         private System.Windows.Forms.Button navSidemenu;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button loginAcc;
         private System.Windows.Forms.TextBox txbLoginPassword;
         private System.Windows.Forms.TextBox txbLoginUsrname;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelSuperAdmin;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button loginAcc;
     }
 }
