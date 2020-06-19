@@ -90,7 +90,7 @@ namespace login
             offerContainer.Controls.Add(offerExpiration);
             offerContainer.Controls.Add(offerAmount);
 
-            DataTable GetProducts = DataLayer.Query("SELECT p.product_id, p.name, p.icon, p.total_price, COUNT(r.product_amount), o.min_amount FROM `discount_products` p LEFT JOIN `discount_offers` o ON p.discount_offer = o.offer_id LEFT JOIN `registration` r ON p.product_id = r.product WHERE o.offer_id = @OfferId GROUP BY p.product_id, p.name",
+            DataTable GetProducts = DataLayer.Query("SELECT p.product_id, p.name, p.icon, p.total_price, COUNT(r.product_amount), o.min_amount, bought_by FROM `discount_products` p LEFT JOIN `discount_offers` o ON p.discount_offer = o.offer_id LEFT JOIN `registration` r ON p.product_id = r.product WHERE o.offer_id = @OfferId GROUP BY p.product_id, p.name",
                 p =>
                 {
                     p.Add("@OfferId", MySqlDbType.Int32, 255).Value = GlobalMethods.StoresInfo.OfferID;
@@ -143,7 +143,17 @@ namespace login
                     productBtn.Left = 175;
                     productBtn.FlatStyle = FlatStyle.Flat;
                     productBtn.Click += (obj, ev) => { connection.place_registration(productRow["name"], productRow["product_id"], productRow["total_price"]); GlobalMethods.refreshForm(this, new offer()); };
-                } else
+                } 
+                else if (productRow["bought_by"].ToString() != "") {
+                    productBtn.Text = "Gehaald";
+                    productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                    productBtn.ForeColor = SystemColors.Window;
+                    productBtn.Width = 80;
+                    productBtn.Top = 107;
+                    productBtn.Left = 175;
+                    productBtn.FlatStyle = FlatStyle.Flat;
+                } 
+                else
                 {
                     productBtn.Text = "Ophalen";
                     productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
@@ -152,7 +162,7 @@ namespace login
                     productBtn.Top = 107;
                     productBtn.Left = 175;
                     productBtn.FlatStyle = FlatStyle.Flat;
-                    productBtn.Click += (obj, ev) => { connection.get_products(Int16.Parse(productRow["product_id"].ToString()), GlobalMethods.LoginInfo.UserID); GlobalMethods.refreshForm(this, new offer()); };
+                    productBtn.Click += (obj, ev) => { connection.get_products(Int16.Parse(productRow["product_id"].ToString()), GlobalMethods.LoginInfo.UserID, productRow["name"].ToString()); GlobalMethods.refreshForm(this, new offer()); };
                 }
 
                 //move next item down

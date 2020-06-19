@@ -473,6 +473,7 @@
             this.productIconBtn.TabIndex = 52;
             this.productIconBtn.Text = "Open File";
             this.productIconBtn.UseVisualStyleBackColor = false;
+            this.productIconBtn.Click += new System.EventHandler(this.productIconBtn_Click);
             // 
             // addProductBtn
             // 
@@ -487,6 +488,7 @@
             this.addProductBtn.TabIndex = 51;
             this.addProductBtn.Text = "Product Toevoegen";
             this.addProductBtn.UseVisualStyleBackColor = false;
+            this.addProductBtn.Click += new System.EventHandler(this.addProductBtn_Click);
             // 
             // label14
             // 
