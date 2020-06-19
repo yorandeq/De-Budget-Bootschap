@@ -164,5 +164,12 @@ namespace login
                 }
             }
         }
+
+        public void refreshForm(Form currentForm, Form newForm)
+        {
+            newForm.Location = currentForm.Location;
+            currentForm.Close();
+            newForm.Show();
+        }
     }
 }

@@ -274,13 +274,6 @@ namespace login
 
         public void place_registration(object productName, object productId, object price)
         {
-            //DataTable paidPrice = DataLayer.Query("SELECT min_amount FROM discount_offers WHERE offer_id = @OfferID;",
-            //    p =>
-            //    {
-            //        p.Add("@OfferID", MySqlDbType.Int32, 255).Value = GlobalMethods.StoresInfo.OfferID;
-            //    });
-            //decimal totalPrice = decimal.Parse(price.ToString()) * amount / decimal.Parse(paidPrice.Rows[0]["min_amount"].ToString());
-            //var confirmResult = MessageBox.Show("Wilt u " + amount.ToString() + " " + productName.ToString() + " kopen voor €" + totalPrice.ToString() + "?", "Product kopen", MessageBoxButtons.YesNo);
             var confirmResult = MessageBox.Show($"Wilt u {productName.ToString()} kopen voor € {price.ToString()}?", "Product kopen", MessageBoxButtons.YesNo);
 
             if (confirmResult == DialogResult.Yes)
@@ -300,6 +293,7 @@ namespace login
                                 p.Add("@TotalPrice", MySqlDbType.Float, 255).Value = paid;
                             });
                     MessageBox.Show("Bedankt voor uw bestelling!");
+                    SubtractBalance(paid);
                 } 
                 catch (Exception e)
                 {
@@ -333,6 +327,47 @@ namespace login
                     p.Add("@UserID", MySqlDbType.Int16, 11).Value = GlobalMethods.LoginInfo.UserID;
                 });
             return getBalance;
+        }
+
+        // Method for subtracting balance
+        public void SubtractBalance(float paid)
+        {
+            DataTable getBalance = DataLayer.Query("SELECT balance FROM `users` WHERE user_id = @UserID",
+                p =>
+                {
+                    p.Add("@UserID", MySqlDbType.Int16, 11).Value = GlobalMethods.LoginInfo.UserID;
+                });
+
+            float newBalance = float.Parse(getBalance.Rows[0]["balance"].ToString()) - paid;
+
+            DataTable setBalance = DataLayer.Query("UPDATE `users` SET balance = @Balance WHERE user_id = @UserId",
+                p =>
+                {
+                    p.Add("@Balance", MySqlDbType.Decimal, 255).Value = newBalance;
+                    p.Add("@UserID", MySqlDbType.Int16, 11).Value = GlobalMethods.LoginInfo.UserID;
+                });
+        }
+
+        // Method for deleting a specific user from the database
+
+        public void delUser(int selectedUser)
+        {
+            DataLayer.Query("DELETE FROM `users` WHERE user_id = @UserID",
+                p =>
+                {
+                    p.Add("@UserID", MySqlDbType.Int16, 11).Value = selectedUser;
+                });
+        }
+
+        // Method for deleting supermarkets from the databas
+
+        public void delStore(int selectedStore)
+        {
+            DataLayer.Query("DELETE FROM `supermarkets` WHERE supermarket_id = @StoreID",
+                p =>
+                {
+                    p.Add("@StoreID", MySqlDbType.Int16, 11).Value = selectedStore;
+                });
         }
     }
 }
