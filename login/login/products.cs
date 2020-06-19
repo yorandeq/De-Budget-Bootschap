@@ -24,6 +24,16 @@ namespace login
         public products()
         {
             InitializeComponent();
+            navAdmin.Visible = false;
+            navSuperadmin.Visible = false;
+            if (GlobalMethods.LoginInfo.Admin == 1)
+            {
+                navAdmin.Visible = true;
+            }
+            if (GlobalMethods.LoginInfo.Admin == 2)
+            {
+                navSuperadmin.Visible = true;
+            }
         }
 
         //save what offer is clicked and go to the offer page
@@ -166,6 +176,16 @@ namespace login
         private void navOverview_Click(object sender, EventArgs e)
         {
             GlobalMethods.SwitchForm(this, new welcomescreen());
+        }
+
+        private void navSuperadmin_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new superAdmin());
+        }
+
+        private void navAdmin_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new admin());
         }
     }
 }

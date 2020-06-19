@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.navNotifications = new System.Windows.Forms.Button();
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.navAdmin = new System.Windows.Forms.Button();
             this.navSuperadmin = new System.Windows.Forms.Button();
+            this.navNotifications = new System.Windows.Forms.Button();
             this.navOverview = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panelSubmenu = new System.Windows.Forms.Panel();
@@ -54,25 +54,6 @@
             this.panelLogo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // navNotifications
-            // 
-            this.navNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.navNotifications.Cursor = System.Windows.Forms.Cursors.Default;
-            this.navNotifications.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navNotifications.FlatAppearance.BorderSize = 0;
-            this.navNotifications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.navNotifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.navNotifications.ForeColor = System.Drawing.Color.LightGray;
-            this.navNotifications.Location = new System.Drawing.Point(0, 280);
-            this.navNotifications.Name = "navNotifications";
-            this.navNotifications.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navNotifications.Size = new System.Drawing.Size(200, 45);
-            this.navNotifications.TabIndex = 5;
-            this.navNotifications.Text = "Notificaties";
-            this.navNotifications.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.navNotifications.UseVisualStyleBackColor = false;
-            this.navNotifications.Click += new System.EventHandler(this.navNotifications_Click);
-            // 
             // panelSideMenu
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(179)))));
@@ -88,7 +69,7 @@
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(200, 498);
+            this.panelSideMenu.Size = new System.Drawing.Size(200, 490);
             this.panelSideMenu.TabIndex = 21;
             // 
             // navAdmin
@@ -103,10 +84,11 @@
             this.navAdmin.Name = "navAdmin";
             this.navAdmin.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.navAdmin.Size = new System.Drawing.Size(200, 45);
-            this.navAdmin.TabIndex = 7;
+            this.navAdmin.TabIndex = 10;
             this.navAdmin.Text = "Admin paneel";
             this.navAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.navAdmin.UseVisualStyleBackColor = false;
+            this.navAdmin.Click += new System.EventHandler(this.navAdmin_Click);
             // 
             // navSuperadmin
             // 
@@ -120,29 +102,49 @@
             this.navSuperadmin.Name = "navSuperadmin";
             this.navSuperadmin.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.navSuperadmin.Size = new System.Drawing.Size(200, 45);
-            this.navSuperadmin.TabIndex = 6;
+            this.navSuperadmin.TabIndex = 9;
             this.navSuperadmin.Text = "Superadmin paneel";
             this.navSuperadmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.navSuperadmin.UseVisualStyleBackColor = false;
             this.navSuperadmin.Click += new System.EventHandler(this.navSuperadmin_Click);
             // 
+            // navNotifications
+            // 
+            this.navNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.navNotifications.Cursor = System.Windows.Forms.Cursors.Default;
+            this.navNotifications.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navNotifications.FlatAppearance.BorderSize = 0;
+            this.navNotifications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.navNotifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.navNotifications.ForeColor = System.Drawing.Color.LightGray;
+            this.navNotifications.Location = new System.Drawing.Point(0, 280);
+            this.navNotifications.Name = "navNotifications";
+            this.navNotifications.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.navNotifications.Size = new System.Drawing.Size(200, 45);
+            this.navNotifications.TabIndex = 8;
+            this.navNotifications.Text = "Notificaties";
+            this.navNotifications.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.navNotifications.UseVisualStyleBackColor = false;
+            this.navNotifications.Click += new System.EventHandler(this.navNotifications_Click);
+            // 
             // navOverview
             // 
-            this.navOverview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.navOverview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(229)))));
+            this.navOverview.Cursor = System.Windows.Forms.Cursors.Default;
             this.navOverview.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navOverview.Enabled = false;
             this.navOverview.FlatAppearance.BorderSize = 0;
             this.navOverview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.navOverview.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.navOverview.ForeColor = System.Drawing.Color.LightGray;
+            this.navOverview.ForeColor = System.Drawing.Color.LightCyan;
             this.navOverview.Location = new System.Drawing.Point(0, 235);
             this.navOverview.Name = "navOverview";
             this.navOverview.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.navOverview.Size = new System.Drawing.Size(200, 45);
-            this.navOverview.TabIndex = 4;
+            this.navOverview.TabIndex = 6;
             this.navOverview.Text = "Overzicht";
             this.navOverview.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.navOverview.UseVisualStyleBackColor = false;
-            this.navOverview.Click += new System.EventHandler(this.navOverview_Click);
             // 
             // button1
             // 
@@ -197,7 +199,7 @@
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.exit.ForeColor = System.Drawing.Color.Gainsboro;
-            this.exit.Location = new System.Drawing.Point(0, 453);
+            this.exit.Location = new System.Drawing.Point(0, 445);
             this.exit.Name = "exit";
             this.exit.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.exit.Size = new System.Drawing.Size(200, 45);
@@ -311,7 +313,7 @@
             this.imageContainer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.imageContainer.HideSelection = false;
             this.imageContainer.Location = new System.Drawing.Point(221, 128);
-            this.imageContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imageContainer.Margin = new System.Windows.Forms.Padding(2);
             this.imageContainer.Name = "imageContainer";
             this.imageContainer.Size = new System.Drawing.Size(572, 93);
             this.imageContainer.TabIndex = 24;
@@ -322,7 +324,7 @@
             this.notificationContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.notificationContainer.HideSelection = false;
             this.notificationContainer.Location = new System.Drawing.Point(220, 323);
-            this.notificationContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.notificationContainer.Margin = new System.Windows.Forms.Padding(2);
             this.notificationContainer.Name = "notificationContainer";
             this.notificationContainer.Size = new System.Drawing.Size(573, 107);
             this.notificationContainer.TabIndex = 25;
@@ -359,7 +361,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(802, 498);
+            this.ClientSize = new System.Drawing.Size(808, 490);
             this.Controls.Add(this.addMoney);
             this.Controls.Add(this.balUsr);
             this.Controls.Add(this.notificationContainer);
@@ -370,9 +372,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.refreshNotificationsBtn);
             this.Controls.Add(this.markReadBtn);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "welcomescreen";
-            this.Text = "Welcome Screen";
+            this.Text = "Overzicht - Budget Boodschapwijzer";
             this.Load += new System.EventHandler(this.welcomescreen_Load);
             this.panelSideMenu.ResumeLayout(false);
             this.panelSideMenu.PerformLayout();
@@ -384,12 +387,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button navNotifications;
         private System.Windows.Forms.Panel panelSideMenu;
-        private System.Windows.Forms.Button navAdmin;
-        private System.Windows.Forms.Button navSuperadmin;
-        private System.Windows.Forms.Button navOverview;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelSubmenu;
         private System.Windows.Forms.Button navStores;
@@ -406,5 +404,9 @@
         private System.Windows.Forms.ListView notificationContainer;
         private System.Windows.Forms.Label balUsr;
         private System.Windows.Forms.Button addMoney;
+        private System.Windows.Forms.Button navOverview;
+        private System.Windows.Forms.Button navAdmin;
+        private System.Windows.Forms.Button navSuperadmin;
+        private System.Windows.Forms.Button navNotifications;
     }
 }

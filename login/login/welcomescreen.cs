@@ -47,6 +47,16 @@ namespace login
         public welcomescreen()
         {
             InitializeComponent();
+            navAdmin.Visible = false;
+            navSuperadmin.Visible = false;
+            if (GlobalMethods.LoginInfo.Admin == 1)
+            {
+                navAdmin.Visible = true;
+            }
+            if (GlobalMethods.LoginInfo.Admin == 2)
+            {
+                navSuperadmin.Visible = true;
+            }
         }
 
      
@@ -85,7 +95,10 @@ namespace login
         {
             GlobalMethods.SwitchForm(this, new notifications());
         }
-
+        private void navAdmin_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new admin());
+        }
         private void welcomescreen_Load(object sender, EventArgs e)
         {
             getDiscountOffers();
