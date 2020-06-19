@@ -171,65 +171,25 @@ namespace login
                 {
                     productBtn.Text = "Ophalen";
                     productBtn.Enabled = false;
+                    productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                    productBtn.ForeColor = SystemColors.Window;
+                    productBtn.Width = 80;
+                    productBtn.Top = 107;
+                    productBtn.Left = 175;
+                    productBtn.FlatStyle = FlatStyle.Flat;
                 }
 
-                //    DataTable checkUser = DataLayer.Query("SELECT u.username FROM registration r INNER JOIN users u ON user = user_id WHERE product = @ProductId",
-                //    p =>
-                //    {
-                //        p.Add("@ProductId", MySqlDbType.Int32, 255).Value = productRow["product_id"];
-                //    });
-                //    foreach (DataRow user in checkUser.Rows)
-                //    {
-                //        if (user["username"].ToString() == GlobalMethods.LoginInfo.Username)
-                //        {
-                //            if (int.Parse(productRow[4].ToString()) == int.Parse(productRow["min_amount"].ToString()))
-                //            {
-                //                productBtn.Text = "Ophalen";
-                //                productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
-                //                productBtn.ForeColor = SystemColors.Window;
-                //                productBtn.Width = 80;
-                //                productBtn.Top = 107;
-                //                productBtn.Left = 175;
-                //                productBtn.FlatStyle = FlatStyle.Flat;
-                //                productPanel.Controls.Add(productBtn);
-                //                MinRegistration = true;
-                //            } else
-                //            {
-                //                MinRegistration = false;
-                //            }
-                //        }
-                //    }
-                //    Console.WriteLine(MinRegistration);
-                //    if (!MinRegistration)
-                //    {
-                //        productBtn.Text = "Inschrijven";
-                //        productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
-                //        productBtn.ForeColor = SystemColors.Window;
-                //        productBtn.Width = 80;
-                //        productBtn.Top = 107;
-                //        productBtn.Left = 175;
-                //        productBtn.FlatStyle = FlatStyle.Flat;
-                //        productBtn.Click += (obj, ev) => { connection.place_registration(productRow["name"], productRow["product_id"], productRow["total_price"]); GlobalMethods.refreshForm(this, new offer()); };
-                //        productPanel.Controls.Add(productBtn);
-                //    }
+                //move next item down
+                Yproducts++;
 
-                //    //move next item down
+                //add panel
+                productContainer.Controls.Add(productPanel);
 
-                //    //add panel
-                //    productContainer.Controls.Add(productPanel);
-
-                //    //add controls
-                //    productPanel.Controls.Add(productImg);
-                //    productPanel.Controls.Add(productName);
-                //    productPanel.Controls.Add(productPrice);
-                //    productPanel.Controls.Add(productProgress);
-                //}
-
-                //DataTable GetRegistrations = DataLayer.Query("SELECT orders.registration_id, offers.offer_id, orders.user, orders.product, orders.product_amount, orders.paid, offers.min_amount FROM `registration` orders LEFT JOIN `discount_products` products ON orders.product = products.product_id LEFT JOIN `discount_offers` offers ON products.discount_offer = offers.offer_id WHERE offers.offer_id = @OfferId",
-                //p =>
-                //{
-                //    p.Add("@OfferId", MySqlDbType.Int32, 255).Value = GlobalMethods.StoresInfo.OfferID;
-                //});
+                //add controls
+                productPanel.Controls.Add(productImg);
+                productPanel.Controls.Add(productName);
+                productPanel.Controls.Add(productPrice);
+                productPanel.Controls.Add(productProgress);
             }
         }
 
