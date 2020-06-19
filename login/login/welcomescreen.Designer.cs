@@ -49,6 +49,7 @@
             this.notificationContainer = new System.Windows.Forms.ListView();
             this.balUsr = new System.Windows.Forms.Label();
             this.addMoney = new System.Windows.Forms.Button();
+            this.MainLabel = new System.Windows.Forms.Label();
             this.panelSideMenu.SuspendLayout();
             this.panelSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -252,7 +253,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(217, 9);
+            this.label4.Location = new System.Drawing.Point(216, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(445, 29);
             this.label4.TabIndex = 20;
@@ -326,11 +327,11 @@
             this.notificationContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.notificationContainer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.notificationContainer.HideSelection = false;
-            this.notificationContainer.Location = new System.Drawing.Point(220, 323);
+            this.notificationContainer.Location = new System.Drawing.Point(205, 314);
             this.notificationContainer.Margin = new System.Windows.Forms.Padding(2);
             this.notificationContainer.Name = "notificationContainer";
             this.notificationContainer.Scrollable = false;
-            this.notificationContainer.Size = new System.Drawing.Size(763, 131);
+            this.notificationContainer.Size = new System.Drawing.Size(592, 117);
             this.notificationContainer.TabIndex = 25;
             this.notificationContainer.UseCompatibleStateImageBehavior = false;
             this.notificationContainer.View = System.Windows.Forms.View.List;
@@ -362,12 +363,24 @@
             this.addMoney.UseVisualStyleBackColor = false;
             this.addMoney.Click += new System.EventHandler(this.addMoney_Click);
             // 
+            // MainLabel
+            // 
+            this.MainLabel.AutoSize = true;
+            this.MainLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.MainLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.MainLabel.Location = new System.Drawing.Point(219, 43);
+            this.MainLabel.Name = "MainLabel";
+            this.MainLabel.Size = new System.Drawing.Size(322, 18);
+            this.MainLabel.TabIndex = 28;
+            this.MainLabel.Text = "Ingelogd als Gebruiker1, U hebt 123 registraties.";
+            // 
             // welcomescreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(808, 490);
+            this.Controls.Add(this.MainLabel);
             this.Controls.Add(this.addMoney);
             this.Controls.Add(this.balUsr);
             this.Controls.Add(this.notificationContainer);
@@ -414,5 +427,6 @@
         private System.Windows.Forms.Button navAdmin;
         private System.Windows.Forms.Button navSuperadmin;
         private System.Windows.Forms.Button navNotifications;
+        private System.Windows.Forms.Label MainLabel;
     }
 }

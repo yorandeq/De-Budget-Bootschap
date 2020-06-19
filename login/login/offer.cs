@@ -166,6 +166,7 @@ namespace login
                             productBtn.Top = 107;
                             productBtn.Left = 175;
                             productBtn.FlatStyle = FlatStyle.Flat;
+                            productBtn.Click += (obj, ev) => { connection.del_registrations(Int16.Parse(productRow["product_id"].ToString())); GlobalMethods.refreshForm(this, new offer()); };
                         }
                         else if (productRow[6].ToString() == "")
                         {

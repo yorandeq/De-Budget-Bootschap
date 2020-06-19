@@ -44,9 +44,31 @@ namespace login
             }
         }
 
+        // Method for setting the logged in as user label
+        public void setMainLabel()
+        {
+            DataTable getUserRegistrationCount = DataLayer.Query("SELECT COUNT(registration_id) FROM registration WHERE user = @UserId",
+            p =>
+            {
+                p.Add("@UserId", MySqlDbType.Int32, 255).Value = GlobalMethods.LoginInfo.UserID;
+            });
+            foreach(DataRow RegistrationCount in getUserRegistrationCount.Rows)
+            {
+                if(Convert.ToInt64(RegistrationCount[0]) == 1)
+                {
+                    MainLabel.Text = "Ingelogd als " + GlobalMethods.LoginInfo.Username + ", U hebt " + RegistrationCount[0] + " actieve registratie.";
+                }
+                else
+                {
+                    MainLabel.Text = "Ingelogd als " + GlobalMethods.LoginInfo.Username + ", U hebt " + RegistrationCount[0] + " actieve registraties.";
+                }
+            }
+        }
+
         public welcomescreen()
         {
             InitializeComponent();
+            setMainLabel();
             navAdmin.Visible = false;
             navSuperadmin.Visible = false;
             if (GlobalMethods.LoginInfo.Admin == 1)
@@ -148,8 +170,8 @@ namespace login
 
                 // Options
 
-                notification.Text = (int)row["notification_id"] + ". " + (string)row["message"];
-                notification.Font = new Font("Consolas", 13f);
+                notification.Text = (string)row["message"];
+                notification.Font = new Font("Consolas", 11f);
                 notification.ForeColor = Color.WhiteSmoke;
 
                 // Move next item down

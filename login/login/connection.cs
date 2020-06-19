@@ -429,12 +429,11 @@ namespace login
             {
                 try
                 {
-                    DataLayer.Query("UPDATE `discount_products` SET state = @State, bought_by = @UserID WHERE product_id = @ProductID",
+                    DataLayer.Query("UPDATE `discount_products` SET state = 1, bought_by = @UserID WHERE product_id = @ProductID",
                         p =>
                         {
                             p.Add("@ProductID", MySqlDbType.Int16, 11).Value = productID;
                             p.Add("@UserID", MySqlDbType.Int16, 11).Value = userID;
-                            p.Add("@State", MySqlDbType.Int16, 11).Value = 1;
                         });
 
                     // Adds notification for all registered users.
@@ -459,7 +458,7 @@ namespace login
         }
 
         // Method for deleting the registrations when someone has chosen to retrieve and said he retrieved them
-        
+
         public void del_registrations(int productID)
         {
             var confirmResult = MessageBox.Show($"Is het product gehaald?", "Gehaald", MessageBoxButtons.YesNo);
@@ -467,6 +466,27 @@ namespace login
             {
                 try
                 {
+                    // Adds notification for all registered users.
+                    DataTable RegisteredUsersProducts = DataLayer.Query("SELECT users.user_id, discount_products.name FROM discount_products INNER JOIN registration ON registration.product = discount_products.product_id INNER JOIN users ON users.user_id = registration.user WHERE discount_products.product_id = @ProductId",
+                    p =>
+                    {
+                        p.Add("@ProductId", MySqlDbType.Int32, 255).Value = productID;
+                    });
+                    foreach (DataRow RegisteredUser in RegisteredUsersProducts.Select())
+                    {
+                        DataLayer.Query("INSERT INTO `notifications` (`notification_id`, `user`, `message`, `state`) VALUES (NULL, @UserId, 'Uw geregistreerde product " + RegisteredUser["name"] + " is opgehaald!', '0') ",
+                        p =>
+                        {
+                            p.Add("@UserId", MySqlDbType.Int32, 255).Value = RegisteredUser["user_id"];
+                        });
+                    }
+
+                    DataLayer.Query("UPDATE `discount_products` SET state = 0, bought_by = NULL WHERE product_id = @ProductID",
+                        p =>
+                        {
+                            p.Add("@ProductID", MySqlDbType.Int16, 11).Value = productID;
+                        });
+
                     DataLayer.Query("DELETE FROM `registration` WHERE product = @ProductID",
                         p =>
                         {
