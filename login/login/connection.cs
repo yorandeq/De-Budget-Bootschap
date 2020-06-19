@@ -294,6 +294,33 @@ namespace login
                             });
                     MessageBox.Show("Bedankt voor uw bestelling!");
                     SubtractBalance(paid);
+
+                    // Checks if number of registers has reached the minimum.
+                    DataTable MinAmount = DataLayer.Query("SELECT discount_offers.min_amount, COUNT(registration.product) FROM discount_products INNER JOIN discount_offers ON discount_products.discount_offer = discount_offers.offer_id INNER JOIN registration ON discount_products.product_id = registration.product WHERE discount_products.product_id = @ProductId",
+                        p =>
+                        {
+                            p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
+                        });
+                    foreach(DataRow MinAmountRow in MinAmount.Rows)
+                    {
+                        if(Convert.ToInt64(MinAmountRow[0]) == Convert.ToInt64(MinAmountRow[1]))
+                        {
+                            // Adds notification for all registered users.
+                            DataTable RegisteredUsersProducts = DataLayer.Query("SELECT users.user_id, discount_products.name FROM discount_products INNER JOIN registration ON registration.product = discount_products.product_id INNER JOIN users ON users.user_id = registration.user WHERE discount_products.product_id = @ProductId",
+                            p =>
+                            {
+                                p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
+                            });
+                            foreach (DataRow RegisteredUser in RegisteredUsersProducts.Select())
+                            {
+                                DataLayer.Query("INSERT INTO `notifications` (`notification_id`, `user`, `message`, `state`) VALUES (NULL, @UserId, 'Uw geregistreerde product" + RegisteredUser["name"] + " kan nu opgehaald worden.', '0') ",
+                                p =>
+                                {
+                                    p.Add("@UserId", MySqlDbType.Int32, 255).Value = RegisteredUser["user_id"];
+                                });
+                            }
+                        }
+                    }
                 } 
                 catch (Exception e)
                 {
