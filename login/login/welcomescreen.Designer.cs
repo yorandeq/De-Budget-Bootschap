@@ -334,12 +334,16 @@
             // notificationContainer
             // 
             this.notificationContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.notificationContainer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.notificationContainer.HideSelection = false;
             this.notificationContainer.Location = new System.Drawing.Point(294, 398);
             this.notificationContainer.Name = "notificationContainer";
+            this.notificationContainer.Scrollable = false;
             this.notificationContainer.Size = new System.Drawing.Size(763, 131);
             this.notificationContainer.TabIndex = 25;
             this.notificationContainer.UseCompatibleStateImageBehavior = false;
+            this.notificationContainer.View = System.Windows.Forms.View.List;
+            this.notificationContainer.Click += new System.EventHandler(this.notificationContainer_Click);
             // 
             // welcomescreen
             // 

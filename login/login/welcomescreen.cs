@@ -75,6 +75,11 @@ namespace login
             GlobalMethods.SwitchForm(this, new notifications());
         }
 
+        private void navOverview_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new welcomescreen());
+        }
+
         private void markReadBtn_Click_1(object sender, EventArgs e)
         {
             GlobalMethods.SwitchForm(this, new stores());
@@ -85,11 +90,18 @@ namespace login
             GlobalMethods.SwitchForm(this, new notifications());
         }
 
+        private void notificationContainer_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new notifications());
+        }
+
         private void welcomescreen_Load(object sender, EventArgs e)
         {
             getDiscountOffers();
             getUnreadUserNotifications();
         }
+
+        //TODO: Je bent momenteel geregistreerd voor " " producten!
 
         public void getUnreadUserNotifications()
         {
@@ -97,44 +109,43 @@ namespace login
 
             DataTable getUserNotifications = DataLayer.Query("SELECT * FROM notifications WHERE user = @UserId AND state = 1",
             p => {
-                
                 p.Add("@UserId", MySqlDbType.Int16, 255).Value = GlobalMethods.LoginInfo.UserID;
-                
-                // if !hasrows, return 'je hebt geen nieuwe notificaties'
-               
             });
+            
+            // Check if user has no unread notifications
             if (getUserNotifications.Rows.Count < 1)
             {
                 Label notification = new Label();
                 notification.Text = "Je hebt geen ongelezen notificaties!";
                 notification.ForeColor = Color.WhiteSmoke;
                 notification.Top = 80;
+                notification.Width = 750;
                 notificationContainer.Controls.Add(notification);
             }
 
-            
-
             // Show unread user notifications to user through form. (Currently using a listbox for testing purposes, this should be changed later to form elements to fit the design.)
+            int rows = 0;
             foreach (DataRow row in getUserNotifications.Select())
             {
-                
-                Label notification = new Label();
+               
+                ListViewItem notification = new ListViewItem();
 
                 // Options
 
-                notification.Text = (string)row["message"];
+                notification.Text = (int)row["notification_id"] + ". " + (string)row["message"];
+                notification.Font = new Font("Consolas", 13f);
                 notification.ForeColor = Color.WhiteSmoke;
-                notification.Top = 80;
-                notification.Left = 1 + Yposition * 40;
-                notification.Width = 750;
 
-               
                 // Move next item down
                 Yposition++;
 
                 // Add controls inside panel
-                notificationContainer.Controls.Add(notification);
+                
+                rows++;
+
+                notificationContainer.Items.Add(notification);
             }
+            label2.Text = "Notificaties: (" + rows.ToString() + ")";
         }
 
         public void getDiscountOffers()
@@ -146,7 +157,6 @@ namespace login
                 foreach (DataRow row in GetOffers.Rows)
                 {
                     PictureBox icon = new PictureBox();
-
 
                     icon.Image = Image.FromStream(GlobalMethods.convertImg(row["icon"]));
                     icon.SizeMode = PictureBoxSizeMode.Zoom;
@@ -166,9 +176,6 @@ namespace login
             }
         }
 
-        private void navOverview_Click(object sender, EventArgs e)
-        {
-            GlobalMethods.SwitchForm(this, new welcomescreen());
-        }
+        
     }
 }
