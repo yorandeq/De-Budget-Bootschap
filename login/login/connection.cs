@@ -308,7 +308,6 @@ namespace login
                                     p.Add("@TotalPrice", MySqlDbType.Float, 255).Value = paid;
                                 });
                             MessageBox.Show("Bedankt voor uw bestelling!");
-                            SubtractBalance(paid);
                         }
                     }
                 } 
