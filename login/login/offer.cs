@@ -144,7 +144,7 @@ namespace login
                     productBtn.FlatStyle = FlatStyle.Flat;
                     productBtn.Click += (obj, ev) => { connection.place_registration(productRow["name"], productRow["product_id"], productRow["total_price"]); GlobalMethods.refreshForm(this, new offer()); };
                 } 
-                else if (productRow["bought_by"].ToString() != "") {
+                else if (productRow["bought_by"].ToString() != "" && GlobalMethods.LoginInfo.UserID == Int32.Parse(productRow["bought_by"].ToString())) {
                     productBtn.Text = "Gehaald";
                     productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
                     productBtn.ForeColor = SystemColors.Window;
@@ -152,8 +152,9 @@ namespace login
                     productBtn.Top = 107;
                     productBtn.Left = 175;
                     productBtn.FlatStyle = FlatStyle.Flat;
-                } 
-                else
+                    productBtn.Click += (obj, ev) => { connection.del_registrations(Int16.Parse(productRow["product_id"].ToString())); GlobalMethods.refreshForm(this, new offer()); };
+                }
+                else if(productRow["bought_by"].ToString() == "")
                 {
                     productBtn.Text = "Ophalen";
                     productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
@@ -163,6 +164,16 @@ namespace login
                     productBtn.Left = 175;
                     productBtn.FlatStyle = FlatStyle.Flat;
                     productBtn.Click += (obj, ev) => { connection.get_products(Int16.Parse(productRow["product_id"].ToString()), GlobalMethods.LoginInfo.UserID, productRow["name"].ToString()); GlobalMethods.refreshForm(this, new offer()); };
+                } else
+                {
+                    productBtn.Text = "Ophalen";
+                    productBtn.Enabled = false;
+                    productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                    productBtn.ForeColor = SystemColors.Window;
+                    productBtn.Width = 80;
+                    productBtn.Top = 107;
+                    productBtn.Left = 175;
+                    productBtn.FlatStyle = FlatStyle.Flat;
                 }
 
                 //move next item down
