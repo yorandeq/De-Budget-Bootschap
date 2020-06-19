@@ -221,7 +221,7 @@
             this.exit.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.exit.Size = new System.Drawing.Size(200, 45);
             this.exit.TabIndex = 0;
-            this.exit.Text = "Aflsuiten";
+            this.exit.Text = "Afsluiten";
             this.exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);

@@ -29,20 +29,16 @@
         private void InitializeComponent()
         {
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.navAdmin = new System.Windows.Forms.Button();
-            this.navSuperadmin = new System.Windows.Forms.Button();
-            this.navNotifications = new System.Windows.Forms.Button();
-            this.navOverview = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.deleteItemsPanelBtn = new System.Windows.Forms.Button();
+            this.addProductPanelBtn = new System.Windows.Forms.Button();
+            this.addOfferPanelBtn = new System.Windows.Forms.Button();
             this.panelSubmenu = new System.Windows.Forms.Panel();
-            this.navStores = new System.Windows.Forms.Button();
             this.exit = new System.Windows.Forms.Button();
-            this.navSidemenu = new System.Windows.Forms.Button();
+            this.navSubpage = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.supermarketLabel = new System.Windows.Forms.Label();
             this.addDiscountBtn = new System.Windows.Forms.Button();
             this.brandTextBox = new System.Windows.Forms.TextBox();
@@ -53,17 +49,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.minimumTextBox = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.productNameTextBox = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.productPriceTextBox = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.addProductBtn = new System.Windows.Forms.Button();
-            this.productIconBtn = new System.Windows.Forms.Button();
             this.discountIconBtn = new System.Windows.Forms.Button();
-            this.discountListBox = new System.Windows.Forms.ComboBox();
             this.deletePanel = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -71,25 +58,32 @@
             this.deleteDiscountListBox = new System.Windows.Forms.ComboBox();
             this.deleteProductBtn = new System.Windows.Forms.Button();
             this.deleteDiscountOfferBtn = new System.Windows.Forms.Button();
-            this.addItemsPanelBtn = new System.Windows.Forms.Button();
-            this.deleteItemsPanelBtn = new System.Windows.Forms.Button();
+            this.addProductPanel = new System.Windows.Forms.Panel();
+            this.discountListBox = new System.Windows.Forms.ComboBox();
+            this.productIconBtn = new System.Windows.Forms.Button();
+            this.addProductBtn = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.productPriceTextBox = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.productNameTextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelSideMenu.SuspendLayout();
-            this.panelSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.deletePanel.SuspendLayout();
+            this.addProductPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(179)))));
-            this.panelSideMenu.Controls.Add(this.navAdmin);
-            this.panelSideMenu.Controls.Add(this.navSuperadmin);
-            this.panelSideMenu.Controls.Add(this.navNotifications);
-            this.panelSideMenu.Controls.Add(this.navOverview);
-            this.panelSideMenu.Controls.Add(this.button1);
+            this.panelSideMenu.Controls.Add(this.deleteItemsPanelBtn);
+            this.panelSideMenu.Controls.Add(this.addProductPanelBtn);
+            this.panelSideMenu.Controls.Add(this.addOfferPanelBtn);
             this.panelSideMenu.Controls.Add(this.panelSubmenu);
             this.panelSideMenu.Controls.Add(this.exit);
-            this.panelSideMenu.Controls.Add(this.navSidemenu);
+            this.panelSideMenu.Controls.Add(this.navSubpage);
             this.panelSideMenu.Controls.Add(this.panelLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
@@ -97,121 +91,69 @@
             this.panelSideMenu.Size = new System.Drawing.Size(200, 490);
             this.panelSideMenu.TabIndex = 18;
             // 
-            // navAdmin
+            // deleteItemsPanelBtn
             // 
-            this.navAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(229)))));
-            this.navAdmin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navAdmin.Enabled = false;
-            this.navAdmin.FlatAppearance.BorderSize = 0;
-            this.navAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.navAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.navAdmin.ForeColor = System.Drawing.Color.LightGray;
-            this.navAdmin.Location = new System.Drawing.Point(0, 370);
-            this.navAdmin.Name = "navAdmin";
-            this.navAdmin.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navAdmin.Size = new System.Drawing.Size(200, 45);
-            this.navAdmin.TabIndex = 7;
-            this.navAdmin.Text = "Admin paneel";
-            this.navAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.navAdmin.UseVisualStyleBackColor = false;
+            this.deleteItemsPanelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.deleteItemsPanelBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.deleteItemsPanelBtn.FlatAppearance.BorderSize = 0;
+            this.deleteItemsPanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteItemsPanelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.deleteItemsPanelBtn.ForeColor = System.Drawing.Color.LightGray;
+            this.deleteItemsPanelBtn.Location = new System.Drawing.Point(0, 235);
+            this.deleteItemsPanelBtn.Name = "deleteItemsPanelBtn";
+            this.deleteItemsPanelBtn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.deleteItemsPanelBtn.Size = new System.Drawing.Size(200, 45);
+            this.deleteItemsPanelBtn.TabIndex = 8;
+            this.deleteItemsPanelBtn.Text = "Items verwijderen";
+            this.deleteItemsPanelBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteItemsPanelBtn.UseVisualStyleBackColor = false;
+            this.deleteItemsPanelBtn.Click += new System.EventHandler(this.deleteItemsPanelBtn_Click_1);
             // 
-            // navSuperadmin
+            // addProductPanelBtn
             // 
-            this.navSuperadmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.navSuperadmin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navSuperadmin.FlatAppearance.BorderSize = 0;
-            this.navSuperadmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.navSuperadmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.navSuperadmin.ForeColor = System.Drawing.Color.LightGray;
-            this.navSuperadmin.Location = new System.Drawing.Point(0, 325);
-            this.navSuperadmin.Name = "navSuperadmin";
-            this.navSuperadmin.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navSuperadmin.Size = new System.Drawing.Size(200, 45);
-            this.navSuperadmin.TabIndex = 6;
-            this.navSuperadmin.Text = "Superadmin paneel";
-            this.navSuperadmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.navSuperadmin.UseVisualStyleBackColor = false;
+            this.addProductPanelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.addProductPanelBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addProductPanelBtn.FlatAppearance.BorderSize = 0;
+            this.addProductPanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addProductPanelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.addProductPanelBtn.ForeColor = System.Drawing.Color.LightGray;
+            this.addProductPanelBtn.Location = new System.Drawing.Point(0, 190);
+            this.addProductPanelBtn.Name = "addProductPanelBtn";
+            this.addProductPanelBtn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.addProductPanelBtn.Size = new System.Drawing.Size(200, 45);
+            this.addProductPanelBtn.TabIndex = 7;
+            this.addProductPanelBtn.Text = "Product toevoegen";
+            this.addProductPanelBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addProductPanelBtn.UseVisualStyleBackColor = false;
+            this.addProductPanelBtn.Click += new System.EventHandler(this.addProductPanelBtn_Click);
             // 
-            // navNotifications
+            // addOfferPanelBtn
             // 
-            this.navNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.navNotifications.Cursor = System.Windows.Forms.Cursors.Default;
-            this.navNotifications.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navNotifications.FlatAppearance.BorderSize = 0;
-            this.navNotifications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.navNotifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.navNotifications.ForeColor = System.Drawing.Color.LightGray;
-            this.navNotifications.Location = new System.Drawing.Point(0, 280);
-            this.navNotifications.Name = "navNotifications";
-            this.navNotifications.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navNotifications.Size = new System.Drawing.Size(200, 45);
-            this.navNotifications.TabIndex = 5;
-            this.navNotifications.Text = "Notificaties";
-            this.navNotifications.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.navNotifications.UseVisualStyleBackColor = false;
-            this.navNotifications.Click += new System.EventHandler(this.navNotifications_Click);
-            // 
-            // navOverview
-            // 
-            this.navOverview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.navOverview.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navOverview.FlatAppearance.BorderSize = 0;
-            this.navOverview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.navOverview.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.navOverview.ForeColor = System.Drawing.Color.LightGray;
-            this.navOverview.Location = new System.Drawing.Point(0, 235);
-            this.navOverview.Name = "navOverview";
-            this.navOverview.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navOverview.Size = new System.Drawing.Size(200, 45);
-            this.navOverview.TabIndex = 4;
-            this.navOverview.Text = "Overzicht";
-            this.navOverview.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.navOverview.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(255)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.Location = new System.Drawing.Point(0, 190);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(200, 45);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Gebruiker:";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
+            this.addOfferPanelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.addOfferPanelBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addOfferPanelBtn.FlatAppearance.BorderSize = 0;
+            this.addOfferPanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addOfferPanelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.addOfferPanelBtn.ForeColor = System.Drawing.Color.LightGray;
+            this.addOfferPanelBtn.Location = new System.Drawing.Point(0, 145);
+            this.addOfferPanelBtn.Name = "addOfferPanelBtn";
+            this.addOfferPanelBtn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.addOfferPanelBtn.Size = new System.Drawing.Size(200, 45);
+            this.addOfferPanelBtn.TabIndex = 6;
+            this.addOfferPanelBtn.Text = "Aanbieding toevoegen";
+            this.addOfferPanelBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addOfferPanelBtn.UseVisualStyleBackColor = false;
+            this.addOfferPanelBtn.Click += new System.EventHandler(this.addOfferPanelBtn_Click);
             // 
             // panelSubmenu
             // 
             this.panelSubmenu.AutoSize = true;
             this.panelSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.panelSubmenu.Controls.Add(this.navStores);
             this.panelSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubmenu.Location = new System.Drawing.Point(0, 145);
             this.panelSubmenu.Name = "panelSubmenu";
-            this.panelSubmenu.Size = new System.Drawing.Size(200, 45);
+            this.panelSubmenu.Size = new System.Drawing.Size(200, 0);
             this.panelSubmenu.TabIndex = 2;
-            // 
-            // navStores
-            // 
-            this.navStores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navStores.FlatAppearance.BorderSize = 0;
-            this.navStores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.navStores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.navStores.ForeColor = System.Drawing.Color.LightGray;
-            this.navStores.Location = new System.Drawing.Point(0, 0);
-            this.navStores.Name = "navStores";
-            this.navStores.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.navStores.Size = new System.Drawing.Size(200, 45);
-            this.navStores.TabIndex = 0;
-            this.navStores.Text = "Aanbiedingen bekijken";
-            this.navStores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.navStores.UseVisualStyleBackColor = true;
-            this.navStores.Click += new System.EventHandler(this.navStores_Click);
             // 
             // exit
             // 
@@ -226,27 +168,27 @@
             this.exit.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.exit.Size = new System.Drawing.Size(200, 45);
             this.exit.TabIndex = 0;
-            this.exit.Text = "Afsluiten";
+            this.exit.Text = "< Ga Terug";
             this.exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
-            // navSidemenu
+            // navSubpage
             // 
-            this.navSidemenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(255)))));
-            this.navSidemenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navSidemenu.FlatAppearance.BorderSize = 0;
-            this.navSidemenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.navSidemenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.navSidemenu.ForeColor = System.Drawing.Color.Gainsboro;
-            this.navSidemenu.Location = new System.Drawing.Point(0, 100);
-            this.navSidemenu.Name = "navSidemenu";
-            this.navSidemenu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.navSidemenu.Size = new System.Drawing.Size(200, 45);
-            this.navSidemenu.TabIndex = 1;
-            this.navSidemenu.Text = "Aanbiedingen:";
-            this.navSidemenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.navSidemenu.UseVisualStyleBackColor = false;
+            this.navSubpage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(255)))));
+            this.navSubpage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navSubpage.FlatAppearance.BorderSize = 0;
+            this.navSubpage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.navSubpage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.navSubpage.ForeColor = System.Drawing.Color.Gainsboro;
+            this.navSubpage.Location = new System.Drawing.Point(0, 100);
+            this.navSubpage.Name = "navSubpage";
+            this.navSubpage.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.navSubpage.Size = new System.Drawing.Size(200, 45);
+            this.navSubpage.TabIndex = 1;
+            this.navSubpage.Text = "Subpaginas:";
+            this.navSubpage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.navSubpage.UseVisualStyleBackColor = false;
             // 
             // panelLogo
             // 
@@ -260,13 +202,13 @@
             // label6
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(200, 100);
             this.label6.TabIndex = 0;
-            this.label6.Text = "De Budget Boodschapwijzer";
+            this.label6.Text = "Admin";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -291,27 +233,16 @@
             this.label1.Text = "Nieuwe aanbieding toevoegen:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(211, 269);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 40);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Nieuwe product toevoegen:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // supermarketLabel
             // 
             this.supermarketLabel.AutoSize = true;
             this.supermarketLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.supermarketLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.supermarketLabel.Location = new System.Drawing.Point(206, 38);
+            this.supermarketLabel.Location = new System.Drawing.Point(206, 47);
             this.supermarketLabel.Name = "supermarketLabel";
-            this.supermarketLabel.Size = new System.Drawing.Size(329, 26);
+            this.supermarketLabel.Size = new System.Drawing.Size(293, 26);
             this.supermarketLabel.TabIndex = 22;
-            this.supermarketLabel.Text = "Supermarkt: VOORBEELDTEXT";
+            this.supermarketLabel.Text = "Beheert supermarkt: Laden...";
             // 
             // addDiscountBtn
             // 
@@ -320,7 +251,7 @@
             this.addDiscountBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addDiscountBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.addDiscountBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.addDiscountBtn.Location = new System.Drawing.Point(211, 235);
+            this.addDiscountBtn.Location = new System.Drawing.Point(211, 292);
             this.addDiscountBtn.Name = "addDiscountBtn";
             this.addDiscountBtn.Size = new System.Drawing.Size(577, 28);
             this.addDiscountBtn.TabIndex = 23;
@@ -330,7 +261,7 @@
             // 
             // brandTextBox
             // 
-            this.brandTextBox.Location = new System.Drawing.Point(269, 140);
+            this.brandTextBox.Location = new System.Drawing.Point(270, 141);
             this.brandTextBox.Name = "brandTextBox";
             this.brandTextBox.Size = new System.Drawing.Size(103, 20);
             this.brandTextBox.TabIndex = 24;
@@ -339,7 +270,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(211, 143);
+            this.label5.Location = new System.Drawing.Point(212, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 25;
@@ -349,7 +280,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label7.Location = new System.Drawing.Point(211, 172);
+            this.label7.Location = new System.Drawing.Point(212, 173);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 27;
@@ -357,14 +288,14 @@
             // 
             // categoryTextBox
             // 
-            this.categoryTextBox.Location = new System.Drawing.Point(269, 169);
+            this.categoryTextBox.Location = new System.Drawing.Point(270, 170);
             this.categoryTextBox.Name = "categoryTextBox";
             this.categoryTextBox.Size = new System.Drawing.Size(103, 20);
             this.categoryTextBox.TabIndex = 26;
             // 
             // expireDateTime
             // 
-            this.expireDateTime.Location = new System.Drawing.Point(541, 140);
+            this.expireDateTime.Location = new System.Drawing.Point(299, 226);
             this.expireDateTime.Name = "expireDateTime";
             this.expireDateTime.Size = new System.Drawing.Size(190, 20);
             this.expireDateTime.TabIndex = 28;
@@ -373,7 +304,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label8.Location = new System.Drawing.Point(455, 143);
+            this.label8.Location = new System.Drawing.Point(213, 229);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(68, 13);
             this.label8.TabIndex = 29;
@@ -383,7 +314,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label9.Location = new System.Drawing.Point(455, 172);
+            this.label9.Location = new System.Drawing.Point(213, 255);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 13);
             this.label9.TabIndex = 30;
@@ -391,104 +322,20 @@
             // 
             // minimumTextBox
             // 
-            this.minimumTextBox.Location = new System.Drawing.Point(541, 169);
+            this.minimumTextBox.Location = new System.Drawing.Point(299, 252);
             this.minimumTextBox.Name = "minimumTextBox";
             this.minimumTextBox.Size = new System.Drawing.Size(104, 20);
             this.minimumTextBox.TabIndex = 31;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label10.Location = new System.Drawing.Point(223, 311);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 13);
-            this.label10.TabIndex = 33;
-            this.label10.Text = "Aanbieding";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label11.Location = new System.Drawing.Point(211, 201);
+            this.label11.Location = new System.Drawing.Point(212, 202);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(28, 13);
             this.label11.TabIndex = 34;
             this.label11.Text = "Icon";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label12.Location = new System.Drawing.Point(379, 316);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(35, 13);
-            this.label12.TabIndex = 36;
-            this.label12.Text = "Naam";
-            // 
-            // productNameTextBox
-            // 
-            this.productNameTextBox.Location = new System.Drawing.Point(420, 312);
-            this.productNameTextBox.Name = "productNameTextBox";
-            this.productNameTextBox.Size = new System.Drawing.Size(103, 20);
-            this.productNameTextBox.TabIndex = 35;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label13.Location = new System.Drawing.Point(379, 345);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(26, 13);
-            this.label13.TabIndex = 38;
-            this.label13.Text = "Prijs";
-            // 
-            // productPriceTextBox
-            // 
-            this.productPriceTextBox.Location = new System.Drawing.Point(420, 342);
-            this.productPriceTextBox.Name = "productPriceTextBox";
-            this.productPriceTextBox.Size = new System.Drawing.Size(103, 20);
-            this.productPriceTextBox.TabIndex = 37;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label14.Location = new System.Drawing.Point(556, 321);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(28, 13);
-            this.label14.TabIndex = 39;
-            this.label14.Text = "Icon";
-            // 
-            // addProductBtn
-            // 
-            this.addProductBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.addProductBtn.FlatAppearance.BorderSize = 0;
-            this.addProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addProductBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.addProductBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.addProductBtn.Location = new System.Drawing.Point(214, 399);
-            this.addProductBtn.Name = "addProductBtn";
-            this.addProductBtn.Size = new System.Drawing.Size(574, 28);
-            this.addProductBtn.TabIndex = 40;
-            this.addProductBtn.Text = "Product Toevoegen";
-            this.addProductBtn.UseVisualStyleBackColor = false;
-            this.addProductBtn.Click += new System.EventHandler(this.addProductBtn_Click);
-            // 
-            // productIconBtn
-            // 
-            this.productIconBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.productIconBtn.FlatAppearance.BorderSize = 0;
-            this.productIconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.productIconBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.productIconBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.productIconBtn.Location = new System.Drawing.Point(597, 316);
-            this.productIconBtn.Name = "productIconBtn";
-            this.productIconBtn.Size = new System.Drawing.Size(75, 23);
-            this.productIconBtn.TabIndex = 41;
-            this.productIconBtn.Text = "Open File";
-            this.productIconBtn.UseVisualStyleBackColor = false;
-            this.productIconBtn.Click += new System.EventHandler(this.productIconBtn_Click);
             // 
             // discountIconBtn
             // 
@@ -497,21 +344,13 @@
             this.discountIconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.discountIconBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.discountIconBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.discountIconBtn.Location = new System.Drawing.Point(269, 196);
+            this.discountIconBtn.Location = new System.Drawing.Point(270, 197);
             this.discountIconBtn.Name = "discountIconBtn";
             this.discountIconBtn.Size = new System.Drawing.Size(75, 23);
             this.discountIconBtn.TabIndex = 42;
             this.discountIconBtn.Text = "Open File";
             this.discountIconBtn.UseVisualStyleBackColor = false;
             this.discountIconBtn.Click += new System.EventHandler(this.discountIconBtn_Click);
-            // 
-            // discountListBox
-            // 
-            this.discountListBox.FormattingEnabled = true;
-            this.discountListBox.Location = new System.Drawing.Point(223, 327);
-            this.discountListBox.Name = "discountListBox";
-            this.discountListBox.Size = new System.Drawing.Size(121, 21);
-            this.discountListBox.TabIndex = 43;
             // 
             // deletePanel
             // 
@@ -521,7 +360,7 @@
             this.deletePanel.Controls.Add(this.deleteDiscountListBox);
             this.deletePanel.Controls.Add(this.deleteProductBtn);
             this.deletePanel.Controls.Add(this.deleteDiscountOfferBtn);
-            this.deletePanel.Location = new System.Drawing.Point(206, 100);
+            this.deletePanel.Location = new System.Drawing.Point(206, 96);
             this.deletePanel.Name = "deletePanel";
             this.deletePanel.Size = new System.Drawing.Size(603, 390);
             this.deletePanel.TabIndex = 44;
@@ -595,35 +434,124 @@
             this.deleteDiscountOfferBtn.UseVisualStyleBackColor = false;
             this.deleteDiscountOfferBtn.Click += new System.EventHandler(this.deleteDiscountOfferBtn_Click);
             // 
-            // addItemsPanelBtn
+            // addProductPanel
             // 
-            this.addItemsPanelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.addItemsPanelBtn.FlatAppearance.BorderSize = 0;
-            this.addItemsPanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addItemsPanelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.addItemsPanelBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.addItemsPanelBtn.Location = new System.Drawing.Point(206, 72);
-            this.addItemsPanelBtn.Name = "addItemsPanelBtn";
-            this.addItemsPanelBtn.Size = new System.Drawing.Size(221, 28);
-            this.addItemsPanelBtn.TabIndex = 45;
-            this.addItemsPanelBtn.Text = "Items toevoegen paneel";
-            this.addItemsPanelBtn.UseVisualStyleBackColor = false;
-            this.addItemsPanelBtn.Click += new System.EventHandler(this.addItemsPanelBtn_Click);
+            this.addProductPanel.Controls.Add(this.discountListBox);
+            this.addProductPanel.Controls.Add(this.productIconBtn);
+            this.addProductPanel.Controls.Add(this.addProductBtn);
+            this.addProductPanel.Controls.Add(this.label14);
+            this.addProductPanel.Controls.Add(this.label13);
+            this.addProductPanel.Controls.Add(this.productPriceTextBox);
+            this.addProductPanel.Controls.Add(this.label12);
+            this.addProductPanel.Controls.Add(this.productNameTextBox);
+            this.addProductPanel.Controls.Add(this.label10);
+            this.addProductPanel.Controls.Add(this.label2);
+            this.addProductPanel.Location = new System.Drawing.Point(206, 93);
+            this.addProductPanel.Name = "addProductPanel";
+            this.addProductPanel.Size = new System.Drawing.Size(603, 390);
+            this.addProductPanel.TabIndex = 47;
+            this.addProductPanel.Visible = false;
             // 
-            // deleteItemsPanelBtn
+            // discountListBox
             // 
-            this.deleteItemsPanelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.deleteItemsPanelBtn.FlatAppearance.BorderSize = 0;
-            this.deleteItemsPanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteItemsPanelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.deleteItemsPanelBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.deleteItemsPanelBtn.Location = new System.Drawing.Point(433, 72);
-            this.deleteItemsPanelBtn.Name = "deleteItemsPanelBtn";
-            this.deleteItemsPanelBtn.Size = new System.Drawing.Size(221, 28);
-            this.deleteItemsPanelBtn.TabIndex = 46;
-            this.deleteItemsPanelBtn.Text = "Items verwijderen paneel";
-            this.deleteItemsPanelBtn.UseVisualStyleBackColor = false;
-            this.deleteItemsPanelBtn.Click += new System.EventHandler(this.deleteItemsPanelBtn_Click);
+            this.discountListBox.FormattingEnabled = true;
+            this.discountListBox.Location = new System.Drawing.Point(88, 51);
+            this.discountListBox.Name = "discountListBox";
+            this.discountListBox.Size = new System.Drawing.Size(121, 21);
+            this.discountListBox.TabIndex = 53;
+            // 
+            // productIconBtn
+            // 
+            this.productIconBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.productIconBtn.FlatAppearance.BorderSize = 0;
+            this.productIconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.productIconBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.productIconBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.productIconBtn.Location = new System.Drawing.Point(63, 137);
+            this.productIconBtn.Name = "productIconBtn";
+            this.productIconBtn.Size = new System.Drawing.Size(75, 23);
+            this.productIconBtn.TabIndex = 52;
+            this.productIconBtn.Text = "Open File";
+            this.productIconBtn.UseVisualStyleBackColor = false;
+            // 
+            // addProductBtn
+            // 
+            this.addProductBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.addProductBtn.FlatAppearance.BorderSize = 0;
+            this.addProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addProductBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.addProductBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.addProductBtn.Location = new System.Drawing.Point(16, 181);
+            this.addProductBtn.Name = "addProductBtn";
+            this.addProductBtn.Size = new System.Drawing.Size(574, 28);
+            this.addProductBtn.TabIndex = 51;
+            this.addProductBtn.Text = "Product Toevoegen";
+            this.addProductBtn.UseVisualStyleBackColor = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label14.Location = new System.Drawing.Point(22, 142);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(28, 13);
+            this.label14.TabIndex = 50;
+            this.label14.Text = "Icon";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label13.Location = new System.Drawing.Point(22, 114);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(26, 13);
+            this.label13.TabIndex = 49;
+            this.label13.Text = "Prijs";
+            // 
+            // productPriceTextBox
+            // 
+            this.productPriceTextBox.Location = new System.Drawing.Point(63, 111);
+            this.productPriceTextBox.Name = "productPriceTextBox";
+            this.productPriceTextBox.Size = new System.Drawing.Size(103, 20);
+            this.productPriceTextBox.TabIndex = 48;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label12.Location = new System.Drawing.Point(22, 85);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(35, 13);
+            this.label12.TabIndex = 47;
+            this.label12.Text = "Naam";
+            // 
+            // productNameTextBox
+            // 
+            this.productNameTextBox.Location = new System.Drawing.Point(63, 81);
+            this.productNameTextBox.Name = "productNameTextBox";
+            this.productNameTextBox.Size = new System.Drawing.Size(103, 20);
+            this.productNameTextBox.TabIndex = 46;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label10.Location = new System.Drawing.Point(22, 55);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(60, 13);
+            this.label10.TabIndex = 45;
+            this.label10.Text = "Aanbieding";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(7, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(205, 40);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "Nieuwe product toevoegen:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // admin
             // 
@@ -631,20 +559,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(808, 490);
-            this.Controls.Add(this.deleteItemsPanelBtn);
-            this.Controls.Add(this.addItemsPanelBtn);
+            this.Controls.Add(this.addProductPanel);
             this.Controls.Add(this.deletePanel);
-            this.Controls.Add(this.discountListBox);
             this.Controls.Add(this.discountIconBtn);
-            this.Controls.Add(this.productIconBtn);
-            this.Controls.Add(this.addProductBtn);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.productPriceTextBox);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.productNameTextBox);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.minimumTextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -655,7 +573,6 @@
             this.Controls.Add(this.brandTextBox);
             this.Controls.Add(this.addDiscountBtn);
             this.Controls.Add(this.supermarketLabel);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panelSideMenu);
@@ -664,9 +581,10 @@
             this.Text = "Admin - Budget Boodschapwijzer";
             this.panelSideMenu.ResumeLayout(false);
             this.panelSideMenu.PerformLayout();
-            this.panelSubmenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.deletePanel.ResumeLayout(false);
+            this.addProductPanel.ResumeLayout(false);
+            this.addProductPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -675,20 +593,14 @@
         #endregion
 
         private System.Windows.Forms.Panel panelSideMenu;
-        private System.Windows.Forms.Button navAdmin;
-        private System.Windows.Forms.Button navSuperadmin;
-        private System.Windows.Forms.Button navNotifications;
-        private System.Windows.Forms.Button navOverview;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addOfferPanelBtn;
         private System.Windows.Forms.Panel panelSubmenu;
-        private System.Windows.Forms.Button navStores;
         private System.Windows.Forms.Button exit;
-        private System.Windows.Forms.Button navSidemenu;
+        private System.Windows.Forms.Button navSubpage;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label supermarketLabel;
         private System.Windows.Forms.Button addDiscountBtn;
         private System.Windows.Forms.TextBox brandTextBox;
@@ -699,17 +611,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox minimumTextBox;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox productNameTextBox;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox productPriceTextBox;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button addProductBtn;
-        private System.Windows.Forms.Button productIconBtn;
         private System.Windows.Forms.Button discountIconBtn;
-        private System.Windows.Forms.ComboBox discountListBox;
         private System.Windows.Forms.Panel deletePanel;
         private System.Windows.Forms.ComboBox deleteProductsListBox;
         private System.Windows.Forms.ComboBox deleteDiscountListBox;
@@ -717,7 +620,18 @@
         private System.Windows.Forms.Button deleteDiscountOfferBtn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button addItemsPanelBtn;
         private System.Windows.Forms.Button deleteItemsPanelBtn;
+        private System.Windows.Forms.Button addProductPanelBtn;
+        private System.Windows.Forms.Panel addProductPanel;
+        private System.Windows.Forms.ComboBox discountListBox;
+        private System.Windows.Forms.Button productIconBtn;
+        private System.Windows.Forms.Button addProductBtn;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox productPriceTextBox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox productNameTextBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label2;
     }
 }
