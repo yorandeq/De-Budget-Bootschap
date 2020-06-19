@@ -98,6 +98,8 @@ namespace login
                 });
             foreach (DataRow productRow in GetProducts.Rows)
             {
+                //SELECT p.product_id, p.name, p.icon, p.total_price, COUNT(r.product_amount), o.min_amount FROM `discount_products` p LEFT JOIN `discount_offers` o ON p.discount_offer = o.offer_id LEFT JOIN `registration` r ON p.product_id = r.product WHERE o.offer_id = 3 GROUP BY p.product_id, p.name
+
                 //components
                 Panel productPanel = new Panel();
                 PictureBox productImg = new PictureBox();
@@ -132,8 +134,6 @@ namespace login
                 productProgress.Top = 110;
                 productProgress.Left = 10;
                 productProgress.Width = 165;
-
-
                 if (int.Parse(productRow[4].ToString()) < int.Parse(productRow["min_amount"].ToString()))
                 {
                     productBtn.Text = "Inschrijven";
@@ -167,7 +167,7 @@ namespace login
                     productBtn.FlatStyle = FlatStyle.Flat;
                     productBtn.Click += (obj, ev) => { connection.get_products(Int16.Parse(productRow["product_id"].ToString()), GlobalMethods.LoginInfo.UserID, productRow["name"].ToString()); GlobalMethods.refreshForm(this, new offer()); };
                 }
-                else
+                else if (productRow[])
                 {
                     productBtn.Text = "Ophalen";
                     productBtn.Enabled = false;
@@ -190,6 +190,7 @@ namespace login
                 productPanel.Controls.Add(productName);
                 productPanel.Controls.Add(productPrice);
                 productPanel.Controls.Add(productProgress);
+                productPanel.Controls.Add(productBtn);
             }
         }
 
