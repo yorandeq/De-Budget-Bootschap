@@ -82,7 +82,7 @@ namespace login
                 itemCategory.Top = 10;
                 itemCategory.Left = 110;
 
-                itemBtn.Text = "Kopen";
+                itemBtn.Text = "Bekijken";
                 itemBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
                 itemBtn.ForeColor = SystemColors.Window;
                 itemBtn.Width = 80;
@@ -137,7 +137,7 @@ namespace login
                 itemPrice.Top = 50;
                 itemPrice.Left = 110;
 
-                itemBtn.Text = "Kopen";
+                itemBtn.Text = "Bekijken";
                 itemBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
                 itemBtn.ForeColor = SystemColors.Window;
                 itemBtn.Width = 80;

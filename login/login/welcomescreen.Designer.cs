@@ -193,7 +193,7 @@
             // 
             // exit
             // 
-            this.exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(230)))));
+            this.exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.exit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.exit.FlatAppearance.BorderSize = 0;
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -254,9 +254,9 @@
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label4.Location = new System.Drawing.Point(217, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(451, 29);
+            this.label4.Size = new System.Drawing.Size(445, 29);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Welkom op de budget boodschap wijzer!";
+            this.label4.Text = "Welkom op de budget boodschapwijzer!";
             // 
             // refreshNotificationsBtn
             // 
