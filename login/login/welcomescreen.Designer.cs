@@ -330,6 +330,7 @@
             this.imageContainer.Size = new System.Drawing.Size(763, 114);
             this.imageContainer.TabIndex = 24;
             this.imageContainer.UseCompatibleStateImageBehavior = false;
+            this.imageContainer.Click += new System.EventHandler(this.navStores_Click);
             // 
             // notificationContainer
             // 
@@ -360,7 +361,7 @@
             this.Controls.Add(this.refreshNotificationsBtn);
             this.Controls.Add(this.markReadBtn);
             this.Name = "welcomescreen";
-            this.Text = "Welcome Screen";
+            this.Text = "Overzicht - De Budget Boodschapwijzer";
             this.Load += new System.EventHandler(this.welcomescreen_Load);
             this.panelSideMenu.ResumeLayout(false);
             this.panelSideMenu.PerformLayout();
