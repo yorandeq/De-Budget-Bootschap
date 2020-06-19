@@ -152,6 +152,7 @@ namespace login
                     productBtn.Top = 107;
                     productBtn.Left = 175;
                     productBtn.FlatStyle = FlatStyle.Flat;
+                    productBtn.Click += (obj, ev) => { connection.get_products(Int16.Parse(productRow["product_id"].ToString()), GlobalMethods.LoginInfo.UserID); GlobalMethods.refreshForm(this, new offer()); };
                 }
 
                 //move next item down
