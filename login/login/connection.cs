@@ -274,6 +274,13 @@ namespace login
 
         public void place_registration(object productName, object productId, object price)
         {
+            //DataTable paidPrice = DataLayer.Query("SELECT min_amount FROM discount_offers WHERE offer_id = @OfferID;",
+            //    p =>
+            //    {
+            //        p.Add("@OfferID", MySqlDbType.Int32, 255).Value = GlobalMethods.StoresInfo.OfferID;
+            //    });
+            //decimal totalPrice = decimal.Parse(price.ToString()) * amount / decimal.Parse(paidPrice.Rows[0]["min_amount"].ToString());
+            //var confirmResult = MessageBox.Show("Wilt u " + amount.ToString() + " " + productName.ToString() + " kopen voor €" + totalPrice.ToString() + "?", "Product kopen", MessageBoxButtons.YesNo);
             var confirmResult = MessageBox.Show($"Wilt u {productName.ToString()} kopen voor € {price.ToString()}?", "Product kopen", MessageBoxButtons.YesNo);
 
             if (confirmResult == DialogResult.Yes)
@@ -299,6 +306,33 @@ namespace login
                     MessageBox.Show("Error: " + e);
                 }
             }
+        }
+
+        // Method for retrieving all the supermarkets so I can display them in a datagridview
+        public DataTable getAllSupermarkets()
+        {
+            DataTable supermarketList = DataLayer.Query("SELECT supermarket_id, name, description, link FROM supermarkets", p => { });
+            return supermarketList;
+        }
+
+        // Method for retrieving all the supermarket admins so I can display them in a datagridview
+        public DataTable getAllUsers()
+        {
+            DataTable userList = DataLayer.Query("SELECT user_id, username, admin, admin_supermarket FROM users", p => { });
+            return userList;
+        }
+
+        // Method for retrieving the balance of the logged in user
+
+        public DataTable getBalance()
+        {
+            DataTable getBalance = DataLayer.Query("SELECT balance FROM `users` WHERE user_id = @UserID",
+                p =>
+                {
+                    p.Add("@Balance", MySqlDbType.Int16, 255).Value = 5.00;
+                    p.Add("@UserID", MySqlDbType.Int16, 11).Value = GlobalMethods.LoginInfo.UserID;
+                });
+            return getBalance;
         }
     }
 }

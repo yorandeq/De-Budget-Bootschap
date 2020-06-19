@@ -122,5 +122,10 @@ namespace login
         {
             Close();
         }
+
+        private void navOverview_Click(object sender, EventArgs e)
+        {
+            GlobalMethods.SwitchForm(this, new welcomescreen());
+        }
     }
 }

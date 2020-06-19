@@ -20,11 +20,13 @@ namespace login
         public superAdmin()
         {
             InitializeComponent();
+            dgvMarketList.DataSource = connection.getAllSupermarkets();
+            dgvUsers.DataSource = connection.getAllUsers();
         }
 
         private void Logout_Click(object sender, EventArgs e)
         {
-            Close();
+            GlobalMethods.SwitchForm(this, new welcomescreen());
         }
 
 
@@ -32,12 +34,16 @@ namespace login
         {
             panelAddAdmin.Visible = true;
             panelAddSupermarket.Visible = false;
+            panelMarketList.Visible = false;
+            panelUserList.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             panelAddSupermarket.Visible = true;
             panelAddAdmin.Visible = false;
+            panelUserList.Visible = false;
+            panelMarketList.Visible = false;
         }
 
         private void addAdmin_Click(object sender, EventArgs e)
@@ -55,6 +61,24 @@ namespace login
         {
             bool createSupermarket = connection.addSupermarket(txbSupermarketName.Text, txbDescription.Text, txbLink.Text, GlobalMethods.ImageInfo.ImageFile);
             GlobalMethods.ImageInfo.ImageFile = null;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panelMarketList.Visible = true;
+            panelAddAdmin.Visible = false;
+            panelAddSupermarket.Visible = false;
+            panelUserList.Visible = false;
+            dgvMarketList.DataSource = connection.getAllSupermarkets();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            panelAddSupermarket.Visible = false;
+            panelAddAdmin.Visible = false;
+            panelMarketList.Visible = false;
+            panelUserList.Visible = true;
+            dgvUsers.DataSource = connection.getAllUsers();
         }
     }
 }

@@ -157,6 +157,8 @@ namespace login
 
                 if (dateMilliseconds - todayMilliseconds < 0)
                 {
+                    DataLayer.Query("UPDATE discount_products SET discount_offer = NULL WHERE discount_offer = " + row["offer_id"],
+                     p => { });
                     DataLayer.Query("DELETE FROM discount_offers WHERE offer_id = " + row["offer_id"],
                         p => { });
                 }

@@ -36,7 +36,7 @@ namespace login
             bool loggedin = connection.loginAccount(txbLoginUsrname.Text, txbLoginPassword.Text);
             if (loggedin)
             {
-                GlobalMethods.SwitchForm(this, new notifications());
+                GlobalMethods.SwitchForm(this, new welcomescreen());
                 connection.StartTimer();
             }
         }
