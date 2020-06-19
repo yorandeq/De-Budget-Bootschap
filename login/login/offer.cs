@@ -53,6 +53,8 @@ namespace login
 
             string date = offerRow[0][3].ToString();
             date = date.Remove(date.Length - 8);
+            bool MinRegistration = false;
+            int a;
 
             //options
             offerImg.Image = Image.FromStream(GlobalMethods.convertImg(offerRow[0][2]));
@@ -97,6 +99,7 @@ namespace login
                 });
             foreach (DataRow productRow in GetProducts.Rows)
             {
+                a = int.Parse(productRow[4].ToString());
                 //SELECT p.product_id, p.name, p.icon, p.total_price, COUNT(r.product_amount), o.min_amount FROM `discount_products` p LEFT JOIN `discount_offers` o ON p.discount_offer = o.offer_id LEFT JOIN `registration` r ON p.product_id = r.product WHERE o.offer_id = 3 GROUP BY p.product_id, p.name
 
                 //components
@@ -133,7 +136,39 @@ namespace login
                 productProgress.Top = 110;
                 productProgress.Left = 10;
                 productProgress.Width = 165;
-                if (int.Parse(productRow[4].ToString()) < int.Parse(productRow["min_amount"].ToString()))
+
+                //DataTable checkUser = DataLayer.Query("SELECT u.username FROM registration r INNER JOIN users u ON user = user_id WHERE product = @ProductId",
+                //p =>
+                //{
+                //    p.Add("@ProductId", MySqlDbType.Int32, 255).Value = productRow["product_id"];
+                //});
+
+
+                //foreach (DataRow user in checkUser.Rows)
+                //{
+                //    if (user["username"].ToString() == GlobalMethods.LoginInfo.Username)
+                //    {
+                        if (int.Parse(productRow[4].ToString()) == int.Parse(productRow["min_amount"].ToString()))
+                        {
+                            productBtn.Text = "Ophalen";
+                            productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                            productBtn.ForeColor = SystemColors.Window;
+                            productBtn.Width = 80;
+                            productBtn.Top = 107;
+                            productBtn.Left = 175;
+                            productBtn.FlatStyle = FlatStyle.Flat;
+                            productPanel.Controls.Add(productBtn);
+                            MinRegistration = true;
+                        } else
+                        {
+                            MinRegistration = false;
+                        }
+                //    }
+                //    Console.WriteLine(a);
+                //}
+                //Console.WriteLine(a);
+                //Console.WriteLine(MinRegistration);
+                 if (!MinRegistration)
                 {
                     productBtn.Text = "Inschrijven";
                     productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
@@ -143,37 +178,7 @@ namespace login
                     productBtn.Left = 175;
                     productBtn.FlatStyle = FlatStyle.Flat;
                     productBtn.Click += (obj, ev) => { connection.place_registration(productRow["name"], productRow["product_id"], productRow["total_price"]); GlobalMethods.refreshForm(this, new offer()); };
-                } 
-                else if (productRow["bought_by"].ToString() != "" && GlobalMethods.LoginInfo.UserID == Int32.Parse(productRow["bought_by"].ToString())) {
-                    productBtn.Text = "Gehaald";
-                    productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
-                    productBtn.ForeColor = SystemColors.Window;
-                    productBtn.Width = 80;
-                    productBtn.Top = 107;
-                    productBtn.Left = 175;
-                    productBtn.FlatStyle = FlatStyle.Flat;
-                    productBtn.Click += (obj, ev) => { connection.del_registrations(Int16.Parse(productRow["product_id"].ToString())); GlobalMethods.refreshForm(this, new offer()); };
-                }
-                else if(productRow["bought_by"].ToString() == "")
-                {
-                    productBtn.Text = "Ophalen";
-                    productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
-                    productBtn.ForeColor = SystemColors.Window;
-                    productBtn.Width = 80;
-                    productBtn.Top = 107;
-                    productBtn.Left = 175;
-                    productBtn.FlatStyle = FlatStyle.Flat;
-                    productBtn.Click += (obj, ev) => { connection.get_products(Int16.Parse(productRow["product_id"].ToString()), GlobalMethods.LoginInfo.UserID, productRow["name"].ToString()); GlobalMethods.refreshForm(this, new offer()); };
-                } else
-                {
-                    productBtn.Text = "Ophalen";
-                    productBtn.Enabled = false;
-                    productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
-                    productBtn.ForeColor = SystemColors.Window;
-                    productBtn.Width = 80;
-                    productBtn.Top = 107;
-                    productBtn.Left = 175;
-                    productBtn.FlatStyle = FlatStyle.Flat;
+                    productPanel.Controls.Add(productBtn);
                 }
 
                 //move next item down
@@ -187,7 +192,6 @@ namespace login
                 productPanel.Controls.Add(productName);
                 productPanel.Controls.Add(productPrice);
                 productPanel.Controls.Add(productProgress);
-                productPanel.Controls.Add(productBtn);
             }
 
             //DataTable GetRegistrations = DataLayer.Query("SELECT orders.registration_id, offers.offer_id, orders.user, orders.product, orders.product_amount, orders.paid, offers.min_amount FROM `registration` orders LEFT JOIN `discount_products` products ON orders.product = products.product_id LEFT JOIN `discount_offers` offers ON products.discount_offer = offers.offer_id WHERE offers.offer_id = @OfferId",
