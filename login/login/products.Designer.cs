@@ -37,11 +37,11 @@
             this.navOverview = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panelSubmenu = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.exit = new System.Windows.Forms.Button();
             this.navSidemenu = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -54,9 +54,9 @@
             this.offersLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.offersLabel.Location = new System.Drawing.Point(206, 9);
             this.offersLabel.Name = "offersLabel";
-            this.offersLabel.Size = new System.Drawing.Size(78, 29);
+            this.offersLabel.Size = new System.Drawing.Size(162, 29);
             this.offersLabel.TabIndex = 0;
-            this.offersLabel.Text = "Offers";
+            this.offersLabel.Text = "Aanbiedingen";
             // 
             // productsLabel
             // 
@@ -65,9 +65,9 @@
             this.productsLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.productsLabel.Location = new System.Drawing.Point(503, 9);
             this.productsLabel.Name = "productsLabel";
-            this.productsLabel.Size = new System.Drawing.Size(108, 29);
+            this.productsLabel.Size = new System.Drawing.Size(123, 29);
             this.productsLabel.TabIndex = 1;
-            this.productsLabel.Text = "Products";
+            this.productsLabel.Text = "Producten";
             // 
             // panelSideMenu
             // 
@@ -188,6 +188,26 @@
             this.panelSubmenu.Size = new System.Drawing.Size(200, 45);
             this.panelSubmenu.TabIndex = 2;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(229)))));
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.Enabled = false;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(229)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(229)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.button2.ForeColor = System.Drawing.Color.LightGray;
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(200, 45);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Aanbiedingen bekijken";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // exit
             // 
             this.exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(230)))));
@@ -201,7 +221,7 @@
             this.exit.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.exit.Size = new System.Drawing.Size(200, 45);
             this.exit.TabIndex = 0;
-            this.exit.Text = "Exit";
+            this.exit.Text = "Aflsuiten";
             this.exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);
@@ -243,26 +263,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "De Budget Boodschapwijzer";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(229)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.Enabled = false;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(229)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(229)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.button2.ForeColor = System.Drawing.Color.LightGray;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(200, 45);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Aanbiedingen bekijken";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // products
             // 

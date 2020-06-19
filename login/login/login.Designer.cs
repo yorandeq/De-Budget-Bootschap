@@ -39,8 +39,8 @@
             this.txbLoginUsrname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelSuperAdmin = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.loginAcc = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelSideMenu.SuspendLayout();
             this.panelSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -99,7 +99,7 @@
             this.exit.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.exit.Size = new System.Drawing.Size(200, 45);
             this.exit.TabIndex = 0;
-            this.exit.Text = "Exit";
+            this.exit.Text = "Afsluiten";
             this.exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.logout_Click);
@@ -182,16 +182,6 @@
             this.panelSuperAdmin.Size = new System.Drawing.Size(608, 490);
             this.panelSuperAdmin.TabIndex = 17;
             // 
-            // label2
-            // 
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(226, 201);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 40);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Wachtwoord:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // loginAcc
             // 
             this.loginAcc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -206,6 +196,16 @@
             this.loginAcc.Text = "Login";
             this.loginAcc.UseVisualStyleBackColor = false;
             this.loginAcc.Click += new System.EventHandler(this.loginAcc_Click);
+            // 
+            // label2
+            // 
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(226, 201);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(187, 40);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Wachtwoord:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // login
             // 

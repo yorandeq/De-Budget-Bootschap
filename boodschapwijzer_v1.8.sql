@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2020 at 06:25 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: Jun 18, 2020 at 05:33 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -144,18 +144,19 @@ CREATE TABLE `users` (
   `password_salt` text NOT NULL,
   `admin` int(1) NOT NULL,
   `admin_supermarket` int(11) DEFAULT NULL,
-  `amount_shopped` int(11) NOT NULL
+  `amount_shopped` int(11) NOT NULL,
+  `balance` decimal(65,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `password_salt`, `admin`, `admin_supermarket`, `amount_shopped`) VALUES
-(1, 'user1', 'tcITXx4BpfwzK8ndFVPPAHWCgco3YHZCJJUau6V2pAw=', 'a/U5GbHautUG9OH2k1nDLcYUbEEJifrYTnt2QdATRac=', 0, NULL, 0),
-(2, 'user2', 'Ks4az6unlQJAoxXvGvfANK8gpoxyTDQ15F8SSP44b38=', 'GBxFOIYj12q++W7e/jZL5PummvYUtuy0KIjk3bleBRY=', 0, NULL, 0),
-(4, 'admin', '9zvyhNE6cr6BsIov4wHu6upfovAzydIdgPn0TWu0g6M=', 'hCMQMG5JoKL7wIZsHC4nJ9kPFvGp72oTjyWgqVZDxHM=', 1, 1, 0),
-(5, 'sadmin', 'adnIgGVCMJ6/WwNADhVPbYljsZvjZjepFsYBOHY0/V4=', 'h4ddyteN6zRfEIsUe4+MGZo6ZlBG7t0X+3+UkgGGe10=', 2, NULL, 0);
+INSERT INTO `users` (`user_id`, `username`, `password`, `password_salt`, `admin`, `admin_supermarket`, `amount_shopped`, `balance`) VALUES
+(1, 'user1', 'tcITXx4BpfwzK8ndFVPPAHWCgco3YHZCJJUau6V2pAw=', 'a/U5GbHautUG9OH2k1nDLcYUbEEJifrYTnt2QdATRac=', 0, NULL, 0, '0.00'),
+(2, 'user2', 'Ks4az6unlQJAoxXvGvfANK8gpoxyTDQ15F8SSP44b38=', 'GBxFOIYj12q++W7e/jZL5PummvYUtuy0KIjk3bleBRY=', 0, NULL, 0, '0.00'),
+(4, 'admin', '9zvyhNE6cr6BsIov4wHu6upfovAzydIdgPn0TWu0g6M=', 'hCMQMG5JoKL7wIZsHC4nJ9kPFvGp72oTjyWgqVZDxHM=', 1, 1, 0, '0.00'),
+(5, 'sadmin', 'adnIgGVCMJ6/WwNADhVPbYljsZvjZjepFsYBOHY0/V4=', 'h4ddyteN6zRfEIsUe4+MGZo6ZlBG7t0X+3+UkgGGe10=', 2, NULL, 0, '0.00');
 
 --
 -- Indexes for dumped tables

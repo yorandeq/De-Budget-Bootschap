@@ -63,7 +63,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.productContainer.AutoScroll = true;
             this.productContainer.BackColor = System.Drawing.Color.Transparent;
-            this.productContainer.Location = new System.Drawing.Point(523, 49);
+            this.productContainer.Location = new System.Drawing.Point(542, 49);
             this.productContainer.Name = "productContainer";
             this.productContainer.Size = new System.Drawing.Size(268, 433);
             this.productContainer.TabIndex = 2;
@@ -230,7 +230,7 @@
             this.exit.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.exit.Size = new System.Drawing.Size(200, 45);
             this.exit.TabIndex = 0;
-            this.exit.Text = "Exit";
+            this.exit.Text = "Afsluiten";
             this.exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);
@@ -283,7 +283,7 @@
             this.backBtn.Location = new System.Drawing.Point(206, 14);
             this.backBtn.Margin = new System.Windows.Forms.Padding(5);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(76, 27);
+            this.backBtn.Size = new System.Drawing.Size(95, 27);
             this.backBtn.TabIndex = 20;
             this.backBtn.Text = "< Ga terug";
             this.backBtn.UseVisualStyleBackColor = false;
@@ -294,7 +294,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(800, 494);
+            this.ClientSize = new System.Drawing.Size(819, 494);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.registrationsContainer);
@@ -302,7 +302,7 @@
             this.Controls.Add(this.offerContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "offer";
-            this.Text = "offer";
+            this.Text = "Aanbiedingen - Budget Boodschapwijzer";
             this.Load += new System.EventHandler(this.offer_Load);
             this.panelSideMenu.ResumeLayout(false);
             this.panelSideMenu.PerformLayout();
