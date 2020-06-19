@@ -67,6 +67,7 @@
             // 
             this.registrationsContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.registrationsContainer.AutoScroll = true;
             this.registrationsContainer.BackColor = System.Drawing.Color.Gainsboro;
             this.registrationsContainer.Location = new System.Drawing.Point(13, 243);
             this.registrationsContainer.Name = "registrationsContainer";

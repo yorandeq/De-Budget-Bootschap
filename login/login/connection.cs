@@ -272,10 +272,9 @@ namespace login
             }
         }
 
-        public void place_registration(object productName, object productId, decimal amount, object price)
+        public void place_registration(object productName, object productId, object price)
         {
-            decimal totalPrice = decimal.Parse(price.ToString()) * amount;
-            var confirmResult = MessageBox.Show("Wilt u " + amount.ToString() + " " + productName.ToString() + " kopen voor €" + totalPrice.ToString() + "?", "Product kopen", MessageBoxButtons.YesNo);
+            var confirmResult = MessageBox.Show($"Wilt u {productName.ToString()} kopen voor € {price.ToString()}?", "Product kopen", MessageBoxButtons.YesNo);
 
             if (confirmResult == DialogResult.Yes)
             {
@@ -283,8 +282,8 @@ namespace login
                 {
                     int user_id = GlobalMethods.LoginInfo.UserID;
                     int product_id = (int)productId;
-                    int product_amount = (int)amount;
-                    float paid = (float)totalPrice;
+                    int product_amount = 1;
+                    float paid = (float)price;
                     DataLayer.Query("INSERT INTO `registration` (`registration_id`, `user`, `product`, `product_amount`, `paid`) VALUES (NULL, @UserId, @ProductId, @ProductAmount, @TotalPrice)",
                             p =>
                             {

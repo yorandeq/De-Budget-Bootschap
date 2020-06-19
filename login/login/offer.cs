@@ -17,7 +17,7 @@ namespace login
         GlobalMethods GlobalMethods = new GlobalMethods();
         connection connection = new connection();
         DataLayer DataLayer = new DataLayer();
-        int Yposition = 0;
+        int Yproducts = 0;
 
         public offer()
         {
@@ -76,27 +76,28 @@ namespace login
             offerContainer.Controls.Add(offerExpiration);
             offerContainer.Controls.Add(offerAmount);
 
-            DataTable GetProducts = DataLayer.Query("SELECT product_id, name, icon, total_price FROM `discount_products` WHERE `discount_offer` = @OfferId",
+            DataTable GetProducts = DataLayer.Query("SELECT p.product_id, p.name, p.icon, p.total_price, COUNT(r.product_amount), o.min_amount FROM `discount_products` p LEFT JOIN `discount_offers` o ON p.discount_offer = o.offer_id LEFT JOIN `registration` r ON p.product_id = r.product WHERE o.offer_id = @OfferId GROUP BY p.product_id, p.name",
                 p =>
                 {
                     p.Add("@OfferId", MySqlDbType.Int32, 255).Value = GlobalMethods.StoresInfo.OfferID;
                 });
             foreach (DataRow productRow in GetProducts.Rows)
             {
+                //SELECT p.product_id, p.name, p.icon, p.total_price, COUNT(r.product_amount), o.min_amount FROM `discount_products` p LEFT JOIN `discount_offers` o ON p.discount_offer = o.offer_id LEFT JOIN `registration` r ON p.product_id = r.product WHERE o.offer_id = 3 GROUP BY p.product_id, p.name
+
                 //components
                 Panel productPanel = new Panel();
                 PictureBox productImg = new PictureBox();
                 Label productName = new Label();
                 Label productPrice = new Label();
-                Label amountLabel = new Label();
-                NumericUpDown amountNumeric = new NumericUpDown();
+                Label productProgress = new Label();
                 Button productBtn = new Button();
 
                 //options
                 productPanel.BackColor = ColorTranslator.FromHtml("#ff9e66");
                 productPanel.Height = 140;
                 productPanel.Width = 265;
-                productPanel.Top = Yposition * 152;
+                productPanel.Top = Yproducts * 152;
                 productPanel.Left = 10;
 
                 productImg.Image = Image.FromStream(GlobalMethods.convertImg(productRow["icon"]));
@@ -114,16 +115,10 @@ namespace login
                 productPrice.Top = 35;
                 productPrice.Left = 110;
 
-                amountLabel.Text = "Aantal:";
-                amountLabel.Top = 110;
-                amountLabel.Left = 10;
-                amountLabel.Width = 40;
-
-                amountNumeric.Minimum = 1;
-                amountNumeric.Maximum = 20; //dit moet later uit de database komen
-                amountNumeric.Top = 107;
-                amountNumeric.Left = 60;
-                amountNumeric.Width = 40;
+                productProgress.Text = $"Registraties: {productRow[4]}/{productRow["min_amount"]}";
+                productProgress.Top = 110;
+                productProgress.Left = 10;
+                productProgress.Width = 165;
 
                 productBtn.Text = "Inschrijven";
                 productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
@@ -132,10 +127,10 @@ namespace login
                 productBtn.Top = 107;
                 productBtn.Left = 175;
                 productBtn.FlatStyle = FlatStyle.Flat;
-                productBtn.Click += (obj, ev) => { connection.place_registration(productRow["name"], productRow["product_id"], amountNumeric.Value, productRow["total_price"]); };
+                productBtn.Click += (obj, ev) => { connection.place_registration(productRow["name"], productRow["product_id"], productRow["total_price"]); };
 
                 //move next item down
-                Yposition++;
+                Yproducts++;
 
                 //add panel
                 productContainer.Controls.Add(productPanel);
@@ -144,20 +139,15 @@ namespace login
                 productPanel.Controls.Add(productImg);
                 productPanel.Controls.Add(productName);
                 productPanel.Controls.Add(productPrice);
-                productPanel.Controls.Add(amountLabel);
-                productPanel.Controls.Add(amountNumeric);
+                productPanel.Controls.Add(productProgress);
                 productPanel.Controls.Add(productBtn);
             }
 
-            DataTable GetRegistrations = DataLayer.Query("SELECT registration.registration_id, registration.user, registration.product, registration.product_amount, registration.paid, discount_products.discount_offer FROM `registration` INNER JOIN discount_products ON registration.product = discount_products.product_id WHERE discount_products.discount_offer = @OfferId",
-                p =>
-                {
-                    p.Add("@OfferId", MySqlDbType.Int32, 255).Value = GlobalMethods.StoresInfo.OfferID;
-                });
-            foreach (DataRow registrationRow in GetRegistrations.Rows)
-            {
-                //laat de orders zien
-            }
+            //DataTable GetRegistrations = DataLayer.Query("SELECT orders.registration_id, offers.offer_id, orders.user, orders.product, orders.product_amount, orders.paid, offers.min_amount FROM `registration` orders LEFT JOIN `discount_products` products ON orders.product = products.product_id LEFT JOIN `discount_offers` offers ON products.discount_offer = offers.offer_id WHERE offers.offer_id = @OfferId",
+                //p =>
+                //{
+                //    p.Add("@OfferId", MySqlDbType.Int32, 255).Value = GlobalMethods.StoresInfo.OfferID;
+                //});
         }
 
         private void backBtn_Click(object sender, EventArgs e)
