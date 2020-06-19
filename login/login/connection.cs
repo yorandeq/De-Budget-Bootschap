@@ -457,5 +457,27 @@ namespace login
                 }
             }     
         }
+
+        // Method for deleting the registrations when someone has chosen to retrieve and said he retrieved them
+        
+        public void del_registrations(int productID)
+        {
+            var confirmResult = MessageBox.Show($"Is het product gehaald?", "Gehaald", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                try
+                {
+                    DataLayer.Query("DELETE FROM `registration` WHERE product = @ProductID",
+                        p =>
+                        {
+                            p.Add("@ProductID", MySqlDbType.Int16, 11).Value = productID;
+                        });
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show("Error: " + x);
+                }
+            }
+        }
     }
 }

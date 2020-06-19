@@ -221,12 +221,6 @@ namespace login
                 productPanel.Controls.Add(productProgress);
                 productPanel.Controls.Add(productBtn);
             }
-
-            //DataTable GetRegistrations = DataLayer.Query("SELECT orders.registration_id, offers.offer_id, orders.user, orders.product, orders.product_amount, orders.paid, offers.min_amount FROM `registration` orders LEFT JOIN `discount_products` products ON orders.product = products.product_id LEFT JOIN `discount_offers` offers ON products.discount_offer = offers.offer_id WHERE offers.offer_id = @OfferId",
-                //p =>
-                //{
-                //    p.Add("@OfferId", MySqlDbType.Int32, 255).Value = GlobalMethods.StoresInfo.OfferID;
-                //});
         }
 
         private void backBtn_Click(object sender, EventArgs e)

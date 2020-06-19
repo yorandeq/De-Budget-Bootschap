@@ -319,17 +319,22 @@
             this.imageContainer.Size = new System.Drawing.Size(572, 93);
             this.imageContainer.TabIndex = 24;
             this.imageContainer.UseCompatibleStateImageBehavior = false;
+            this.imageContainer.Click += new System.EventHandler(this.navStores_Click);
             // 
             // notificationContainer
             // 
             this.notificationContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.notificationContainer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.notificationContainer.HideSelection = false;
             this.notificationContainer.Location = new System.Drawing.Point(220, 323);
             this.notificationContainer.Margin = new System.Windows.Forms.Padding(2);
             this.notificationContainer.Name = "notificationContainer";
-            this.notificationContainer.Size = new System.Drawing.Size(573, 107);
+            this.notificationContainer.Scrollable = false;
+            this.notificationContainer.Size = new System.Drawing.Size(763, 131);
             this.notificationContainer.TabIndex = 25;
             this.notificationContainer.UseCompatibleStateImageBehavior = false;
+            this.notificationContainer.View = System.Windows.Forms.View.List;
+            this.notificationContainer.Click += new System.EventHandler(this.notificationContainer_Click);
             // 
             // balUsr
             // 
@@ -376,7 +381,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "welcomescreen";
-            this.Text = "Overzicht - Budget Boodschapwijzer";
+            this.Text = "Overzicht - De Budget Boodschapwijzer";
             this.Load += new System.EventHandler(this.welcomescreen_Load);
             this.panelSideMenu.ResumeLayout(false);
             this.panelSideMenu.PerformLayout();
