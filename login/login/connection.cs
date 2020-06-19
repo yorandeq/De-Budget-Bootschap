@@ -272,10 +272,9 @@ namespace login
             }
         }
 
-        public void place_registration(object productName, object productId, decimal amount, object price)
+        public void place_registration(object productName, object productId, object price)
         {
-            decimal totalPrice = decimal.Parse(price.ToString()) * amount;
-            var confirmResult = MessageBox.Show("Wilt u " + amount.ToString() + " " + productName.ToString() + " kopen voor €" + totalPrice.ToString() + "?", "Product kopen", MessageBoxButtons.YesNo);
+            var confirmResult = MessageBox.Show($"Wilt u {productName.ToString()} kopen voor € {price.ToString()}?", "Product kopen", MessageBoxButtons.YesNo);
 
             if (confirmResult == DialogResult.Yes)
             {
@@ -283,17 +282,61 @@ namespace login
                 {
                     int user_id = GlobalMethods.LoginInfo.UserID;
                     int product_id = (int)productId;
-                    int product_amount = (int)amount;
-                    float paid = (float)totalPrice;
-                    DataLayer.Query("INSERT INTO `registration` (`registration_id`, `user`, `product`, `product_amount`, `paid`) VALUES (NULL, @UserId, @ProductId, @ProductAmount, @TotalPrice)",
-                            p =>
+                    int product_amount = 1;
+                    float paid = (float)price;
+                    DataTable checkIfRegistered = DataLayer.Query("SELECT * FROM `registration` WHERE product = @ProductId AND user = @UserID",
+                        p =>
+                        {
+                            p.Add("@UserId", MySqlDbType.Int32, 255).Value = user_id;
+                            p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
+                        });
+                    if (checkIfRegistered.Rows.Count > 0)
+                    {
+                        MessageBox.Show("U heeft zich al ingeschreven");
+                    }
+                    else
+                    {
+                        bool transactionComplete = SubtractBalance(paid);
+                        if (transactionComplete)
+                        {
+                            DataLayer.Query("INSERT INTO `registration` (`registration_id`, `user`, `product`, `product_amount`, `paid`) VALUES (NULL, @UserId, @ProductId, @ProductAmount, @TotalPrice)",
+                                p =>
+                                {
+                                    p.Add("@UserId", MySqlDbType.Int32, 255).Value = user_id;
+                                    p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
+                                    p.Add("@ProductAmount", MySqlDbType.Int32, 255).Value = product_amount;
+                                    p.Add("@TotalPrice", MySqlDbType.Float, 255).Value = paid;
+                                });
+                            MessageBox.Show("Bedankt voor uw bestelling!");
+
+                            // Checks if number of registers has reached the minimum.
+                            DataTable MinAmount = DataLayer.Query("SELECT discount_offers.min_amount, COUNT(registration.product) FROM discount_products INNER JOIN discount_offers ON discount_products.discount_offer = discount_offers.offer_id INNER JOIN registration ON discount_products.product_id = registration.product WHERE discount_products.product_id = @ProductId",
+                                p =>
+                                {
+                                    p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
+                                });
+                            foreach (DataRow MinAmountRow in MinAmount.Rows)
                             {
-                                p.Add("@UserId", MySqlDbType.Int32, 255).Value = user_id;
-                                p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
-                                p.Add("@ProductAmount", MySqlDbType.Int32, 255).Value = product_amount;
-                                p.Add("@TotalPrice", MySqlDbType.Float, 255).Value = paid;
-                            });
-                    MessageBox.Show("Bedankt voor uw bestelling!");
+                                if (Convert.ToInt64(MinAmountRow[0]) == Convert.ToInt64(MinAmountRow[1]))
+                                {
+                                    // Adds notification for all registered users.
+                                    DataTable RegisteredUsersProducts = DataLayer.Query("SELECT users.user_id, discount_products.name FROM discount_products INNER JOIN registration ON registration.product = discount_products.product_id INNER JOIN users ON users.user_id = registration.user WHERE discount_products.product_id = @ProductId",
+                                    p =>
+                                    {
+                                        p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
+                                    });
+                                    foreach (DataRow RegisteredUser in RegisteredUsersProducts.Select())
+                                    {
+                                        DataLayer.Query("INSERT INTO `notifications` (`notification_id`, `user`, `message`, `state`) VALUES (NULL, @UserId, 'Uw geregistreerde product " + RegisteredUser["name"] + " kan nu opgehaald worden.', '0') ",
+                                        p =>
+                                        {
+                                            p.Add("@UserId", MySqlDbType.Int32, 255).Value = RegisteredUser["user_id"];
+                                        });
+                                    }
+                                }
+                            }
+                        }
+                    }
                 } 
                 catch (Exception e)
                 {
@@ -314,6 +357,112 @@ namespace login
         {
             DataTable userList = DataLayer.Query("SELECT user_id, username, admin, admin_supermarket FROM users", p => { });
             return userList;
+        }
+
+        // Method for retrieving the balance of the logged in user
+
+        public DataTable getBalance()
+        {
+            DataTable getBalance = DataLayer.Query("SELECT balance FROM `users` WHERE user_id = @UserID",
+                p =>
+                {
+                    p.Add("@Balance", MySqlDbType.Int16, 255).Value = 5.00;
+                    p.Add("@UserID", MySqlDbType.Int16, 11).Value = GlobalMethods.LoginInfo.UserID;
+                });
+            return getBalance;
+        }
+
+        // Method for subtracting balance
+        public bool SubtractBalance(float paid)
+        {
+            DataTable getBalance = DataLayer.Query("SELECT balance FROM `users` WHERE user_id = @UserID",
+                p =>
+                {
+                    p.Add("@UserID", MySqlDbType.Int16, 11).Value = GlobalMethods.LoginInfo.UserID;
+                });
+
+            float newBalance = float.Parse(getBalance.Rows[0]["balance"].ToString()) - paid;
+
+            if (newBalance < 0)
+            {
+                MessageBox.Show("U heeft niet genoeg balans om deze aankoop te doen");
+                return false;
+            }
+
+            DataTable setBalance = DataLayer.Query("UPDATE `users` SET balance = @Balance WHERE user_id = @UserId",
+                p =>
+                {
+                    p.Add("@Balance", MySqlDbType.Decimal, 255).Value = newBalance;
+                    p.Add("@UserID", MySqlDbType.Int16, 11).Value = GlobalMethods.LoginInfo.UserID;
+                });
+            return true;
+        }
+
+        // Method for deleting a specific user from the database
+
+        public void delUser(int selectedUser)
+        {
+            DataLayer.Query("DELETE FROM `users` WHERE user_id = @UserID",
+                p =>
+                {
+                    p.Add("@UserID", MySqlDbType.Int16, 11).Value = selectedUser;
+                });
+        }
+
+        // Method for deleting supermarkets from the databas
+
+        public void delStore(int selectedStore)
+        {
+            DataLayer.Query("DELETE FROM `supermarkets` WHERE supermarket_id = @StoreID",
+                p =>
+                {
+                    p.Add("@StoreID", MySqlDbType.Int16, 11).Value = selectedStore;
+                });
+        }
+
+        // Method for completing the offer
+
+        public void get_products(int productID, int userID, string productName)
+        {
+            var confirmResult = MessageBox.Show($"Wilt u {productName} ophalen?", "Ophalen", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes) 
+            {
+                try
+                {
+                    DataLayer.Query("UPDATE `discount_products` SET state = @State, bought_by = @UserID WHERE product_id = @ProductID",
+                        p =>
+                        {
+                            p.Add("@ProductID", MySqlDbType.Int16, 11).Value = productID;
+                            p.Add("@UserID", MySqlDbType.Int16, 11).Value = userID;
+                            p.Add("@State", MySqlDbType.Int16, 11).Value = 1;
+                        });
+                } catch (Exception x)
+                {
+                    MessageBox.Show("Error: " + x);
+                }
+            }     
+        }
+
+        // Method for deleting the registrations when someone has chosen to retrieve and said he retrieved them
+        
+        public void del_registrations(int productID)
+        {
+            var confirmResult = MessageBox.Show($"Is het product gehaald?", "Gehaald", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                try
+                {
+                    DataLayer.Query("DELETE FROM `registration` WHERE product = @ProductID",
+                        p =>
+                        {
+                            p.Add("@ProductID", MySqlDbType.Int16, 11).Value = productID;
+                        });
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show("Error: " + x);
+                }
+            }
         }
     }
 }

@@ -18,25 +18,6 @@ namespace login
         DataLayer DataLayer = new DataLayer();
         GlobalMethods GlobalMethods = new GlobalMethods();
 
-        public void checkAdmin()
-        {
-            if (GlobalMethods.LoginInfo.Admin == 1)
-            {
-                navSuperadmin.Visible = false;
-                navAdmin.Visible = true;
-            }
-            else if (GlobalMethods.LoginInfo.Admin == 2)
-            {
-                navSuperadmin.Visible = true;
-                navAdmin.Visible = false;
-            }
-            else
-            {
-                navSuperadmin.Visible = false;
-                navAdmin.Visible = false;
-            }
-        }
-
         public void setSupermarketLabel()
         {
             DataTable getSupermarket = DataLayer.Query("SELECT * FROM supermarkets WHERE supermarket_id = @SupermarketId",
@@ -100,20 +81,9 @@ namespace login
         public admin()
         {
             InitializeComponent();
-            checkAdmin();
             setSupermarketLabel();
             refreshDiscountOffersList();
             refreshProductsList();
-        }
-
-        private void navNotifications_Click(object sender, EventArgs e)
-        {
-            GlobalMethods.SwitchForm(this, new notifications());
-        }
-
-        private void navStores_Click(object sender, EventArgs e)
-        {
-            GlobalMethods.SwitchForm(this, new stores());
         }
 
         private void addDiscountBtn_Click(object sender, EventArgs e)
@@ -195,7 +165,25 @@ namespace login
 
         private void exit_Click(object sender, EventArgs e)
         {
-            Close();
+            GlobalMethods.SwitchForm(this, new welcomescreen());
+        }
+
+        private void addOfferPanelBtn_Click(object sender, EventArgs e)
+        {
+            deletePanel.Visible = false;
+            addProductPanel.Visible = false;
+        }
+
+        private void addProductPanelBtn_Click(object sender, EventArgs e)
+        {
+            deletePanel.Visible = false;
+            addProductPanel.Visible = true;
+        }
+
+        private void deleteItemsPanelBtn_Click_1(object sender, EventArgs e)
+        {
+            deletePanel.Visible = true;
+            addProductPanel.Visible = false;
         }
     }
 }
