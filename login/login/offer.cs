@@ -119,15 +119,26 @@ namespace login
                 productProgress.Top = 110;
                 productProgress.Left = 10;
                 productProgress.Width = 165;
-
-                productBtn.Text = "Inschrijven";
-                productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
-                productBtn.ForeColor = SystemColors.Window;
-                productBtn.Width = 80;
-                productBtn.Top = 107;
-                productBtn.Left = 175;
-                productBtn.FlatStyle = FlatStyle.Flat;
-                productBtn.Click += (obj, ev) => { connection.place_registration(productRow["name"], productRow["product_id"], productRow["total_price"]); };
+                if (int.Parse(productRow[4].ToString()) < int.Parse(productRow["min_amount"].ToString()))
+                {
+                    productBtn.Text = "Inschrijven";
+                    productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                    productBtn.ForeColor = SystemColors.Window;
+                    productBtn.Width = 80;
+                    productBtn.Top = 107;
+                    productBtn.Left = 175;
+                    productBtn.FlatStyle = FlatStyle.Flat;
+                    productBtn.Click += (obj, ev) => { connection.place_registration(productRow["name"], productRow["product_id"], productRow["total_price"]); GlobalMethods.refreshForm(this, new offer()); };
+                } else
+                {
+                    productBtn.Text = "Ophalen";
+                    productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                    productBtn.ForeColor = SystemColors.Window;
+                    productBtn.Width = 80;
+                    productBtn.Top = 107;
+                    productBtn.Left = 175;
+                    productBtn.FlatStyle = FlatStyle.Flat;
+                }
 
                 //move next item down
                 Yproducts++;
