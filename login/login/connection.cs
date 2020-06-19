@@ -436,11 +436,25 @@ namespace login
                             p.Add("@UserID", MySqlDbType.Int16, 11).Value = userID;
                             p.Add("@State", MySqlDbType.Int16, 11).Value = 1;
                         });
+
+                    // Adds notification for all registered users.
+                    DataTable RegisteredUsersProducts = DataLayer.Query("SELECT users.user_id, discount_products.name FROM discount_products INNER JOIN registration ON registration.product = discount_products.product_id INNER JOIN users ON users.user_id = registration.user WHERE discount_products.product_id = @ProductId",
+                    p =>
+                    {
+                        p.Add("@ProductId", MySqlDbType.Int32, 255).Value = productID;
+                    });
+                    foreach (DataRow RegisteredUser in RegisteredUsersProducts.Select())
+                    {
+                        DataLayer.Query("INSERT INTO `notifications` (`notification_id`, `user`, `message`, `state`) VALUES (NULL, @UserId, 'Uw geregistreerde product " + RegisteredUser["name"] + " wordt nu opgehaald.', '0') ",
+                        p =>
+                        {
+                            p.Add("@UserId", MySqlDbType.Int32, 255).Value = RegisteredUser["user_id"];
+                        });
+                    }
                 } catch (Exception x)
                 {
                     MessageBox.Show("Error: " + x);
                 }
-
             }     
         }
     }

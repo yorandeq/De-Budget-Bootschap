@@ -133,36 +133,79 @@ namespace login
                 productProgress.Top = 110;
                 productProgress.Left = 10;
                 productProgress.Width = 165;
-                if (int.Parse(productRow[4].ToString()) < int.Parse(productRow["min_amount"].ToString()))
+
+                DataTable getRegisteredEntry = DataLayer.Query("SELECT * FROM registration WHERE user = @UserId;",
+                p =>
                 {
-                    productBtn.Text = "Inschrijven";
-                    productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
-                    productBtn.ForeColor = SystemColors.Window;
-                    productBtn.Width = 80;
-                    productBtn.Top = 107;
-                    productBtn.Left = 175;
-                    productBtn.FlatStyle = FlatStyle.Flat;
-                    productBtn.Click += (obj, ev) => { connection.place_registration(productRow["name"], productRow["product_id"], productRow["total_price"]); GlobalMethods.refreshForm(this, new offer()); };
-                } 
-                else if (productRow["bought_by"].ToString() != "") {
-                    productBtn.Text = "Gehaald";
-                    productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
-                    productBtn.ForeColor = SystemColors.Window;
-                    productBtn.Width = 80;
-                    productBtn.Top = 107;
-                    productBtn.Left = 175;
-                    productBtn.FlatStyle = FlatStyle.Flat;
-                } 
-                else
+                    p.Add("@UserId", MySqlDbType.Int32, 255).Value = GlobalMethods.LoginInfo.UserID;
+                });
+
+                bool hasRegister = false;
+                foreach(DataRow RegisterEntry in getRegisteredEntry.Select())
                 {
-                    productBtn.Text = "Ophalen";
-                    productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
-                    productBtn.ForeColor = SystemColors.Window;
-                    productBtn.Width = 80;
-                    productBtn.Top = 107;
-                    productBtn.Left = 175;
-                    productBtn.FlatStyle = FlatStyle.Flat;
-                    productBtn.Click += (obj, ev) => { connection.get_products(Int16.Parse(productRow["product_id"].ToString()), GlobalMethods.LoginInfo.UserID, productRow["name"].ToString()); GlobalMethods.refreshForm(this, new offer()); };
+                    if(Convert.ToInt64(RegisterEntry["product"]) == Convert.ToInt64(productRow["product_id"]))
+                    {
+                        hasRegister = true;
+                        if (int.Parse(productRow[4].ToString()) < int.Parse(productRow["min_amount"].ToString()))
+                        {
+                            productBtn.Text = "Inschrijven";
+                            productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                            productBtn.ForeColor = SystemColors.Window;
+                            productBtn.Width = 80;
+                            productBtn.Top = 107;
+                            productBtn.Left = 175;
+                            productBtn.FlatStyle = FlatStyle.Flat;
+                            productBtn.Click += (obj, ev) => { connection.place_registration(productRow["name"], productRow["product_id"], productRow["total_price"]); GlobalMethods.refreshForm(this, new offer()); };
+                        }
+                        else if (productRow[6].ToString() != "" && (int)productRow[6] == GlobalMethods.LoginInfo.UserID)
+                        {
+                            productBtn.Text = "Gehaald";
+                            productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                            productBtn.ForeColor = SystemColors.Window;
+                            productBtn.Width = 80;
+                            productBtn.Top = 107;
+                            productBtn.Left = 175;
+                            productBtn.FlatStyle = FlatStyle.Flat;
+                        }
+                        else if (productRow[6].ToString() == "")
+                        {
+                            productBtn.Text = "Ophalen";
+                            productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                            productBtn.ForeColor = SystemColors.Window;
+                            productBtn.Width = 80;
+                            productBtn.Top = 107;
+                            productBtn.Left = 175;
+                            productBtn.FlatStyle = FlatStyle.Flat;
+                            productBtn.Click += (obj, ev) => { connection.get_products(Int16.Parse(productRow["product_id"].ToString()), GlobalMethods.LoginInfo.UserID, productRow["name"].ToString()); GlobalMethods.refreshForm(this, new offer()); };
+                        }
+                        else
+                        {
+                            productBtn.Visible = false;
+                        }
+                    }
+                }
+
+                if(hasRegister == false)
+                {
+                    if (int.Parse(productRow[4].ToString()) < int.Parse(productRow["min_amount"].ToString()))
+                    {
+                        productBtn.Text = "Inschrijven";
+                        productBtn.BackColor = ColorTranslator.FromHtml("#0080ff");
+                        productBtn.ForeColor = SystemColors.Window;
+                        productBtn.Width = 80;
+                        productBtn.Top = 107;
+                        productBtn.Left = 175;
+                        productBtn.FlatStyle = FlatStyle.Flat;
+                        productBtn.Click += (obj, ev) => { connection.place_registration(productRow["name"], productRow["product_id"], productRow["total_price"]); GlobalMethods.refreshForm(this, new offer()); };
+                    }
+                    else if (productRow["bought_by"].ToString() != "")
+                    {
+                        productBtn.Visible = false;
+                    }
+                    else
+                    {
+                        productBtn.Visible = false;
+                    }
                 }
 
                 //move next item down
