@@ -167,7 +167,7 @@ namespace login
                     productBtn.FlatStyle = FlatStyle.Flat;
                     productBtn.Click += (obj, ev) => { connection.get_products(Int16.Parse(productRow["product_id"].ToString()), GlobalMethods.LoginInfo.UserID, productRow["name"].ToString()); GlobalMethods.refreshForm(this, new offer()); };
                 }
-                else if (productRow[])
+                else
                 {
                     productBtn.Text = "Ophalen";
                     productBtn.Enabled = false;
