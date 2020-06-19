@@ -192,11 +192,6 @@ namespace login
             }
         }
 
-        private void navOverview_Click(object sender, EventArgs e)
-        {
-            GlobalMethods.SwitchForm(this, new welcomescreen());
-        }
-
         private void addMoney_Click(object sender, EventArgs e)
         {
             // Adds money to the logged in users balance
