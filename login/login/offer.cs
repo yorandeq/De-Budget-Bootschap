@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+
 namespace login
 {
     public partial class offer : Form
@@ -50,6 +51,9 @@ namespace login
             Label offerExpiration = new Label();
             Label offerAmount = new Label();
 
+            string date = offerRow[0][3].ToString();
+            date = date.Remove(date.Length - 8);
+
             //options
             offerImg.Image = Image.FromStream(GlobalMethods.convertImg(offerRow[0][2]));
             offerImg.SizeMode = PictureBoxSizeMode.Zoom;
@@ -69,7 +73,7 @@ namespace login
             offerBrand.Left = 110;
             offerBrand.Width = 243;
 
-            offerExpiration.Text = "Verloopdatum: " + offerRow[0][3].ToString();
+            offerExpiration.Text = "Verloopdatum: " + date;
             offerExpiration.Top = 60;
             offerExpiration.Left = 110;
             offerExpiration.Width = 243;
