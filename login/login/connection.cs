@@ -334,5 +334,27 @@ namespace login
                 });
             return getBalance;
         }
+
+        // Method for deleting a specific user from the database
+
+        public void delUser(int selectedUser)
+        {
+            DataLayer.Query("DELETE FROM `users` WHERE user_id = @UserID",
+                p =>
+                {
+                    p.Add("@UserID", MySqlDbType.Int16, 11).Value = selectedUser;
+                });
+        }
+
+        // Method for deleting supermarkets from the databas
+
+        public void delStore(int selectedStore)
+        {
+            DataLayer.Query("DELETE FROM `supermarkets` WHERE supermarket_id = @StoreID",
+                p =>
+                {
+                    p.Add("@StoreID", MySqlDbType.Int16, 11).Value = selectedStore;
+                });
+        }
     }
 }

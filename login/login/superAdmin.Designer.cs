@@ -258,18 +258,20 @@
             // dgvUsers
             // 
             this.dgvUsers.AllowUserToAddRows = false;
-            this.dgvUsers.AllowUserToDeleteRows = false;
             this.dgvUsers.AllowUserToResizeColumns = false;
             this.dgvUsers.AllowUserToResizeRows = false;
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.BackgroundColor = System.Drawing.Color.White;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.dgvUsers.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dgvUsers.Location = new System.Drawing.Point(13, 15);
             this.dgvUsers.MultiSelect = false;
             this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.ReadOnly = true;
+            this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsers.Size = new System.Drawing.Size(495, 430);
             this.dgvUsers.TabIndex = 0;
+            this.dgvUsers.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvUsers_UserDeletingRow);
             // 
             // panelMarketList
             // 
@@ -285,7 +287,6 @@
             // dgvMarketList
             // 
             this.dgvMarketList.AllowUserToAddRows = false;
-            this.dgvMarketList.AllowUserToDeleteRows = false;
             this.dgvMarketList.AllowUserToResizeColumns = false;
             this.dgvMarketList.AllowUserToResizeRows = false;
             this.dgvMarketList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -295,8 +296,10 @@
             this.dgvMarketList.MultiSelect = false;
             this.dgvMarketList.Name = "dgvMarketList";
             this.dgvMarketList.ReadOnly = true;
+            this.dgvMarketList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMarketList.Size = new System.Drawing.Size(495, 430);
             this.dgvMarketList.TabIndex = 0;
+            this.dgvMarketList.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvMarketList_UserDeletingRow);
             // 
             // panelAddAdmin
             // 

@@ -114,5 +114,29 @@ namespace login
             button5.Enabled = false;
             button5.BackColor = Color.FromArgb(0, 115, 229);
         }
+
+        private void dgvUsers_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            if (dgvUsers.CurrentRow.Cells["user_id"].Value != null)
+            {
+                if (MessageBox.Show("Wil je deze gebruiker echt verwijderen?", "DataGridView", MessageBoxButtons.YesNo)==DialogResult.Yes)
+                {
+                    int selectedUser = Int16.Parse(dgvUsers.CurrentRow.Cells["user_id"].Value.ToString());
+                    connection.delUser(selectedUser);
+                }
+            }
+        }
+
+        private void dgvMarketList_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            if (dgvMarketList.CurrentRow.Cells["supermarket_id"].Value != null)
+            {
+                if (MessageBox.Show("Wil je deze winkel echt verwijderen?", "DataGridView", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    int selectedStore = Int16.Parse(dgvMarketList.CurrentRow.Cells["supermarket_id"].Value.ToString());
+                    connection.delStore(selectedStore);
+                }
+            }
+        }
     }
 }
