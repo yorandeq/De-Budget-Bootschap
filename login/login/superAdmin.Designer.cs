@@ -203,7 +203,7 @@
             this.navSupermarket.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.navSupermarket.Size = new System.Drawing.Size(267, 55);
             this.navSupermarket.TabIndex = 1;
-            this.navSupermarket.Text = "Admin";
+            this.navSupermarket.Text = "Subpaginas:";
             this.navSupermarket.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.navSupermarket.UseVisualStyleBackColor = false;
             // 
