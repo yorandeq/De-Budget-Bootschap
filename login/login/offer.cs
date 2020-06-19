@@ -53,7 +53,6 @@ namespace login
 
             string date = offerRow[0][3].ToString();
             date = date.Remove(date.Length - 8);
-            bool MinRegistration = false;
 
             //options
             offerImg.Image = Image.FromStream(GlobalMethods.convertImg(offerRow[0][2]));
