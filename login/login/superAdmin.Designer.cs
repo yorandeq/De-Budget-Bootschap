@@ -77,7 +77,7 @@
             // 
             // logout
             // 
-            this.logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(230)))));
+            this.logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.logout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.logout.FlatAppearance.BorderSize = 0;
             this.logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
