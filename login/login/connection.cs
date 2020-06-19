@@ -284,6 +284,19 @@ namespace login
                     int product_id = (int)productId;
                     int product_amount = 1;
                     float paid = (float)price;
+                    DataTable checkIfRegistered = DataLayer.Query("SELECT * FROM `registration` WHERE product = @ProductId AND user = @UserID",
+                        p =>
+                        {
+                            p.Add("@UserId", MySqlDbType.Int32, 255).Value = user_id;
+                            p.Add("@ProductId", MySqlDbType.Int32, 255).Value = product_id;
+                        });
+                    if (checkIfRegistered.Rows.Count > 0)
+                    {
+                        MessageBox.Show("U heeft zich al ingeschreven");
+                    } 
+                    else
+                    {
+                        DataLayer.Query("INSERT INTO `registration` (`registration_id`, `user`, `product`, `product_amount`, `paid`) VALUES (NULL, @UserId, @ProductId, @ProductAmount, @TotalPrice)",
                     bool transactionComplete = SubtractBalance(paid);
 
                     if (transactionComplete)
@@ -297,6 +310,7 @@ namespace login
                                 p.Add("@TotalPrice", MySqlDbType.Float, 255).Value = paid;
                             });
                         MessageBox.Show("Bedankt voor uw bestelling!");
+                        SubtractBalance(paid);
                     }
                     
                 } 
